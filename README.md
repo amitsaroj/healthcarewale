@@ -167,3 +167,23 @@ As platform owner, revenue flows from:
 ---
 
 *Built with ❤️ for Tier-2/Tier-3 India — Powered by AI, WhatsApp & n8n*
+
+---
+
+## 📋 Compliance & Operations Documentation
+
+> Institutional-grade legal, regulatory, and technical compliance documents — HIPAA · GDPR · DPDP Act · ABDM · EU AI Act · SOC 2
+
+| # | Document | Description |
+|---|---|---|
+| 00 | [Compliance Audit Prompt](docs/compliance-and-operations/00-COMPLIANCE-AUDIT-PROMPT.md) | Original audit prompt + document index |
+| 01 | [Data Protection & Privacy Policy](docs/compliance-and-operations/01-DATA-PROTECTION-PRIVACY-POLICY.md) | HIPAA + GDPR + DPDP Act 2023 compliant privacy policy |
+| 02 | [ABDM Digital Health Integration Blueprint](docs/compliance-and-operations/02-ABDM-DIGITAL-HEALTH-INTEGRATION-BLUEPRINT.md) | ABHA, PMJAY, HIP/HIU, FHIR R4, Swasthya Sathi integration |
+| 03 | [AI Ethics, Safety & Transparency Policy](docs/compliance-and-operations/03-AI-ETHICS-SAFETY-TRANSPARENCY-POLICY.md) | EU AI Act alignment, hallucination prevention, bias testing |
+| 04 | [AI Data Minimization & Model Training Policy](docs/compliance-and-operations/04-AI-DATA-MINIMIZATION-MODEL-TRAINING-POLICY.md) | How patient data is protected from AI training pipelines |
+| 05 | [Informed Consent Form](docs/compliance-and-operations/05-INFORMED-CONSENT-FORM-AI-INTERACTIONS.md) | Patient consent for AI interactions (Hindi/Bengali/English) |
+| 06 | [Terms of Service + SaMD Exclusion + Refund Policy](docs/compliance-and-operations/06-TOS-SAMD-EXCLUSION-REFUND-POLICY.md) | ToS, medical disclaimer, SaMD legal exclusion, cancellation rules |
+| 07 | [Provider SLA + Telehealth Licensing + Credentialing SOP](docs/compliance-and-operations/07-PROVIDER-SLA-TELEHEALTH-LICENSING-CREDENTIALING-SOP.md) | Doctor/pharmacy onboarding SLA, territory rules, verification SOP |
+| 08 | [Security Policy + Data Retention + Incident Response](docs/compliance-and-operations/08-SECURITY-POLICY-DATA-RETENTION-INCIDENT-RESPONSE.md) | ISO 27001 / SOC 2 aligned InfoSec, breach protocol, retention schedule |
+| 09 | [Product Requirements Document (PRD)](docs/compliance-and-operations/09-PRODUCT-REQUIREMENTS-DOCUMENT-PRD.md) | AI matching engine, voice/WhatsApp booking pipelines, availability sync |
+
