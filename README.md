@@ -187,3 +187,12 @@ As platform owner, revenue flows from:
 | 08 | [Security Policy + Data Retention + Incident Response](docs/compliance-and-operations/08-SECURITY-POLICY-DATA-RETENTION-INCIDENT-RESPONSE.md) | ISO 27001 / SOC 2 aligned InfoSec, breach protocol, retention schedule |
 | 09 | [Product Requirements Document (PRD)](docs/compliance-and-operations/09-PRODUCT-REQUIREMENTS-DOCUMENT-PRD.md) | AI matching engine, voice/WhatsApp booking pipelines, availability sync |
 
+
+---
+
+## ⚖️ Deep Strategic Analysis
+
+| Document | Description |
+|---|---|
+| [Advantages & Disadvantages — Deep Analysis](docs/ADVANTAGES-AND-DISADVANTAGES-DEEP-ANALYSIS.md) | Brutally honest 7-section analysis: 10 real advantages, 10 structural disadvantages, founder-specific risks, hidden dangers, competitive matrix, survival probability, and what makes this succeed or fail |
+
