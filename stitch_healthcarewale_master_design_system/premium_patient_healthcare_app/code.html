@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>HealthcareWale - Premium Patient Healthcare App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#156820",
+                        "surface-dim": "#ccdbf3",
+                        "error": "#ba1a1a",
+                        "secondary": "#4c56af",
+                        "on-background": "#0d1c2e",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#e3fffe",
+                        "inverse-primary": "#76d6d5",
+                        "on-secondary-container": "#27308a",
+                        "tertiary-fixed": "#a3f69c",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-surface-variant": "#3e4949",
+                        "outline": "#6e7979",
+                        "on-secondary-fixed": "#000767",
+                        "surface-container": "#e6eeff",
+                        "primary-container": "#008080",
+                        "background": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002204",
+                        "inverse-surface": "#233144",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "primary-fixed": "#93f2f2",
+                        "on-primary-fixed": "#002020",
+                        "tertiary-container": "#338236",
+                        "tertiary-fixed-dim": "#88d982",
+                        "surface-container-highest": "#d5e3fc",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#ebffe3",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#d5e3fc",
+                        "primary": "#006565",
+                        "secondary-container": "#959efd",
+                        "surface-tint": "#006a6a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#76d6d5",
+                        "outline-variant": "#bdc9c8",
+                        "on-surface": "#0d1c2e",
+                        "surface-bright": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "touch-target-min": "44px",
+                        "lg": "24px",
+                        "margin-desktop": "48px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "label-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-xl": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+        /* Sync Bar Animation */
+        @keyframes pulse-sync {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .sync-pulse { animation: pulse-sync 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        /* Hide scrollbar for clean horizontal scrolls */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased font-body-md h-screen flex flex-col md:hidden">
+<!-- TopAppBar (Mobile Context) -->
+<header class="bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline docked full-width top-0 z-40 sticky">
+<!-- Sync Bar -->
+<div aria-label="System Online" class="h-1 w-full bg-tertiary-fixed sync-pulse"></div>
+<div class="flex justify-between items-center w-full px-lg h-touch-target-min">
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">HealthcareWale</span>
+</div>
+<div class="flex items-center gap-xs">
+<button aria-label="Voice Search" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors rounded-full cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<button aria-label="Network Status" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors rounded-full cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">signal_cellular_connected_no_internet_4_bar</span>
+</button>
+<img alt="Clinician profile avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover ml-2" data-alt="A close-up studio portrait of a professional clinician, soft lighting, clean minimal background, exuding competence and warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtiPrkjYWJQq3k0hTpD7G-QX2dzdLbx1DVyO50W8KEVDaGP1PgywKFeUw_T5ul_8uMneQKOadMhhLK0xodTyY-9YBfowBXQCioOQyh-OzCU2KzV3e3NcY7mEwuRgCP0cJSC4R1mByq4pt0R3w_7qSMIP1a1fDrhjMrkAC_pVy-acDXXWC67_-WQYck4L9ClJxfUub-RGkNrmoItOIBzmq1JU-lzXryuk103AFkNjEM_uetIe3OtJMNL_KaJ5FG4UZpu6Gvz0UPPAN5"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto pb-24 space-y-lg">
+<!-- Welcome Section -->
+<section class="px-margin-mobile pt-md">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Good Morning, Robert</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">How can we help you today?</p>
+</section>
+<!-- Live Token Tracker (Bento style) -->
+<section class="px-margin-mobile">
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md flex items-center justify-between shadow-sm relative overflow-hidden">
+<div class="absolute right-0 top-0 w-32 h-32 bg-primary-container opacity-20 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+<div class="z-10">
+<p class="font-caption text-caption text-secondary font-bold uppercase tracking-wider mb-1">Live Queue Status</p>
+<h2 class="font-headline-md text-headline-md text-on-surface">Dr. Sarah Jenkins</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">General Physician • Room 102</p>
+</div>
+<div class="bg-primary text-on-primary rounded-xl p-sm flex flex-col items-center justify-center w-16 h-16 shadow-md z-10">
+<span class="font-caption text-caption opacity-80">Token</span>
+<span class="font-headline-md text-headline-md leading-none mt-1">14</span>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container rounded-b-xl px-md py-sm text-center flex items-center justify-center gap-2 -mt-1 border-x border-b border-outline-variant shadow-sm relative z-0">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-label-md text-label-md">Estimated wait: 15 mins</span>
+</div>
+</section>
+<!-- Action Hub (Elderly-Friendly Large Grid) -->
+<section class="px-margin-mobile">
+<h3 class="font-label-xl text-label-xl text-on-surface-variant mb-md">Quick Actions</h3>
+<div class="grid grid-cols-2 gap-md">
+<!-- Book Appointment -->
+<button class="bg-surface border border-outline-variant rounded-xl p-md flex flex-col items-start gap-md active:bg-surface-container-high transition-colors text-left shadow-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined fill text-2xl">calendar_month</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Book Visit</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Clinic or Video</p>
+</div>
+</button>
+<!-- Order Medicine -->
+<button class="bg-surface border border-outline-variant rounded-xl p-md flex flex-col items-start gap-md active:bg-surface-container-high transition-colors text-left shadow-sm">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined fill text-2xl">medication</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Pharmacy</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Refills &amp; Order</p>
+</div>
+</button>
+<!-- Lab Tests -->
+<button class="bg-surface border border-outline-variant rounded-xl p-md flex flex-col items-start gap-md active:bg-surface-container-high transition-colors text-left shadow-sm">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined fill text-2xl">science</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Lab Tests</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Home Collection</p>
+</div>
+</button>
+<!-- Health Vault -->
+<button class="bg-surface border border-outline-variant rounded-xl p-md flex flex-col items-start gap-md active:bg-surface-container-high transition-colors text-left shadow-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined fill text-2xl">folder_shared</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Records</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Family Vault</p>
+</div>
+</button>
+</div>
+</section>
+<!-- WhatsApp Integration Banner -->
+<section class="px-margin-mobile">
+<a class="bg-tertiary text-on-tertiary rounded-xl p-md flex items-center justify-between active:opacity-90 transition-opacity shadow-sm" href="#">
+<div class="flex items-center gap-md">
+<div class="bg-white rounded-full p-2 flex items-center justify-center">
+<!-- Simple Chat Bubble as fallback for WA icon -->
+<span class="material-symbols-outlined text-tertiary fill">forum</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md">Connect via WhatsApp</h4>
+<p class="font-caption text-caption opacity-90 mt-1">24/7 Support &amp; Updates</p>
+</div>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</a>
+</section>
+<!-- Health Reminders (Sectioned Rows) -->
+<section class="px-margin-mobile mb-md">
+<h3 class="font-label-xl text-label-xl text-on-surface-variant mb-md">Today's Reminders</h3>
+<div class="bg-surface border border-outline-variant rounded-xl shadow-sm divide-y divide-outline-variant">
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Blood Pressure Log</p>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Due at 10:00 AM</p>
+</div>
+</div>
+<button class="h-touch-target-min px-sm text-primary font-label-md text-label-md border border-primary rounded-lg active:bg-surface-container-high">Log Now</button>
+</div>
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<div>
+<p class="font-label-md text-label-md text-on-surface opacity-70">Aspirin 75mg</p>
+<p class="font-caption text-caption text-on-surface-variant mt-1 opacity-70">Taken at 08:00 AM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary fill">check_circle</span>
+</div>
+</div>
+</section>
+<!-- Spacing for bottom nav -->
+<div class="h-8"></div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-surface dark:bg-on-background border-t border-outline-variant dark:border-outline shadow-lg dark:shadow-none docked full-width rounded-t-xl">
+<!-- Active: Home -->
+<button aria-label="Home" class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 scale-95 active:scale-90 transition-transform active:bg-surface-container-high">
+<span class="material-symbols-outlined fill">home</span>
+<span class="font-caption text-caption mt-1">Home</span>
+</button>
+<!-- Inactive: Records -->
+<button aria-label="Records" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant scale-95 active:scale-90 transition-transform active:bg-surface-container-high h-touch-target-min w-touch-target-min">
+<span class="material-symbols-outlined">description</span>
+<span class="font-caption text-caption mt-1">Records</span>
+</button>
+<!-- Inactive: Profile -->
+<button aria-label="Profile" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant scale-95 active:scale-90 transition-transform active:bg-surface-container-high h-touch-target-min w-touch-target-min">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption mt-1">Profile</span>
+</button>
+</nav>
+<!-- Floating Action Button (Contextual for Home - Urgent Care) -->
+<button aria-label="SOS Urgent Care" class="fixed bottom-24 right-4 w-14 h-14 bg-error text-on-error rounded-xl shadow-lg flex items-center justify-center z-40 active:scale-95 transition-transform">
+<span class="material-symbols-outlined fill text-3xl">emergency</span>
+</button>
+</body></html>

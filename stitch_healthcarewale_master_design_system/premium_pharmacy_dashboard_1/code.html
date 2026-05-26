@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale - Pharmacy Dashboard</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#156820",
+                      "surface-dim": "#ccdbf3",
+                      "error": "#ba1a1a",
+                      "secondary": "#4c56af",
+                      "on-background": "#0d1c2e",
+                      "secondary-fixed-dim": "#bdc2ff",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#e3fffe",
+                      "inverse-primary": "#76d6d5",
+                      "on-secondary-container": "#27308a",
+                      "tertiary-fixed": "#a3f69c",
+                      "secondary-fixed": "#e0e0ff",
+                      "on-surface-variant": "#3e4949",
+                      "outline": "#6e7979",
+                      "on-secondary-fixed": "#000767",
+                      "surface-container": "#e6eeff",
+                      "primary-container": "#008080",
+                      "background": "#f8f9ff",
+                      "on-secondary-fixed-variant": "#343d96",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#002204",
+                      "inverse-surface": "#233144",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary-fixed-variant": "#004f4f",
+                      "primary-fixed": "#93f2f2",
+                      "on-primary-fixed": "#002020",
+                      "tertiary-container": "#338236",
+                      "tertiary-fixed-dim": "#88d982",
+                      "surface-container-highest": "#d5e3fc",
+                      "surface": "#f8f9ff",
+                      "on-tertiary-container": "#ebffe3",
+                      "on-tertiary-fixed-variant": "#005312",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#d5e3fc",
+                      "primary": "#006565",
+                      "secondary-container": "#959efd",
+                      "surface-tint": "#006a6a",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#dce9ff",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#76d6d5",
+                      "outline-variant": "#bdc9c8",
+                      "on-surface": "#0d1c2e",
+                      "surface-bright": "#f8f9ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "touch-target-min": "44px",
+                      "lg": "24px",
+                      "margin-desktop": "48px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "xl": "32px",
+                      "margin-mobile": "16px",
+                      "gutter": "16px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "caption": ["Inter"],
+                      "label-xl": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-xl": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Pulse animation for voice FAB */
+        @keyframes subtle-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 86, 175, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(76, 86, 175, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 86, 175, 0); }
+        }
+        .voice-pulse {
+            animation: subtle-pulse 2s infinite;
+        }
+        /* Custom scrollbar for clinical cleanliness */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #bdc9c8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6e7979; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen w-full flex overflow-hidden antialiased">
+<!-- JSON: SideNavBar (Web/Tablet) -->
+<nav class="hidden md:flex flex-col h-screen sticky top-0 p-md bg-surface-container-low border-r border-outline-variant w-64 shrink-0 transition-all duration-200 ease-in-out">
+<!-- Header -->
+<div class="mb-xl flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</div>
+<div>
+<h2 class="text-label-xl font-label-xl font-black text-primary truncate">System Admin</h2>
+<p class="font-caption text-caption text-on-surface-variant truncate">Hospital Unit 01</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-xs flex-1">
+<!-- Active Tab: Pharmacy -->
+<a class="flex items-center gap-md px-sm py-sm bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md cursor-pointer transition-colors" href="#">
+<span class="material-symbols-outlined icon-fill" data-icon="medical_services">medical_services</span>
+                Pharmacy
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md text-label-md cursor-pointer transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="local_hospital">local_hospital</span>
+                Clinic
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md text-label-md cursor-pointer transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                AI Center
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md text-label-md cursor-pointer transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+                HMS
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md text-label-md cursor-pointer transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+                B2B
+            </a>
+</div>
+<!-- Footer Links -->
+<div class="mt-auto flex flex-col gap-xs pt-md border-t border-outline-variant">
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md text-label-md cursor-pointer transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md text-label-md cursor-pointer transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden relative">
+<!-- Status: Connectivity Indicator (Sync Bar) -->
+<div class="w-full h-1 bg-tertiary shrink-0" title="System Online - Full Sync"></div>
+<!-- JSON: TopAppBar -->
+<header class="bg-surface border-b border-outline-variant flex justify-between items-center w-full px-lg h-touch-target-min shrink-0">
+<!-- Left / Search area if needed, but JSON says search_bar: on_left. We'll put brand here as requested by layout -->
+<div class="flex items-center gap-md">
+<h1 class="text-headline-md font-headline-md font-bold text-primary tracking-tight">HealthcareWale</h1>
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-sm">
+<button class="w-touch-target-min h-touch-target-min flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<button class="w-touch-target-min h-touch-target-min flex items-center justify-center text-tertiary hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:opacity-80" title="Connection Stable">
+<span class="material-symbols-outlined" data-icon="signal_cellular_connected_no_internet_4_bar">signal_cellular_connected_no_internet_4_bar</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden ml-sm">
+<img alt="Clinician profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of an Indian clinician wearing a white coat, brightly lit with neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBST72miipGstTRcyPr5kq1ew64cNniuMCxextbKQ9modxm6S10di4Wtwxi2NUn7_k-y_cXfbhoGvo12cftjosy1ArPqftYAO0OBtQyOsTxMIp-FTRJC8p75fKnpb4FxlYwyPNW0rwvV1Rt6oM9mL02I4Ypw5o_WbdN90n5coXg8VDOPQ0k6ZBm1k1ZKdGNbsCllW9tE50gkux1Ns2Nyqf32ZR30xcIJ_CUch2VPq9iFi4txa-bOmpBB9WR9ItGjEhstP86m3xA0Kim"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Dashboard Canvas -->
+<div class="flex-1 overflow-y-auto p-lg lg:p-margin-desktop bg-surface-bright">
+<!-- Dashboard Title / Context -->
+<div class="mb-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Pharmacy Operations</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">High-velocity counter &amp; inventory management.</p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md text-on-surface">Shift: Morning</p>
+<p class="font-caption text-caption text-on-surface-variant">Last synced: Just now</p>
+</div>
+</div>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Section 1: Analytics Overview (Bento Grid) - Full Width (12 cols) -->
+<section class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Daily Sales -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Daily Sales / दैनिक बिक्री</h3>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">₹42,850</span>
+<span class="font-label-md text-label-md text-tertiary flex items-center"><span class="material-symbols-outlined text-[16px]">arrow_upward</span> 12%</span>
+</div>
+</div>
+<!-- Inventory Health -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Inventory Health / स्टॉक स्थिति</h3>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">94%</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Optimal</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-sm overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<!-- Low Stock Alerts -->
+<div class="bg-error-container border border-error/20 rounded-xl p-md flex flex-col justify-between">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-label-md text-label-md text-on-error-container">Low Stock Items / कम स्टॉक</h3>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-display-lg text-on-error-container tracking-tight">18</span>
+<span class="font-body-md text-body-md text-on-error-container/80">SKUs require attention</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Barcode Billing & OCR -->
+<!-- Billing Panel (8 Cols) -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Express Billing / एक्सप्रेस बिलिंग</h3>
+<span class="bg-surface-container-high text-on-surface px-sm py-xs rounded font-label-md text-label-md border border-outline-variant">GST Auto-Calc</span>
+</div>
+<!-- High Speed Input -->
+<div class="relative mb-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="barcode_scanner">barcode_scanner</span>
+<input class="w-full h-12 pl-xl pr-md bg-surface border border-outline-variant rounded-lg font-body-lg text-body-lg text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline" placeholder="Scan Barcode or Type Medicine Name (F2)..." type="text"/>
+</div>
+<!-- Line Items Table (Functional Minimalism) -->
+<div class="flex-1 overflow-y-auto mb-md border border-outline-variant rounded-lg">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low sticky top-0">
+<tr>
+<th class="py-sm px-md font-label-md text-label-md text-on-surface-variant font-semibold border-b border-outline-variant w-1/2">Item Name</th>
+<th class="py-sm px-md font-label-md text-label-md text-on-surface-variant font-semibold border-b border-outline-variant">Qty</th>
+<th class="py-sm px-md font-label-md text-label-md text-on-surface-variant font-semibold border-b border-outline-variant text-right">Price (₹)</th>
+<th class="py-sm px-md border-b border-outline-variant w-10"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="hover:bg-surface-container-lowest border-b border-outline-variant/50">
+<td class="py-sm px-md font-body-md text-body-md text-on-surface">Augmentin 625 Duo Tablet<br/><span class="font-caption text-caption text-outline">Batch: AB123 • Exp: 12/25</span></td>
+<td class="py-sm px-md">
+<input class="w-16 p-xs border border-outline-variant rounded text-center font-body-md text-on-surface h-8" type="number" value="2"/>
+</td>
+<td class="py-sm px-md font-body-md text-body-md text-on-surface text-right">402.50</td>
+<td class="py-sm px-md text-center">
+<button class="text-outline hover:text-error transition-colors"><span class="material-symbols-outlined text-[20px]" data-icon="close">close</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest">
+<td class="py-sm px-md font-body-md text-body-md text-on-surface">Paracetamol 500mg Strip<br/><span class="font-caption text-caption text-outline">Batch: XY987 • Exp: 08/26</span></td>
+<td class="py-sm px-md">
+<input class="w-16 p-xs border border-outline-variant rounded text-center font-body-md text-on-surface h-8" type="number" value="5"/>
+</td>
+<td class="py-sm px-md font-body-md text-body-md text-on-surface text-right">150.00</td>
+<td class="py-sm px-md text-center">
+<button class="text-outline hover:text-error transition-colors"><span class="material-symbols-outlined text-[20px]" data-icon="close">close</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Totals & Action -->
+<div class="flex justify-between items-end pt-md border-t border-outline-variant">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant flex justify-between w-48 mb-xs"><span>Subtotal:</span> <span>₹552.50</span></p>
+<p class="font-body-md text-body-md text-on-surface-variant flex justify-between w-48 mb-xs"><span>GST (12%):</span> <span>₹66.30</span></p>
+<p class="font-headline-md text-headline-md text-on-surface flex justify-between w-48 mt-sm"><span>Total:</span> <span>₹618.80</span></p>
+</div>
+<button class="bg-primary hover:bg-surface-tint text-on-primary font-label-md text-label-md px-lg h-touch-target-min rounded-lg flex items-center justify-center gap-sm transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                            Generate Invoice / चालान बनाएं
+                        </button>
+</div>
+</section>
+<!-- Prescription OCR Panel (4 Cols) -->
+<section class="col-span-12 lg:col-span-4 flex flex-col gap-md">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex-1 flex flex-col">
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" data-icon="document_scanner">document_scanner</span>
+                            Smart Rx Upload
+                        </h3>
+<!-- Dropzone -->
+<div class="flex-1 border-2 border-dashed border-outline-variant hover:border-primary bg-surface rounded-lg flex flex-col items-center justify-center p-xl text-center cursor-pointer transition-colors group">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined icon-fill text-[28px]" data-icon="upload_file">upload_file</span>
+</div>
+<p class="font-label-md text-label-md text-primary mb-xs">Drag &amp; Drop Prescription</p>
+<p class="font-caption text-caption text-on-surface-variant">or click to browse (JPG, PDF)</p>
+<p class="font-caption text-caption text-outline mt-sm">यहाँ पर्ची छोड़ें</p>
+</div>
+</div>
+</section>
+<!-- Section 3: Expiry Heatmap & AI Reorder -->
+<!-- Expiry Heatmap (6 Cols) -->
+<section class="col-span-12 lg:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-md text-label-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-outline" data-icon="calendar_month">calendar_month</span>
+                            Expiry Heatmap
+                        </h3>
+<button class="font-label-md text-label-md text-primary hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-sm">
+<!-- Critical (< 30 days) -->
+<div class="bg-error-container/50 border border-error/30 rounded p-sm flex flex-col justify-between">
+<span class="font-caption text-caption text-error font-bold mb-xs">Exp: Oct 2023</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Insulin Glargine</span>
+<span class="font-caption text-caption text-on-surface-variant">Qty: 12 vials</span>
+</div>
+<div class="bg-error-container/50 border border-error/30 rounded p-sm flex flex-col justify-between">
+<span class="font-caption text-caption text-error font-bold mb-xs">Exp: Nov 2023</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Amoxicillin Syp</span>
+<span class="font-caption text-caption text-on-surface-variant">Qty: 45 btls</span>
+</div>
+<!-- Warning (< 90 days) -->
+<div class="bg-surface-container-highest border border-outline-variant rounded p-sm flex flex-col justify-between">
+<span class="font-caption text-caption text-on-surface-variant mb-xs">Exp: Jan 2024</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Metformin 500mg</span>
+<span class="font-caption text-caption text-on-surface-variant">Qty: 120 strips</span>
+</div>
+<div class="bg-surface-container-highest border border-outline-variant rounded p-sm flex flex-col justify-between">
+<span class="font-caption text-caption text-on-surface-variant mb-xs">Exp: Feb 2024</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Aspirin 75mg</span>
+<span class="font-caption text-caption text-on-surface-variant">Qty: 80 strips</span>
+</div>
+</div>
+</section>
+<!-- AI Smart Reorder (6 Cols) -->
+<section class="col-span-12 lg:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-md text-label-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" data-icon="psychology">psychology</span>
+                            AI Smart Reorder
+                        </h3>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-caption text-caption">Demand Predictor Active</span>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-sm border border-outline-variant/50 rounded-lg hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary font-label-md text-label-md">Az</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Azithromycin 500mg</p>
+<p class="font-caption text-caption text-on-surface-variant">Predicted stockout in 4 days</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="font-label-md text-label-md text-on-surface">Req: 200</span>
+<button class="h-8 px-sm bg-primary/10 text-primary hover:bg-primary/20 rounded font-label-md text-label-md transition-colors">Approve</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-sm border border-outline-variant/50 rounded-lg hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary font-label-md text-label-md">Om</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Omeprazole 20mg</p>
+<p class="font-caption text-caption text-on-surface-variant">Seasonal demand spike detected</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="font-label-md text-label-md text-on-surface">Req: 150</span>
+<button class="h-8 px-sm bg-primary/10 text-primary hover:bg-primary/20 rounded font-label-md text-label-md transition-colors">Approve</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Padding for scroll clearance above FAB -->
+<div class="h-24"></div>
+</div>
+<!-- Float-Action Button: Voice Inventory Update -->
+<!-- Suppressed per rules on transactional screens, but explicitly requested by user as a key feature of this specific dashboard operational layout. Will render as a specialized tool rather than generic FAB. -->
+<button aria-label="Voice Inventory Update" class="fixed bottom-lg right-lg w-14 h-14 bg-secondary text-on-secondary rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-on-secondary-fixed-variant transition-colors voice-pulse z-50 group">
+<span class="material-symbols-outlined text-[28px]" data-icon="mic">mic</span>
+<!-- Tooltip -->
+<span class="absolute right-16 bg-inverse-surface text-inverse-on-surface font-caption text-caption px-sm py-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Voice Inventory Update
+            </span>
+</button>
+</main>
+</body></html>

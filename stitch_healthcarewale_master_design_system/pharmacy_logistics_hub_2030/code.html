@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart Pharmacy Hub 2030</title>
+<!-- Google Fonts: Playfair Display for Serif (Neo-Traditional), Inter for Sans-Serif (Modern Data) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FDFBF7',
+              100: '#F6F3E6',
+              200: '#EAE3CB',
+            },
+            emerald: {
+              500: '#10B981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065F46',
+              900: '#064E3B',
+              950: '#022C22',
+            }
+          },
+          borderRadius: {
+            '4xl': '32px',
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
+            'glow-emerald': '0 0 20px rgba(16, 185, 129, 0.4)',
+            'glow-red': '0 0 20px rgba(239, 68, 68, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for specific complex UI elements -->
+<style data-purpose="custom-ui-styles">
+    body {
+      /* Premium cream-paper background texture simulation */
+      background-color: #FDFBF7;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    .glass-panel-dark {
+      background: linear-gradient(145deg, #064E3B, #022C22);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /* Scanner glowing animation */
+    @keyframes scan-line {
+      0% { top: 0; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+    .scanner-line {
+      animation: scan-line 2.5s linear infinite;
+    }
+    
+    /* Liquid Heatmap SVG styles */
+    .blob-red { fill: url(#grad-red); opacity: 0.8; filter: drop-shadow(0 0 8px rgba(239,68,68,0.5)); }
+    .blob-orange { fill: url(#grad-orange); opacity: 0.8; filter: drop-shadow(0 0 8px rgba(249,115,22,0.5)); }
+  </style>
+</head>
+<body class="text-slate-800 antialiased h-screen flex overflow-hidden selection:bg-emerald-200 selection:text-emerald-900">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 flex-shrink-0 border-r border-cream-200/50 p-6 flex flex-col justify-between hidden lg:flex relative z-10">
+<div>
+<div class="flex items-center gap-3 mb-12">
+<div class="w-10 h-10 rounded-xl bg-emerald-800 flex items-center justify-center text-white shadow-glow-emerald">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h1 class="font-serif font-bold text-lg leading-tight text-emerald-950">City General</h1>
+<p class="text-xs text-slate-500 font-sans">Op. ID: 4421</p>
+</div>
+</div>
+<nav class="space-y-2 font-sans text-sm font-medium">
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-600 hover:bg-white hover:shadow-sm transition-all" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Clinic
+        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white shadow-sm text-emerald-700 border border-cream-200/50" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Pharmacy
+        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-600 hover:bg-white hover:shadow-sm transition-all" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          AI Center
+        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-600 hover:bg-white hover:shadow-sm transition-all" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          HMS
+        </a>
+</nav>
+</div>
+<div class="space-y-4">
+<button class="w-full py-4 rounded-4xl bg-gradient-to-r from-emerald-700 to-emerald-600 text-white font-medium shadow-glow-emerald hover:shadow-lg transition-all flex items-center justify-center gap-2">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Emergency Entry
+      </button>
+<div class="space-y-2 text-sm text-slate-500 font-sans px-4">
+<a class="block hover:text-emerald-700" href="#">Support</a>
+<a class="block hover:text-emerald-700" href="#">Account</a>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Navigation Header -->
+<header class="h-20 flex-shrink-0 flex items-center justify-between px-8 border-b border-cream-200/50 bg-white/30 backdrop-blur-md z-20">
+<div class="flex items-center gap-6">
+<h2 class="font-serif text-xl font-semibold text-emerald-950">HealthcareWale India</h2>
+<!-- Search Bar -->
+<div class="relative w-80">
+<input class="w-full bg-cream-100/50 border-emerald-100 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-full py-2.5 pl-10 pr-4 text-sm font-sans placeholder-slate-400 transition-all" placeholder="Search patients, medicines, doctors..." type="text"/>
+<svg class="w-4 h-4 text-slate-400 absolute left-4 top-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<div class="flex items-center gap-4 text-slate-600">
+<button class="p-2 hover:bg-white rounded-full transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v1m6 11h2m-6 0h-8m0 0V5a2 2 0 012-2h6a2 2 0 012 2v11m-8 0v-1m8 0v-1m-8-4h.01M12 12h.01M16 12h.01M12 16h.01M16 16h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+<button class="p-2 hover:bg-white rounded-full transition-colors relative">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden border border-cream-200">
+<!-- Placeholder avatar -->
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxfGjLQGhV2rAnUzks9aC220rfAuLxVFyfi8vGwqGps7enDBlXgRe1kcwLi8grwLF7wESuFqn5cvaLqnddj5VfVlAMVKHA5UmWFJ_C5dwrgrcDC1LK8opWfo0B4RXWb6SwZ5CL9kZplVoVQAZ4OyvxU5efKUucqtpl7sFfpmEIOHoAw195riiwZXvcjJKN4xNTN9zSjh21ycsbKtYPFoYTWS-rDCQ6YGLgq0h4f3YXAG6M0Os_WgkzQ8RyA1fhV4fQp2db8MKUYnY7"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Dashboard Content -->
+<div class="flex-1 overflow-y-auto p-8 z-10">
+<!-- Page Title Area -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="font-serif text-4xl font-bold text-emerald-950 mb-1">Advanced Pharmacy &amp; Logistics Hub</h1>
+<p class="font-sans text-slate-500 text-sm">उन्नत फार्मेसी और लॉजिस्टिक्स 2030</p>
+</div>
+<button class="px-6 py-3 rounded-4xl bg-emerald-800 text-white font-medium shadow-glow-emerald hover:bg-emerald-700 transition-colors flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Complete Shift
+        </button>
+</div>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- BEGIN: High-Velocity Billing Scanner -->
+<section class="xl:col-span-4 glass-panel rounded-4xl p-6 flex flex-col">
+<div class="mb-4">
+<h3 class="font-serif text-xl font-semibold text-emerald-950">High-Velocity Billing Scanner</h3>
+<p class="text-xs text-slate-500 font-sans">तेज बिलिंग इंटरफ़ेस</p>
+</div>
+<!-- Scanner Area -->
+<div class="flex-1 rounded-4xl glass-panel-dark relative overflow-hidden p-6 flex flex-col justify-center items-center group">
+<!-- Simulated Scanner Beam -->
+<div class="absolute left-0 w-full h-1 bg-emerald-400 shadow-[0_0_15px_rgba(52,211,153,1)] z-20 scanner-line"></div>
+<span class="absolute top-4 text-emerald-200/70 text-sm font-medium tracking-widest uppercase z-10">Scanner Active</span>
+<!-- Scanned Item Card -->
+<div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-4 w-full max-w-sm flex items-center gap-4 z-10 shadow-lg transform transition-transform group-hover:scale-105">
+<div class="w-16 h-16 bg-white rounded-2xl p-2 flex-shrink-0 shadow-sm">
+<!-- Placeholder for medication image -->
+<img alt="Medication" class="w-full h-full object-contain mix-blend-multiply opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLxtKvt8QBwAZqhZmCSWS-S6gHvpXvK7hcg7c14agzj-id6EMni6OfN1bl8sq4LklQTAPxH1FqyeV7H4rUIR7RnJIYl_VIEPM9Q9p8uTcauhY3MkYv9Dt1DDzMtMy0-9CAe5BiltO77-CyJaXGt2J3gDc28mtuQo414Q00IpBhlPMjOVQISvmaTtfgOJd6Xe9tR_erSLarY0qJHqrBlKQm6KtBUqGrvaHlaapL29B4YQvreFnwoQndHmHr3j_W6d9npB2j3bY4nEUC"/>
+</div>
+<div class="text-white">
+<h4 class="font-sans font-semibold text-lg leading-tight">QuantumCure 500mg</h4>
+<p class="text-emerald-200 text-sm">Qty: 2</p>
+<p class="font-medium mt-1">₹189.50</p>
+</div>
+</div>
+<!-- Scanner Decoration -->
+<div class="absolute inset-4 border-2 border-dashed border-emerald-500/30 rounded-3xl pointer-events-none"></div>
+<div class="absolute bottom-4 flex gap-2 z-10">
+<div class="w-2 h-2 rounded-full bg-emerald-400 shadow-glow-emerald"></div>
+<div class="w-2 h-2 rounded-full bg-emerald-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-emerald-500/50"></div>
+</div>
+</div>
+<button class="mt-6 w-full py-4 rounded-4xl bg-gradient-to-r from-emerald-800 to-emerald-600 text-white font-medium shadow-glow-emerald hover:shadow-lg transition-all text-center">
+            Scan Item <span class="text-xs opacity-80 ml-1 font-normal">(स्कैन करें)</span>
+</button>
+</section>
+<!-- END: High-Velocity Billing Scanner -->
+<!-- BEGIN: Center Column (Heatmap & Reorder) -->
+<div class="xl:col-span-4 flex flex-col gap-6">
+<!-- Expiry Heatmap -->
+<section class="glass-panel rounded-4xl p-6 h-64 flex flex-col relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-serif text-xl font-semibold text-emerald-950">Expiry Heatmap</h3>
+<p class="text-xs text-slate-500 font-sans">समाप्ति हीटमैप</p>
+</div>
+<!-- SVG Liquid Heatmap Simulation -->
+<div class="absolute inset-0 pt-16 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 200">
+<defs>
+<lineargradient id="grad-red" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ef4444" stop-opacity="0.9"></stop>
+<stop offset="100%" stop-color="#b91c1c" stop-opacity="0.6"></stop>
+</lineargradient>
+<lineargradient id="grad-orange" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#f97316" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#f59e0b" stop-opacity="0.5"></stop>
+</lineargradient>
+</defs>
+<!-- Liquid blobs -->
+<path class="blob-red" d="M40,80 C60,40 120,50 140,90 C160,130 100,160 70,150 C30,130 20,120 40,80 Z"></path>
+<path class="blob-orange" d="M180,60 C220,30 280,60 260,110 C240,160 170,140 160,100 C150,60 160,70 180,60 Z"></path>
+<path class="blob-orange" d="M280,120 C320,80 380,90 360,140 C340,190 290,170 270,140 C260,110 260,140 280,120 Z"></path>
+</svg>
+</div>
+<!-- Overlay text on heatmap -->
+<div class="absolute top-24 left-10 text-white z-10 text-sm font-sans drop-shadow-md">
+<p class="font-bold">Antibiotics: 15%</p>
+<p class="text-xs opacity-90">Near Expiry</p>
+</div>
+<div class="absolute bottom-10 right-20 text-white z-10 text-sm font-sans drop-shadow-md text-center">
+<p class="font-bold">Vitamins:</p>
+<p class="text-xs opacity-90">Optimal</p>
+</div>
+</section>
+<!-- AI Smart Reorder List -->
+<section class="glass-panel rounded-4xl p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-serif text-xl font-semibold text-emerald-950">AI Smart Reorder</h3>
+<p class="text-xs text-slate-500 font-sans">एआई स्मार्ट रीऑर्डर</p>
+</div>
+<button class="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold shadow-sm hover:bg-emerald-200 transition-colors">
+                AI Reorder All
+              </button>
+</div>
+<div class="space-y-4 font-sans">
+<!-- List Item 1 -->
+<div class="flex items-center gap-3 p-3 rounded-2xl hover:bg-white/50 transition-colors border-l-4 border-red-500 bg-white/30">
+<div class="flex-1">
+<h4 class="font-semibold text-slate-800 text-sm">NanoDose Strips</h4>
+<p class="text-xs text-red-600 font-medium">Order Now - Low Stock</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200"><svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center gap-3 p-3 rounded-2xl hover:bg-white/50 transition-colors border-l-4 border-emerald-500">
+<div class="flex-1">
+<h4 class="font-semibold text-slate-800 text-sm">Herbal Elixir</h4>
+<p class="text-xs text-emerald-600 font-medium">Auto-Reordered (Arrival 2d)</p>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex items-center gap-3 p-3 rounded-2xl hover:bg-white/50 transition-colors border-l-4 border-orange-400">
+<div class="flex-1">
+<h4 class="font-semibold text-slate-800 text-sm">NeuroBoost Vials</h4>
+<p class="text-xs text-orange-600 font-medium">Pending Approval</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- END: Center Column -->
+<!-- BEGIN: Drone Delivery Tracker -->
+<section class="xl:col-span-4 glass-panel rounded-4xl p-6 flex flex-col h-full min-h-[500px]">
+<div class="mb-4">
+<h3 class="font-serif text-xl font-semibold text-emerald-950">Drone Delivery Tracker</h3>
+<p class="text-xs text-slate-500 font-sans">Real-time logistics map</p>
+</div>
+<!-- Map Area Container -->
+<div class="flex-1 rounded-3xl bg-slate-100 overflow-hidden relative border border-slate-200">
+<!-- Simulated Map Background Pattern -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Simulated Routes -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M10,20 L40,50 L80,30" fill="none" stroke="#94a3b8" stroke-dasharray="4" stroke-width="2"></path>
+<path d="M30,80 L50,60 L90,70" fill="none" stroke="#94a3b8" stroke-dasharray="4" stroke-width="2"></path>
+</svg>
+<!-- Drone Node 1 -->
+<div class="absolute top-[20%] left-[10%] group">
+<div class="w-8 h-8 bg-emerald-600 rounded-full shadow-glow-emerald flex items-center justify-center text-white relative z-10 animate-pulse">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<!-- Tooltip -->
+<div class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-xl shadow-lg border border-slate-100 text-xs font-sans whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity z-20">
+<p class="font-semibold text-emerald-800">Drone D-41</p>
+<p class="text-slate-500">ETA: 12 mins</p>
+</div>
+</div>
+<!-- Drone Node 2 -->
+<div class="absolute top-[50%] left-[40%] group">
+<div class="w-8 h-8 bg-emerald-600 rounded-full shadow-glow-emerald flex items-center justify-center text-white relative z-10">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<!-- Tooltip -->
+<div class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-xl shadow-lg border border-slate-100 text-xs font-sans whitespace-nowrap z-20">
+<p class="font-semibold text-emerald-800">Drone D-08 (Priority)</p>
+<p class="text-slate-500">ETA: 4 mins</p>
+</div>
+</div>
+<!-- Facility Node -->
+<div class="absolute top-[30%] right-[20%]">
+<div class="w-6 h-6 bg-slate-800 rounded-lg shadow-md flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center text-sm font-sans px-2">
+<span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 12 Active Deliveries</span>
+<button class="text-emerald-700 font-medium hover:underline">View Fleet</button>
+</div>
+</section>
+<!-- END: Drone Delivery Tracker -->
+</div>
+</div>
+</main>
+<!-- END: Main Content Area -->
+<!-- Floating 3D Orb Placeholder (Bottom Right) -->
+<div class="fixed bottom-8 right-8 w-24 h-24 rounded-full bg-gradient-to-br from-emerald-300 to-emerald-800 shadow-[0_10px_40px_rgba(4,120,87,0.5)] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform z-50">
+<div class="text-white text-center font-sans">
+<p class="text-xs font-bold leading-tight">Listening...</p>
+<p class="text-[10px] opacity-80">(सुन रहा हूँ...)</p>
+</div>
+<!-- Inner highlight for 3D effect -->
+<div class="absolute inset-0 rounded-full border border-white/30 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+</div>
+</body></html>

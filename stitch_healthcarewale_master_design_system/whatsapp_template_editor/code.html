@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WhatsApp Template Editor - HealthcareWale</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#006834",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#76d6d5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#006565",
+                        "secondary-fixed-dim": "#b7c8de",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed-dim": "#4ae183",
+                        "on-secondary-container": "#556679",
+                        "outline-variant": "#bdc9c8",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary-fixed": "#6bfe9c",
+                        "primary-fixed": "#93f2f2",
+                        "on-primary-fixed": "#002020",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d2e4fb",
+                        "surface-tint": "#006a6a",
+                        "surface-bright": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#3e4949",
+                        "inverse-surface": "#213145",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#76d6d5",
+                        "primary-container": "#008080",
+                        "on-secondary-fixed": "#0b1d2d",
+                        "tertiary-container": "#008443",
+                        "on-tertiary-fixed-variant": "#005228",
+                        "outline": "#6e7979",
+                        "on-tertiary-container": "#e9ffe9",
+                        "surface-container-low": "#eff4ff",
+                        "secondary": "#4f6073",
+                        "on-tertiary-fixed": "#00210c",
+                        "on-background": "#0b1c30",
+                        "secondary-container": "#d2e4fb",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e5eeff",
+                        "on-primary-container": "#e3fffe",
+                        "surface": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#38485a",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "on-surface": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-lg": ["15px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .whatsapp-bg {
+            background-color: #EFEAE2;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"%3E%3Cpath d="M20 20c-5.5 0-10-4.5-10-10S14.5 0 20 0s10 4.5 10 10-4.5 10-10 10zm0-2c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8zm0-14c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6 2.7-6 6-6z" fill="%23e1d8cd" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex antialiased">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low border-r border-outline-variant shadow-sm h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-gutter px-4 z-40 hidden md:flex">
+<div class="mb-8">
+<div class="flex items-center gap-3 px-2 py-4">
+<img alt="HealthcareWale Logo" class="w-10 h-10 rounded-lg object-cover" data-alt="A small, modern app icon featuring a stylized medical cross in vibrant teal against a pristine white background. The design is clean, minimalist, and perfectly aligned with a professional healthcare corporate aesthetic. High contrast and razor-sharp edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl9jSy513rGfY-LBt0geoVjPp3LhOuq6DkoDX43tAx1yij5iYYQFMHOoMybo51As3gYg_9V3yDy3bBhl4dHeZOfW3lqoRs0q4aTLb0KqaIOBIizuIInlVradcDWFP2PC25Io3QuzWLFNCPsF5e2sHTh4yqq7s-gXwLm1SIr684MJhRoxpvhtimBj_at22jre6ZGAkZFMvrnw36jcFxbT6Zfy8f_q-1JxKKxB3bhcD-zEDiey8WGZnsCwjOiNleqV-2DYbMDFQvy6ej"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">HealthcareWale</h1>
+<p class="font-caption text-caption text-on-surface-variant">Pharma Distribution</p>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">groups</span>
+                Retailers
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">inventory_2</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">local_shipping</span>
+                Deliveries
+            </a>
+<!-- Active State using Intent Fallback (Template Editor fits under Marketing/Analytics/Operations) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container font-bold border-l-4 border-primary font-label-md text-label-md scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">payments</span>
+                Payments
+            </a>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant flex flex-col gap-2">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-lg text-label-lg shadow-sm hover:shadow-md transition-all active:scale-95 flex justify-center items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                Quick Order
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline">help</span>
+                Support
+            </a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant fixed top-0 right-0 left-0 md:left-64 h-16 flex justify-between items-center px-gutter z-30">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant p-2 rounded-lg hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-md font-body-md focus:ring-2 focus:ring-primary focus:border-primary w-64 outline-none transition-shadow text-on-surface" placeholder="Search templates..." type="text"/>
+</div>
+</div>
+<div class="font-headline-sm text-headline-sm font-black text-primary md:hidden">
+            HealthcareWale B2B
+        </div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-all p-2 rounded-full hover:bg-surface-container-highest focus:ring-2 focus:ring-primary focus:ring-offset-2 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all p-2 rounded-full hover:bg-surface-container-highest focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden cursor-pointer focus:ring-2 focus:ring-primary focus:ring-offset-2" tabindex="0">
+<img alt="Distributor Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a confident South Asian male in a crisp light blue shirt, looking directly at the camera with a subtle smile. The background is a blurred modern office setting with bright, natural lighting. The image conveys trust, professionalism, and competence in a corporate healthcare context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD-frrzjkjtRVRBUuUCLzM19jRVWyML75cz6st3wb5AG47_Sh4tBjurgDW4Mao0H31cVnIdjaARjvdg8m20mFT2CFa6c5Til5FOGYsDo8YFec2R2Uo8wYqxvic5lS1wB4NDZpc9nZGmBnrs7VDns5HOT431QgG_T1tsUea8YHiSC-6P_5640TvBAsIy2muX7Kh1gyS7efBauopd8O-rDBPDjQ4vbmcNvY6LlZ0AXhCxWMB8xoYcKXdxwwx1D9skQJ5V4ndZlCQzLgb"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 md:ml-64 p-margin-mobile md:p-margin-desktop overflow-x-hidden">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Create WhatsApp Template</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Design and submit message templates for Meta approval.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-outline rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-highest transition-colors">
+                    Discard
+                </button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">send</span>
+                    Submit for Approval
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-[container-max]">
+<!-- Left Column: Template Details & Configuration (Spans 8 cols) -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
+<!-- Section 1: Template Details -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
+<h3 class="font-label-lg text-label-lg text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">info</span>
+                        Template Details
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Template Name</label>
+<input class="w-full bg-surface border border-outline-variant rounded-lg px-3 py-2.5 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="e.g., order_confirmation_v2" type="text" value="monthly_stock_reminder"/>
+<span class="font-caption text-caption text-outline">Lowercase letters and underscores only.</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Category</label>
+<div class="relative">
+<select class="w-full bg-surface border border-outline-variant rounded-lg px-3 py-2.5 font-body-md text-body-md appearance-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all cursor-pointer">
+<option value="utility">Utility (Order updates, alerts)</option>
+<option selected="" value="marketing">Marketing (Promotions, news)</option>
+<option value="authentication">Authentication (OTPs)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Language</label>
+<div class="relative">
+<select class="w-full bg-surface border border-outline-variant rounded-lg px-3 py-2.5 font-body-md text-body-md appearance-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all cursor-pointer">
+<option selected="" value="en">English (en)</option>
+<option value="hi">Hindi (hi)</option>
+<option value="bn">Bengali (bn)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Message Composer -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-lg text-label-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">edit_document</span>
+                            Message Body
+                        </h3>
+<div class="text-caption font-caption text-outline">0 / 1024 characters</div>
+</div>
+<!-- Header Config -->
+<div class="mb-5 border border-outline-variant rounded-lg p-4 bg-surface">
+<div class="flex items-center justify-between mb-3">
+<label class="font-label-md text-label-md text-on-surface">Header (Optional)</label>
+<div class="flex gap-2">
+<button class="px-2.5 py-1 text-caption font-label-md border border-outline-variant rounded hover:bg-surface-container transition-colors text-primary bg-primary-container/10">Text</button>
+<button class="px-2.5 py-1 text-caption font-label-md border border-outline-variant rounded hover:bg-surface-container transition-colors text-on-surface-variant">Media</button>
+</div>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-3 py-2 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Enter header text (max 60 chars)" type="text" value="Restock Alert: Special Discount"/>
+</div>
+<!-- Rich Text Area -->
+<div class="border border-outline-variant rounded-lg bg-surface flex flex-col focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<!-- Toolbar -->
+<div class="flex items-center gap-1 border-b border-outline-variant p-2 bg-surface-container-low rounded-t-lg">
+<button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container-highest transition-colors" title="Bold">
+<span class="material-symbols-outlined text-[18px]">format_bold</span>
+</button>
+<button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container-highest transition-colors" title="Italic">
+<span class="material-symbols-outlined text-[18px]">format_italic</span>
+</button>
+<button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container-highest transition-colors" title="Strikethrough">
+<span class="material-symbols-outlined text-[18px]">strikethrough_s</span>
+</button>
+<div class="w-px h-5 bg-outline-variant mx-1"></div>
+<button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container-highest transition-colors" title="Add Emoji">
+<span class="material-symbols-outlined text-[18px]">mood</span>
+</button>
+<!-- Variable Manager Trigger -->
+<div class="ml-auto relative group">
+<button class="flex items-center gap-1 px-2.5 py-1.5 bg-secondary-container text-on-secondary-container rounded-md font-label-md text-caption hover:bg-surface-dim transition-colors">
+<span class="material-symbols-outlined text-[16px]">data_object</span>
+                                    Add Variable
+                                </button>
+<!-- Simple Dropdown for Demo -->
+<div class="absolute right-0 top-full mt-1 w-48 bg-surface-container-lowest border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 py-1">
+<button class="w-full text-left px-3 py-2 hover:bg-surface-container-highest text-body-md font-body-md text-on-surface">{{PartnerName}}</button>
+<button class="w-full text-left px-3 py-2 hover:bg-surface-container-highest text-body-md font-body-md text-on-surface">{{DiscountCode}}</button>
+<button class="w-full text-left px-3 py-2 hover:bg-surface-container-highest text-body-md font-body-md text-on-surface">{{ExpiryDate}}</button>
+</div>
+</div>
+</div>
+<textarea class="w-full p-4 min-h-[160px] bg-transparent border-none resize-y outline-none font-body-md text-body-md text-on-surface placeholder-outline" placeholder="Type your message here...">Hello {{1}},
+
+Your preferred stock of critical diabetic medicines is running low in your region. We are offering an exclusive {{2}} discount if you restock today.
+
+Use code: {{3}} at checkout.
+
+Offer valid until midnight. Ensure your pharmacy is prepared for patient needs.</textarea>
+</div>
+<!-- Variable Mapping Info -->
+<div class="mt-3 bg-inverse-on-surface border border-surface-dim rounded-lg p-3 flex flex-col gap-2">
+<div class="text-label-md font-label-md text-on-surface-variant">Variable Mapping (Sample Values)</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-surface-container border border-outline-variant rounded text-caption font-mono">{{1}}</span>
+<input class="w-full bg-surface border border-outline-variant rounded px-2 py-1 text-caption outline-none focus:border-primary" type="text" value="Pharmacy Alpha"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-surface-container border border-outline-variant rounded text-caption font-mono">{{2}}</span>
+<input class="w-full bg-surface border border-outline-variant rounded px-2 py-1 text-caption outline-none focus:border-primary" type="text" value="15%"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-surface-container border border-outline-variant rounded text-caption font-mono">{{3}}</span>
+<input class="w-full bg-surface border border-outline-variant rounded px-2 py-1 text-caption outline-none focus:border-primary" type="text" value="DIAB15"/>
+</div>
+</div>
+</div>
+<!-- Footer Config -->
+<div class="mt-5 border border-outline-variant rounded-lg p-4 bg-surface">
+<label class="font-label-md text-label-md text-on-surface block mb-2">Footer (Optional)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-3 py-2 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Short text at the bottom (max 60 chars)" type="text" value="HealthcareWale B2B Partner Support"/>
+</div>
+</section>
+<!-- Section 3: Interactive Buttons -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-lg text-label-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">smart_button</span>
+                            Interactive Buttons
+                        </h3>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">add_circle</span> Add Button
+                        </button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Button 1 -->
+<div class="flex items-start gap-3 p-3 border border-outline-variant rounded-lg bg-surface relative group">
+<span class="material-symbols-outlined text-outline mt-2 cursor-grab">drag_indicator</span>
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div>
+<label class="text-caption font-caption text-on-surface-variant block mb-1">Type</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded px-2 py-1.5 text-body-md font-body-md outline-none focus:border-primary">
+<option selected="" value="url">Visit Website</option>
+<option value="phone">Call Phone Number</option>
+<option value="quick_reply">Quick Reply</option>
+</select>
+</div>
+<div>
+<label class="text-caption font-caption text-on-surface-variant block mb-1">Button Text</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-2 py-1.5 text-body-md font-body-md outline-none focus:border-primary" type="text" value="Order Now"/>
+</div>
+<div>
+<label class="text-caption font-caption text-on-surface-variant block mb-1">URL Type</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded px-2 py-1.5 text-body-md font-body-md outline-none focus:border-primary">
+<option value="static">Static</option>
+<option selected="" value="dynamic">Dynamic</option>
+</select>
+</div>
+</div>
+<button class="text-outline hover:text-error transition-colors mt-2 opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<!-- Button 2 -->
+<div class="flex items-start gap-3 p-3 border border-outline-variant rounded-lg bg-surface relative group">
+<span class="material-symbols-outlined text-outline mt-2 cursor-grab">drag_indicator</span>
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div>
+<label class="text-caption font-caption text-on-surface-variant block mb-1">Type</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded px-2 py-1.5 text-body-md font-body-md outline-none focus:border-primary">
+<option value="url">Visit Website</option>
+<option selected="" value="phone">Call Phone Number</option>
+<option value="quick_reply">Quick Reply</option>
+</select>
+</div>
+<div>
+<label class="text-caption font-caption text-on-surface-variant block mb-1">Button Text</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-2 py-1.5 text-body-md font-body-md outline-none focus:border-primary" type="text" value="Call Support"/>
+</div>
+<div>
+<label class="text-caption font-caption text-on-surface-variant block mb-1">Phone Number</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-2 py-1.5 text-body-md font-body-md outline-none focus:border-primary" type="text" value="+91 1800 123 4567"/>
+</div>
+</div>
+<button class="text-outline hover:text-error transition-colors mt-2 opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Live Preview (Spans 4 cols, sticky on desktop) -->
+<div class="lg:col-span-5 xl:col-span-4">
+<div class="sticky top-[88px]">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0_8px_16px_rgba(0,0,0,0.04)] flex flex-col h-[700px]">
+<!-- Preview Header -->
+<div class="bg-surface-container-high px-4 py-3 border-b border-outline-variant flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">preview</span>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Live Preview</h3>
+<p class="font-caption text-caption text-on-surface-variant">WhatsApp Mobile View</p>
+</div>
+</div>
+<!-- Phone Mockup Container -->
+<div class="flex-1 bg-surface-variant p-4 md:p-6 flex justify-center items-center overflow-y-auto">
+<!-- Device Frame -->
+<div class="w-full max-w-[320px] bg-black rounded-[36px] p-2 shadow-xl relative ring-1 ring-outline/20">
+<!-- Screen -->
+<div class="w-full bg-white rounded-[28px] overflow-hidden flex flex-col h-[580px] whatsapp-bg relative">
+<!-- WA Header -->
+<div class="bg-[#075E54] text-white px-3 py-2 flex items-center gap-2 shadow-sm z-10">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">business</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<div class="font-label-md text-label-md truncate">HealthcareWale</div>
+<div class="text-[10px] opacity-80 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">check_circle</span> Official Business Account
+                                            </div>
+</div>
+</div>
+<!-- Chat Area -->
+<div class="flex-1 p-3 overflow-y-auto flex flex-col justify-end pb-6">
+<!-- Time Chip -->
+<div class="flex justify-center mb-4">
+<span class="bg-[#E1F3FB] text-[#4A5568] px-3 py-1 rounded-lg text-[11px] font-medium shadow-sm">Today</span>
+</div>
+<!-- Message Bubble -->
+<div class="bg-white rounded-lg rounded-tl-none p-2 w-[90%] shadow-sm self-start relative">
+<!-- Tail -->
+<svg class="absolute -left-2 top-0 text-white fill-current" height="13" viewbox="0 0 8 13" width="8"><path d="M5.188 1H0v11.156L7.969 1.203 5.188 1z"></path></svg>
+<!-- Content -->
+<div class="flex flex-col gap-1.5">
+<!-- Header -->
+<div class="font-bold text-[14px] text-[#111B21]">Restock Alert: Special Discount</div>
+<!-- Body -->
+<div class="text-[#111B21] text-[14px] leading-[1.35] whitespace-pre-wrap font-sans">Hello Pharmacy Alpha,
+
+Your preferred stock of critical diabetic medicines is running low in your region. We are offering an exclusive 15% discount if you restock today.
+
+Use code: DIAB15 at checkout.
+
+Offer valid until midnight. Ensure your pharmacy is prepared for patient needs.</div>
+<!-- Footer -->
+<div class="text-[#667781] text-[12px] mt-1">HealthcareWale B2B Partner Support</div>
+<!-- Timestamp -->
+<div class="text-right text-[#667781] text-[10px] mt-0.5">10:42 AM</div>
+</div>
+</div>
+<!-- Interactive Buttons -->
+<div class="w-[90%] flex flex-col gap-[1px] mt-[1px] rounded-b-lg overflow-hidden">
+<!-- Button 1 -->
+<div class="bg-white text-[#00A884] font-medium text-[14px] py-2.5 text-center flex items-center justify-center gap-1.5 border-t border-[#F0F2F5] cursor-pointer shadow-sm rounded-lg mt-1 relative after:content-[''] after:absolute after:-top-2 after:left-0 after:w-full after:h-2 after:bg-transparent">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+                                                Order Now
+                                            </div>
+<!-- Button 2 -->
+<div class="bg-white text-[#00A884] font-medium text-[14px] py-2.5 text-center flex items-center justify-center gap-1.5 border-t border-[#F0F2F5] cursor-pointer shadow-sm rounded-lg mt-1">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                                                Call Support
+                                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Status Bar -->
+<div class="bg-surface px-4 py-3 border-t border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-caption">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                                 Draft Status
+                             </div>
+<div class="text-caption text-outline">Est. Approval: 2-24 hrs</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

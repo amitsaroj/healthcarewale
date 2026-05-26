@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Financial Growth | HealthcareWale 2030</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;700&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(14, 19, 34, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .liquid-bar {
+            position: relative;
+            overflow: hidden;
+        }
+        .liquid-bar::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: flow 3s infinite linear;
+        }
+        @keyframes flow {
+            0% { transform: translateY(100%) rotate(45deg); }
+            100% { transform: translateY(-100%) rotate(45deg); }
+        }
+        .aurora-glow {
+            box-shadow: 0 0 30px -5px rgba(5, 231, 119, 0.25);
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 4px;
+            background: rgba(135, 147, 146, 0.3);
+            border-radius: 2px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #7dffa2;
+            margin-top: -8px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(125, 255, 162, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#00622e",
+                      "outline": "#879392",
+                      "on-tertiary-fixed": "#291800",
+                      "surface-container": "#1a1f2f",
+                      "secondary": "#7dffa2",
+                      "surface-bright": "#343949",
+                      "secondary-fixed": "#62ff96",
+                      "error": "#ffb4ab",
+                      "on-primary-fixed": "#002020",
+                      "primary-container": "#008080",
+                      "on-secondary-fixed-variant": "#005226",
+                      "on-secondary": "#003918",
+                      "on-tertiary-container": "#fff9f5",
+                      "primary-fixed": "#93f2f2",
+                      "outline-variant": "#3e4949",
+                      "tertiary-container": "#9d6800",
+                      "surface": "#0e1322",
+                      "primary-fixed-dim": "#76d6d5",
+                      "on-surface-variant": "#bdc9c8",
+                      "on-surface": "#dee1f7",
+                      "surface-dim": "#0e1322",
+                      "inverse-on-surface": "#2b3040",
+                      "tertiary-fixed": "#ffddb3",
+                      "surface-container-highest": "#2f3445",
+                      "primary": "#76d6d5",
+                      "surface-tint": "#76d6d5",
+                      "secondary-container": "#05e777",
+                      "tertiary": "#ffb950",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#00e475",
+                      "on-tertiary-fixed-variant": "#624000",
+                      "on-primary-container": "#e3fffe",
+                      "background": "#0e1322",
+                      "surface-container-low": "#161b2b",
+                      "on-background": "#dee1f7",
+                      "inverse-primary": "#006a6a",
+                      "on-tertiary": "#452b00",
+                      "surface-variant": "#2f3445",
+                      "on-primary": "#003737",
+                      "inverse-surface": "#dee1f7",
+                      "surface-container-lowest": "#090e1c",
+                      "on-error": "#690005",
+                      "error-container": "#93000a",
+                      "on-primary-fixed-variant": "#004f4f",
+                      "tertiary-fixed-dim": "#ffb950",
+                      "on-secondary-fixed": "#00210b",
+                      "surface-container-high": "#25293a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "nano": "4px",
+                      "gutter": "24px",
+                      "container-max": "1440px",
+                      "compact": "12px",
+                      "standard": "24px",
+                      "base": "8px",
+                      "airy": "48px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Sora"],
+                      "body-md": ["Hanken Grotesk"],
+                      "label-caps": ["Hanken Grotesk"],
+                      "headline-md": ["Sora"],
+                      "headline-lg": ["Sora"],
+                      "serif": ["Playfair Display", "serif"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-compact gap-base bg-surface/80 backdrop-blur-2xl text-secondary font-label-caps border-r border-white/10 shadow-xl h-screen w-72 rounded-r-lg z-50">
+<div class="flex flex-col items-start px-standard py-base mb-base">
+<span class="font-headline-md text-headline-md text-primary font-bold">HealthcareWale</span>
+<div class="flex items-center mt-base gap-base">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-primary/20">
+<img alt="Executive User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a senior healthcare executive in a modern, glass-walled office. The lighting is soft and cinematic with cool blue and teal tones. The executive is smiling confidently, wearing a tailored charcoal suit, reflecting a futuristic, high-tech corporate environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBprmR8ZRnpbufcGFhRdugee_b6UXf045y4xl98pJ8q9SWyuPRLnOX4Nsd4tXxWKFw0z2cs4FjMgv2e6VYjzUbsA6BzY137TXGsQ4eIR_fiq-KnW4_jNN3BQX03Ler3MmnEVkft7AUgWOn0nF3bvkosKW4k9JX8KURfbN57BzyeGb1ZBcsqOMSA9XyjUb4JrQSIWvOeMZXwhy-tfWDb521E8sD2vDjjfodO2wTyM0kDI_WvhblXvEqE8OS3CNwpZfwGnrFmfRilJOM"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">H. Wale Admin</p>
+<p class="text-[10px] text-on-surface-variant tracking-widest uppercase">Level 5 clearance</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-nano">
+<a class="flex items-center gap-base px-standard py-base transition-all duration-300 ease-in-out hover:bg-primary/5 hover:text-primary text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Executive Pulse</span>
+</a>
+<a class="flex items-center gap-base px-standard py-base transition-all duration-300 ease-in-out bg-secondary/10 text-secondary rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Biometric Grid</span>
+</a>
+<a class="flex items-center gap-base px-standard py-base transition-all duration-300 ease-in-out hover:bg-primary/5 hover:text-primary text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span>Neural Analytics</span>
+</a>
+<a class="flex items-center gap-base px-standard py-base transition-all duration-300 ease-in-out hover:bg-primary/5 hover:text-primary text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span>Unit Strategy</span>
+</a>
+<a class="flex items-center gap-base px-standard py-base transition-all duration-300 ease-in-out hover:bg-primary/5 hover:text-primary text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>System Health</span>
+</a>
+</nav>
+<div class="mt-auto px-standard py-base">
+<button class="w-full py-base bg-primary/10 border border-primary/30 rounded-lg text-primary font-bold text-[10px] tracking-widest hover:bg-primary/20 transition-all">
+                VOICE COMMAND
+            </button>
+<a class="flex items-center gap-base px-standard py-base mt-base transition-all duration-300 ease-in-out hover:bg-primary/5 hover:text-primary text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 min-h-screen px-airy py-airy">
+<!-- Top App Bar (Inside Main) -->
+<header class="flex justify-between items-center w-full px-standard h-20 sticky top-0 z-40 bg-surface/60 backdrop-blur-xl border-b border-white/10 mb-airy">
+<div class="flex items-center gap-base">
+<h1 class="font-serif italic text-display-lg text-on-surface">Financial Growth</h1>
+<span class="bg-secondary/20 text-secondary px-compact py-nano rounded-full text-label-caps border border-secondary/30">FY 2030</span>
+</div>
+<div class="flex items-center gap-standard">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-compact top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-full pl-airy pr-standard py-base focus:border-primary outline-none text-on-surface w-64 transition-all" placeholder="Search analytics..." type="text"/>
+</div>
+<div class="flex gap-base">
+<button class="p-base rounded-full hover:bg-white/5 transition-colors active:scale-95 text-primary"><span class="material-symbols-outlined">fingerprint</span></button>
+<button class="p-base rounded-full hover:bg-white/5 transition-colors active:scale-95 text-primary"><span class="material-symbols-outlined">mic</span></button>
+<button class="p-base rounded-full hover:bg-white/5 transition-colors active:scale-95 text-primary"><span class="material-symbols-outlined">settings</span></button>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter max-w-container-max mx-auto">
+<!-- Large Profitability Card -->
+<div class="col-span-8 glass-panel p-airy rounded-xl aurora-glow flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full -mr-32 -mt-32 transition-opacity group-hover:opacity-100 opacity-60"></div>
+<div class="relative z-10">
+<p class="font-label-caps text-secondary mb-base">PRIMARY CLINIC METRIC</p>
+<h2 class="font-serif italic text-headline-lg text-on-surface">Monthly Net Profit</h2>
+<p class="text-on-surface-variant max-w-md mt-base">Real-time profitability calculated against overhead, satellite sync costs, and AI-diagnostic licensing fees.</p>
+</div>
+<div class="relative z-10 mt-airy">
+<div class="flex items-baseline gap-base">
+<span class="text-[84px] font-display-lg text-secondary leading-none tracking-tighter" id="profit-value">$1,248,302</span>
+<div class="flex flex-col">
+<span class="flex items-center text-secondary font-bold text-headline-md">
+<span class="material-symbols-outlined">trending_up</span> 14.2%
+                            </span>
+<span class="text-on-surface-variant text-label-caps">VS LAST QUARTER</span>
+</div>
+</div>
+</div>
+<div class="mt-airy flex gap-base relative z-10">
+<span class="px-base py-nano bg-white/5 border border-white/10 rounded-full text-label-caps text-on-surface-variant">LIQUIDITY: OPTIMAL</span>
+<span class="px-base py-nano bg-white/5 border border-white/10 rounded-full text-label-caps text-on-surface-variant">RISK: LOW</span>
+</div>
+</div>
+<!-- Revenue Stream Bar Chart -->
+<div class="col-span-4 glass-panel p-standard rounded-lg flex flex-col">
+<p class="font-label-caps text-primary mb-airy">REVENUE DYNAMICS</p>
+<div class="flex-1 flex justify-around items-end gap-airy px-base pb-airy">
+<!-- Pharmacy Bar -->
+<div class="flex flex-col items-center gap-base w-full">
+<div class="relative w-full bg-surface-container-high rounded-full h-64 overflow-hidden border border-white/5">
+<div class="liquid-bar absolute bottom-0 left-0 w-full bg-gradient-to-t from-primary-container to-primary" style="height: 65%;"></div>
+<div class="absolute top-4 left-0 w-full text-center text-label-caps text-on-primary-container">65%</div>
+</div>
+<p class="text-on-surface font-bold text-label-caps">PHARMACY</p>
+</div>
+<!-- Consultation Bar -->
+<div class="flex flex-col items-center gap-base w-full">
+<div class="relative w-full bg-surface-container-high rounded-full h-64 overflow-hidden border border-white/5">
+<div class="liquid-bar absolute bottom-0 left-0 w-full bg-gradient-to-t from-secondary-container to-secondary" style="height: 35%;"></div>
+<div class="absolute top-4 left-0 w-full text-center text-label-caps text-on-secondary-container">35%</div>
+</div>
+<p class="text-on-surface font-bold text-label-caps">CONSULT</p>
+</div>
+</div>
+<div class="pt-standard border-t border-white/5 mt-auto">
+<p class="text-on-surface-variant text-body-md italic font-serif">Shift in balance detected: Tele-consultation volume rising.</p>
+</div>
+</div>
+<!-- Detailed Stats Grid -->
+<div class="col-span-12 grid grid-cols-4 gap-gutter mt-base">
+<div class="glass-panel p-standard rounded-lg hover:bg-white/5 transition-all">
+<p class="text-on-surface-variant text-label-caps">PATIENT FOOTFALL</p>
+<p class="text-headline-md font-bold text-on-surface mt-base">14,202</p>
+<div class="w-full bg-white/10 h-1 mt-base rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[82%]"></div>
+</div>
+</div>
+<div class="glass-panel p-standard rounded-lg hover:bg-white/5 transition-all">
+<p class="text-on-surface-variant text-label-caps">AVERAGE MARGIN</p>
+<p class="text-headline-md font-bold text-on-surface mt-base">28.4%</p>
+<div class="w-full bg-white/10 h-1 mt-base rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[65%]"></div>
+</div>
+</div>
+<div class="glass-panel p-standard rounded-lg hover:bg-white/5 transition-all">
+<p class="text-on-surface-variant text-label-caps">AI COST/OP</p>
+<p class="text-headline-md font-bold text-on-surface mt-base">$14.02</p>
+<div class="w-full bg-white/10 h-1 mt-base rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[40%]"></div>
+</div>
+</div>
+<div class="glass-panel p-standard rounded-lg hover:bg-white/5 transition-all">
+<p class="text-on-surface-variant text-label-caps">RETENTION RATE</p>
+<p class="text-headline-md font-bold text-on-surface mt-base">94%</p>
+<div class="w-full bg-white/10 h-1 mt-base rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[94%]"></div>
+</div>
+</div>
+</div>
+<!-- What-if Simulation Slider -->
+<div class="col-span-12 mt-airy bg-surface-container-lowest p-airy rounded-xl border border-white/10 shadow-2xl relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-50"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-airy">
+<div class="max-w-md">
+<h3 class="font-serif text-headline-md text-on-surface italic">2030 Revenue Forecaster</h3>
+<p class="text-on-surface-variant text-body-md mt-base">Adjust consultation fees to see the projected impact on your annual net growth. Calculated via Neural Node 12.</p>
+</div>
+<div class="flex-1 w-full max-w-2xl bg-surface-container rounded-lg p-standard border border-white/5">
+<div class="flex justify-between items-center mb-standard">
+<span class="text-label-caps text-outline">FEE ADJUSTMENT</span>
+<span class="text-headline-md font-bold text-secondary" id="slider-percentage">+12%</span>
+</div>
+<input class="w-full" id="revenue-slider" max="50" min="-20" type="range" value="12"/>
+<div class="flex justify-between mt-base">
+<span class="text-[10px] text-outline">-20%</span>
+<span class="text-[10px] text-outline">MARKET NEUTRAL</span>
+<span class="text-[10px] text-outline">+50%</span>
+</div>
+</div>
+<div class="text-right border-l border-white/10 pl-airy hidden lg:block">
+<p class="text-label-caps text-on-surface-variant">PROJECTED ANNUAL YIELD</p>
+<p class="text-headline-lg font-bold text-primary mt-base" id="projected-yield">$16.8M</p>
+<p class="text-[10px] text-secondary mt-nano">+ $2.4M Delta</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-airy border-t border-white/5 py-base flex justify-between items-center text-on-surface-variant text-xs">
+<div class="flex gap-airy">
+<span class="font-label-caps text-secondary">HealthcareWale Executive</span>
+<span>© 2030 Connectivity: Satellite-Active. Latency: 12ms.</span>
+</div>
+<div class="flex gap-standard">
+<a class="hover:text-primary transition-colors" href="#">English (Global)</a>
+<a class="hover:text-primary transition-colors" href="#">Sync Status</a>
+<a class="hover:text-primary transition-colors" href="#">Legal</a>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interaction for Revenue Slider
+        const slider = document.getElementById('revenue-slider');
+        const percentageDisplay = document.getElementById('slider-percentage');
+        const profitDisplay = document.getElementById('profit-value');
+        const yieldDisplay = document.getElementById('projected-yield');
+        
+        const baseProfit = 1248302;
+        const baseYield = 16.8;
+
+        slider.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value);
+            percentageDisplay.innerText = (val >= 0 ? '+' : '') + val + '%';
+            
+            // Simulating dynamic math for effect
+            const multiplier = 1 + (val / 100);
+            const newProfit = Math.round(baseProfit * multiplier);
+            const newYield = (baseYield * multiplier).toFixed(1);
+            
+            profitDisplay.innerText = '$' + newProfit.toLocaleString();
+            yieldDisplay.innerText = '$' + newYield + 'M';
+            
+            // Pulse effect
+            profitDisplay.classList.remove('scale-100');
+            profitDisplay.classList.add('scale-105', 'text-white');
+            setTimeout(() => {
+                profitDisplay.classList.remove('scale-105', 'text-white');
+                profitDisplay.classList.add('scale-100');
+            }, 100);
+        });
+
+        // Atmospheric Micro-interactions
+        document.querySelectorAll('.glass-panel').forEach(panel => {
+            panel.addEventListener('mousemove', (e) => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                panel.style.setProperty('--mouse-x', `${x}px`);
+                panel.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

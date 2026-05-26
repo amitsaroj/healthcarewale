@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale - AI Ops Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#6e7979",
+                      "surface-dim": "#cbdbf5",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary-fixed-dim": "#4ae183",
+                      "on-secondary-fixed": "#0b1d2d",
+                      "background": "#f8f9ff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-secondary-container": "#556679",
+                      "secondary-fixed-dim": "#b7c8de",
+                      "on-surface": "#0b1c30",
+                      "inverse-surface": "#213145",
+                      "secondary-container": "#d2e4fb",
+                      "on-primary-fixed": "#002020",
+                      "on-tertiary-fixed": "#00210c",
+                      "on-primary-fixed-variant": "#004f4f",
+                      "secondary": "#4f6073",
+                      "tertiary-container": "#008443",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#0b1c30",
+                      "surface-bright": "#f8f9ff",
+                      "primary-fixed-dim": "#76d6d5",
+                      "tertiary": "#006834",
+                      "surface": "#121b29", /* Override for darker theme */
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#1e293b", /* Darker low container */
+                      "on-tertiary-fixed-variant": "#005228",
+                      "on-tertiary-container": "#e9ffe9",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#76d6d5",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#0b111a", /* Darkest base */
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#93f2f2",
+                      "surface-container-highest": "#334155", /* Darker high container */
+                      "primary-container": "#004a4a", /* Darker primary container */
+                      "outline-variant": "#475569",
+                      "secondary-fixed": "#d2e4fb",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#38485a",
+                      "on-primary-container": "#e3fffe",
+                      "surface-variant": "#1e293b", /* Darker surface variant */
+                      "surface-tint": "#006a6a",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#1e293b", /* Dark container */
+                      "primary": "#00a3a3", /* Brighter teal for dark mode */
+                      "on-surface-variant": "#94a3b8",
+                      "tertiary-fixed": "#6bfe9c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "container-max": "1440px",
+                      "margin-desktop": "40px",
+                      "unit": "8px",
+                      "touch-target": "48px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.25",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-lg": [
+                              "15px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+        body {
+            background-color: #0b111a;
+            color: #ffffff;
+        }
+        
+        .pulse-ring {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 163, 163, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 163, 163, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 163, 163, 0); }
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(71, 85, 105, 0.5);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 163, 163, 0.5);
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden antialiased font-body-md">
+<!-- SideNavBar (Shared Component) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 py-6 px-4 gap-unit bg-surface-container-low border-r border-outline-variant z-40">
+<div class="mb-8 px-2 flex flex-col gap-2">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-black text-primary">HealthcareWale</h2>
+</div>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">AI Operations</p>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all active:scale-95 duration-150 group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<!-- Active (AI Center) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="psychology" data-weight="fill">psychology</span>
+<span class="font-label-lg text-label-lg">AI Center</span>
+<div class="ml-auto w-2 h-2 rounded-full bg-primary pulse-ring"></div>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="record_voice_over">record_voice_over</span>
+<span class="font-label-lg text-label-lg">Call Logs</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-2">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-error text-on-error rounded-lg font-label-lg text-label-lg active:scale-95 duration-150 shadow-sm hover:opacity-90">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+                Emergency Entry
+            </button>
+<div class="h-px bg-outline-variant my-2"></div>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 flex flex-col h-screen overflow-hidden bg-surface-container-lowest relative">
+<!-- TopAppBar (Shared Component Hybrid) -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-touch-target sticky top-0 z-50 bg-surface border-b border-outline-variant shadow-sm py-4 h-auto min-h-[72px]">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary glow-text">AI Receptionist Live Monitor</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed pulse-ring"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">System Status: Optimal</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus-within:ring-2 focus-within:ring-primary rounded-full p-1 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img alt="Admin" class="w-full h-full object-cover" data-alt="A professional headshot of a mature male healthcare administrator in a sleek, dark modern office setting. Dramatic side lighting highlights his features. The mood is serious and commanding, fitting for a high-stakes AI operations center. Dark, cinematic grading with subtle teal undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArpa9jZc7AFEz0YOXlTUYzvyjB3RH8QP3M7YPI5ZSjEiDj-fTGWT40iqwyLshkwal2VwpOAw2M2uM8T47LEKPrTCWpYcaCpzvS3ELDy6XsZ11tZN6jirEXB4dioofYzBqTWV1Du8htdDvFsCRJqJ2IvBhCMhggZ-JxOyOLONO8Ph8F2A3CWhqWFDQ40UjK9XoOsOVgVhcfsiTNGv4wlvgE9n21MxIN4bI8dfCgD5gWVyW5jVOFAWh_et0tCDktAacNxxiRAbUKR0in"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Dashboard -->
+<div class="flex-1 overflow-y-auto p-4 md:p-margin-desktop">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Active Calls (Bento Grid Style) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Top Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="glass-panel p-4 rounded-xl flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Active AI Lines</span>
+<span class="material-symbols-outlined text-primary" data-icon="mic">mic</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface">42</span>
+<span class="font-caption text-caption text-tertiary-fixed-dim">/ 50 Capacity</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-xl flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Avg Resolution Time</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="timer">timer</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface">1m 45s</span>
+<span class="font-caption text-caption text-tertiary-fixed-dim">↓ 12s vs yesterday</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-xl flex flex-col justify-between border-error/50 bg-error-container/10">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-error">Failed Bookings</span>
+<span class="material-symbols-outlined text-error" data-icon="event_busy">event_busy</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-error">3</span>
+<span class="font-caption text-caption text-on-surface-variant">Requires manual intervention</span>
+</div>
+</div>
+</div>
+<!-- Main Live Call Monitor -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col h-[500px]">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface/50">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary pulse-ring"></div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Live Transcription Stream</h3>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-colors border border-outline-variant">Filter: High Risk</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Call Item 1 -->
+<div class="bg-surface-container border-l-4 border-primary rounded-r-lg p-4 relative group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Line #04 - Appointment Booking</p>
+<p class="font-caption text-caption text-on-surface-variant">Lang: English (India) | Sentiment: <span class="text-tertiary-fixed-dim">Positive</span></p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity bg-error text-on-error px-3 py-1 rounded font-label-md text-label-md shadow-sm">Takeover Call</button>
+</div>
+<div class="pl-11 font-body-md text-body-md text-on-surface-variant border-l border-outline-variant ml-4 mt-2">
+<p class="mb-1"><span class="text-primary font-medium">AI:</span> "I can schedule Dr. Sharma for tomorrow at 10:00 AM. Does that work for you?"</p>
+<p><span class="text-secondary-fixed-dim font-medium">Patient:</span> "Yes, that sounds perfect. Thank you."</p>
+</div>
+</div>
+<!-- Call Item 2 (Warning) -->
+<div class="bg-error-container/10 border-l-4 border-error rounded-r-lg p-4 relative group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Line #12 - Billing Inquiry</p>
+<p class="font-caption text-caption text-on-surface-variant">Lang: Hindi | Sentiment: <span class="text-error">Frustrated</span></p>
+</div>
+</div>
+<button class="bg-error text-on-error px-3 py-1 rounded font-label-md text-label-md shadow-sm animate-pulse">Takeover Call</button>
+</div>
+<div class="pl-11 font-body-md text-body-md text-on-surface-variant border-l border-outline-variant ml-4 mt-2">
+<p class="mb-1"><span class="text-primary font-medium">AI:</span> "Main samajhti hoon aapka bill Rs. 5000 dikha raha hai..."</p>
+<p><span class="text-error font-medium">Patient:</span> "Mera bill galat hai! Mujhe kisi insaan se baat karni hai!"</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Analytics & Quick Actions -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Language Performance -->
+<div class="glass-panel p-5 rounded-xl">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Multilingual Processing</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Hindi</span>
+<span class="font-label-md text-label-md text-primary">65%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant">English</span>
+<span class="font-label-md text-label-md text-primary">25%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Marathi</span>
+<span class="font-label-md text-label-md text-primary">10%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sentiment Radar -->
+<div class="glass-panel p-5 rounded-xl flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Global Sentiment</h3>
+<div class="flex-1 flex items-center justify-center relative min-h-[200px]">
+<!-- Mock Radar Chart Graphic (CSS based) -->
+<div class="w-40 h-40 rounded-full border border-outline-variant/30 flex items-center justify-center relative">
+<div class="w-24 h-24 rounded-full border border-outline-variant/50 flex items-center justify-center">
+<div class="w-8 h-8 rounded-full border border-primary/50 bg-primary/10"></div>
+</div>
+<!-- Blips -->
+<div class="absolute top-8 right-10 w-2 h-2 rounded-full bg-tertiary-fixed pulse-ring shadow-[0_0_8px_#4ae183]"></div>
+<div class="absolute bottom-12 left-10 w-2 h-2 rounded-full bg-tertiary-fixed pulse-ring shadow-[0_0_8px_#4ae183]"></div>
+<div class="absolute top-20 left-6 w-3 h-3 rounded-full bg-error pulse-ring shadow-[0_0_12px_#ba1a1a]"></div>
+</div>
+</div>
+<div class="flex justify-around mt-4 pt-4 border-t border-outline-variant">
+<div class="text-center">
+<span class="block font-headline-md text-headline-md text-tertiary-fixed-dim">84%</span>
+<span class="font-caption text-caption text-on-surface-variant">Positive</span>
+</div>
+<div class="text-center">
+<span class="block font-headline-md text-headline-md text-error">12%</span>
+<span class="font-caption text-caption text-on-surface-variant">Negative</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

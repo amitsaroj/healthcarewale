@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Intelligence | HealthcareWale 2030</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&amp;family=Hanken+Grotesk:wght@300;400;500;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#93f2f2",
+                    "on-tertiary-fixed": "#291800",
+                    "on-error-container": "#ffdad6",
+                    "inverse-on-surface": "#2b3040",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed-dim": "#ffb950",
+                    "background": "#090c14",
+                    "surface-dim": "#0e1322",
+                    "on-background": "#dee1f7",
+                    "surface-variant": "#2f3445",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "primary-fixed-dim": "#76d6d5",
+                    "on-error": "#690005",
+                    "on-primary-container": "#e3fffe",
+                    "surface-container-lowest": "#05080f",
+                    "secondary-fixed-dim": "#00e475",
+                    "surface-container": "#161b2b",
+                    "secondary": "#7dffa2",
+                    "on-secondary-fixed-variant": "#005226",
+                    "inverse-primary": "#006a6a",
+                    "surface-container-low": "#111624",
+                    "surface": "#0e1322",
+                    "primary": "#76d6d5",
+                    "on-tertiary": "#452b00",
+                    "outline": "#879392",
+                    "inverse-surface": "#dee1f7",
+                    "tertiary": "#ffb950",
+                    "on-surface": "#dee1f7",
+                    "secondary-container": "#05e777",
+                    "tertiary-fixed": "#ffddb3",
+                    "error-container": "#93000a",
+                    "outline-variant": "#3e4949",
+                    "on-tertiary-container": "#fff9f5",
+                    "on-secondary-fixed": "#00210b",
+                    "secondary-fixed": "#62ff96",
+                    "on-secondary-container": "#00622e",
+                    "tertiary-container": "#9d6800",
+                    "on-secondary": "#003918",
+                    "surface-container-highest": "#2f3445",
+                    "surface-bright": "#343949",
+                    "surface-container-high": "#25293a",
+                    "on-tertiary-fixed-variant": "#624000",
+                    "on-primary-fixed": "#002020",
+                    "primary-container": "#008080",
+                    "surface-tint": "#76d6d5",
+                    "on-primary": "#003737",
+                    "on-surface-variant": "#bdc9c8",
+                    "gold": "#d4af37",
+                    "emerald": "#05e777"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "nano": "4px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "compact": "12px",
+                    "standard": "24px",
+                    "base": "8px",
+                    "airy": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Sora"],
+                    "body-md": ["Hanken Grotesk"],
+                    "label-caps": ["Hanken Grotesk"],
+                    "headline-md": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"],
+                    "serif": ["Playfair Display", "serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+        background: #090c14;
+        color: #dee1f7;
+        overflow-x: hidden;
+        min-height: 100vh;
+    }
+    .silk-bg {
+        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuByjzF5ro4LTXWFWIUPaLGLNEXcmBC6zVSu_JtkabXMlisblsW4SEgD8pXpPOensjhuE88nkGsB-oo08ogss06Rz7uIrY0aPn6eReJrExWy14OF5sDr_UklKCsUr9DvW6pBHrJ0bF-75gXpk5sXc7jp578pJZ62DCazBXv_i_woyBv-nK_Xt4E4vUAqn_i8GkHn1m3rHMFQVdwg-pOv-RaExeeuNp0-WHaJTNW7YiiNWT0wYdwU1PB0QSGfu_fEZvK62-ACG8uDJNiJ');
+        opacity: 0.12;
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background-size: cover;
+    }
+    .light-leak-emerald {
+        position: fixed;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(5, 231, 119, 0.08) 0%, transparent 70%);
+        top: -10%;
+        left: -10%;
+        pointer-events: none;
+        z-index: 1;
+        filter: blur(60px);
+    }
+    .light-leak-gold {
+        position: fixed;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+        bottom: -20%;
+        right: -20%;
+        pointer-events: none;
+        z-index: 1;
+        filter: blur(80px);
+    }
+    .elite-glass {
+        background: rgba(26, 31, 47, 0.4);
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+    .elite-glass:hover {
+        border-color: rgba(212, 175, 55, 0.3);
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.1), inset 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    .glowing-ring {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .glowing-ring svg {
+        transform: rotate(-90deg);
+    }
+    .glowing-ring circle {
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+    }
+    .glowing-ring .bg { stroke: rgba(255,255,255,0.05); }
+    .glowing-ring .progress { 
+        stroke: #05e777; 
+        filter: drop-shadow(0 0 6px rgba(5, 231, 119, 0.6));
+    }
+    .glowing-ring .progress-amber { 
+        stroke: #ffb950; 
+        filter: drop-shadow(0 0 6px rgba(255, 185, 80, 0.6));
+    }
+    .glowing-ring .progress-error { 
+        stroke: #ffb4ab; 
+        filter: drop-shadow(0 0 6px rgba(255, 180, 171, 0.6));
+    }
+    .pill-button {
+        border-radius: 9999px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    .pill-button-emerald {
+        background: linear-gradient(135deg, #008080 0%, #004f4f 100%);
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+    }
+    .pill-button-emerald:hover {
+        box-shadow: 0 0 25px rgba(5, 231, 119, 0.5);
+        transform: translateY(-2px);
+    }
+    .custom-toggle {
+        width: 56px;
+        height: 28px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 999px;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    .custom-toggle .circle {
+        width: 20px;
+        height: 20px;
+        background: #ffb950;
+        border-radius: 50%;
+        position: absolute;
+        top: 3px;
+        left: 4px;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease;
+        box-shadow: 0 0 10px rgba(255, 185, 80, 0.4);
+    }
+    .toggle-active .circle {
+        transform: translateX(26px);
+        background: #05e777;
+        box-shadow: 0 0 15px rgba(5, 231, 119, 0.6);
+    }
+    .toggle-active {
+        background: rgba(5, 231, 119, 0.1);
+        border-color: rgba(5, 231, 119, 0.3);
+    }
+</style>
+</head>
+<body class="font-body-md text-on-surface selection:bg-primary/30">
+<div class="silk-bg"></div>
+<div class="light-leak-emerald"></div>
+<div class="light-leak-gold"></div>
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-compact gap-base bg-surface-container-lowest/90 backdrop-blur-3xl text-secondary font-label-caps text-label-caps h-screen w-72 border-r border-gold/10 z-[60] hidden md:flex transition-all">
+<div class="mb-airy mt-base px-base">
+<h1 class="font-serif text-2xl text-gold italic">HealthcareWale</h1>
+<p class="text-[10px] tracking-widest text-primary/60">EXECUTIVE 2030</p>
+</div>
+<nav class="flex flex-col gap-base flex-grow px-base">
+<a class="flex items-center gap-standard p-base hover:bg-gold/5 hover:text-gold transition-all duration-300 ease-in-out text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard">dashboard</span>
+            Executive Pulse
+        </a>
+<a class="flex items-center gap-standard p-base bg-gold/10 text-gold rounded-full font-bold transition-all" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="monitoring">monitoring</span>
+            Biometric Grid
+        </a>
+<a class="flex items-center gap-standard p-base hover:bg-gold/5 hover:text-gold transition-all text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="psychology">psychology</span>
+            Neural Analytics
+        </a>
+</nav>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-standard h-20 sticky top-0 z-50 bg-background/40 backdrop-blur-xl border-b border-white/5 md:pl-80">
+<div class="flex flex-col">
+<h2 class="font-serif text-2xl font-bold text-on-surface">Staff Intelligence</h2>
+<p class="text-[9px] font-label-caps text-secondary tracking-[0.2em] uppercase">24 Agents • Neural Sync Optimized</p>
+</div>
+<div class="flex items-center gap-base">
+<button class="p-base text-primary/80 hover:text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<button class="p-base text-primary/80 hover:text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="relative z-10 md:ml-72 p-gutter lg:p-airy min-h-screen pb-32">
+<!-- Section Header -->
+<section class="flex flex-col gap-compact mb-airy">
+<h3 class="font-serif text-3xl text-on-surface">Neural Performance Overview</h3>
+<p class="text-on-surface-variant font-body-lg max-w-md opacity-80">Real-time biometric monitoring and AI staffing synchronization.</p>
+<div class="elite-glass p-compact rounded-full w-fit flex items-center gap-standard mt-base px-standard">
+<span class="font-label-caps text-[10px] text-tertiary tracking-widest uppercase">Neural Optimization</span>
+<div class="custom-toggle" id="neuralToggle">
+<div class="circle"></div>
+</div>
+</div>
+</section>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-standard">
+<!-- Dr. Aris Thorne -->
+<div class="elite-glass rounded-xl p-standard flex flex-col gap-standard transition-all duration-500 cursor-pointer group hover:-translate-y-2">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="relative">
+<img alt="Doctor" class="w-14 h-14 rounded-2xl object-cover border border-gold/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4eTUQs3lS8CnZShjuGJtz6AxniChTRYcZrXE3HGlGQIR42hAcTeWCLx7M8npBbX_MZDsSdGALUyNGKXqX9k1bdeEpWMqP2Qky4607A_bh9_L5JeZ36K2cAhjl-VzbQbXJ-UNtT8WEvahKiKkkxeF_YYKNQdPsj7wJOe4PSZ4oUx8sHKmsIeN03jyt8i62KKfnSWdwiDOmpa8CsT9jTeusYk8h9xhrBjqAKwoZn9R9FtOwqsf7DP0o_plfTs2wKoV50MYCchD0N6v3"/>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald rounded-full border-2 border-surface-container shadow-[0_0_8px_#05e777]"></div>
+</div>
+<div>
+<span class="text-tertiary font-label-caps text-[9px] tracking-widest uppercase">Lead Specialist</span>
+<h4 class="font-headline-md text-xl text-on-surface">Dr. Aris Thorne</h4>
+<p class="text-outline text-xs">Neuro-Genetics Lead</p>
+</div>
+</div>
+<div class="glowing-ring w-12 h-12">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<circle class="bg" cx="18" cy="18" r="16"></circle>
+<circle class="progress" cx="18" cy="18" r="16" stroke-dasharray="100, 100" stroke-dashoffset="2"></circle>
+</svg>
+<span class="absolute text-[8px] font-bold text-emerald">98%</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-nano">
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Active Session</p>
+<p class="font-headline-md text-on-surface text-lg">05h 12m</p>
+</div>
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Satisfaction</p>
+<p class="font-headline-md text-secondary text-lg">4.9<span class="text-xs opacity-40">/5</span></p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="pill-button pill-button-emerald flex-1 py-3 text-on-primary text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-base">
+                    Quick Connect
+                </button>
+<button class="w-12 h-12 rounded-full elite-glass flex items-center justify-center text-on-surface-variant hover:text-gold transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="bar_chart">bar_chart</span>
+</button>
+</div>
+</div>
+<!-- UNIT-07 Pulse -->
+<div class="elite-glass rounded-xl p-standard flex flex-col gap-standard transition-all duration-500 cursor-pointer group hover:-translate-y-2 bg-tertiary/5 border-tertiary/20">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-tertiary to-amber-600 flex items-center justify-center shadow-lg shadow-tertiary/10">
+<span class="material-symbols-outlined text-on-tertiary text-2xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<span class="text-tertiary font-label-caps text-[9px] tracking-widest uppercase">Autonomous Agent</span>
+<h4 class="font-headline-md text-xl text-on-surface">Unit-07 Pulse</h4>
+<p class="text-outline text-xs">Automated Triage Cluster</p>
+</div>
+</div>
+<div class="bg-tertiary/20 px-3 py-1 rounded-full border border-tertiary/30">
+<span class="text-tertiary font-label-caps text-[8px] font-bold">OPTIMAL</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-nano">
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Latency</p>
+<p class="font-headline-md text-on-surface text-lg">12ms</p>
+</div>
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Success Rate</p>
+<p class="font-headline-md text-tertiary text-lg">5.0<span class="text-xs opacity-40">/5</span></p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="pill-button bg-surface-container-highest border border-tertiary/40 flex-1 py-3 text-tertiary text-xs font-bold uppercase tracking-widest hover:bg-tertiary hover:text-on-tertiary transition-all">
+                    Override Unit
+                </button>
+<button class="w-12 h-12 rounded-full elite-glass flex items-center justify-center text-tertiary border-tertiary/30 hover:bg-tertiary/10">
+<span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
+</button>
+</div>
+</div>
+<!-- Elara Vance -->
+<div class="elite-glass rounded-xl p-standard flex flex-col gap-standard transition-all duration-500 cursor-pointer group hover:-translate-y-2">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="relative">
+<img alt="Nurse" class="w-14 h-14 rounded-2xl object-cover border border-gold/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJdjte_-C47fVpdmcfxE-InkjEPNXUa4ajYq6uLGV_LAseSsgNDEcKhmbbcYHOsFWzu9UR5z_JkWF0AxlIzcKq8esVa_ELGyeU9TBarjQupJbj97Ll0n7PpWMveeAHtmukbDwcf7RO940QVYoQvO_gbw5lPdNRD2jGbOiBSF-NYnilX9TePUyiK5BDY896i9YXU05snd1qcT4Ohxx8EeTX_KuLyEqy-l8QEwSk7Ta9PY3b0MN9Aesi6-l3VTu_70kM-RBfpvZGF7Bn"/>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald rounded-full border-2 border-surface-container shadow-[0_0_8px_#05e777]"></div>
+</div>
+<div>
+<span class="text-tertiary font-label-caps text-[9px] tracking-widest uppercase">Support Lead</span>
+<h4 class="font-headline-md text-xl text-on-surface">Elara Vance</h4>
+<p class="text-outline text-xs">Critical Bio-Sustain</p>
+</div>
+</div>
+<div class="glowing-ring w-12 h-12">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<circle class="bg" cx="18" cy="18" r="16"></circle>
+<circle class="progress-amber" cx="18" cy="18" r="16" stroke-dasharray="82, 100" stroke-dashoffset="0"></circle>
+</svg>
+<span class="absolute text-[8px] font-bold text-tertiary">82%</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-nano">
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Shift End</p>
+<p class="font-headline-md text-on-surface text-lg">02h 45m</p>
+</div>
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Vitals</p>
+<p class="font-headline-md text-secondary text-lg">Stable</p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="pill-button pill-button-emerald flex-1 py-3 text-on-primary text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-base">
+                    Quick Connect
+                </button>
+<button class="w-12 h-12 rounded-full elite-glass flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="bar_chart">bar_chart</span>
+</button>
+</div>
+</div>
+<!-- Dr. Julian Vane -->
+<div class="elite-glass rounded-xl p-standard flex flex-col gap-standard transition-all duration-500 cursor-pointer group hover:-translate-y-2 border-error/20">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="relative">
+<img alt="Surgeon" class="w-14 h-14 rounded-2xl object-cover border border-error/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUogNOX5-Iw0nMvEG6C7Na3UvoBe0RWjMsubO8lBTUk7aal2jcjYqq8hln6T6YzI-BTxmJmCozXJpe0nxg3-ZHEK67eabeQiBdPvmt05kGr1PbBHr6ZjfXPOBmrEA-UgRUVTkABcY0qhgKsvO_wX0DfUlmVfjGuLmHScwPyrKjs25RtU4gA3N3JDTz6HSrwOoIEhK72RKHjS1dMV4ccgweQAjFPWdSfZwg0z7BKD4dVtYnJa2pRo-4sdmHbjsgewFzlyVTAVUkTJZj"/>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-error rounded-full border-2 border-surface-container shadow-[0_0_8px_#ffb4ab] animate-pulse"></div>
+</div>
+<div>
+<span class="text-error font-label-caps text-[9px] tracking-widest uppercase">Senior Surgeon</span>
+<h4 class="font-headline-md text-xl text-on-surface">Dr. Julian Vane</h4>
+<p class="text-outline text-xs">Robotic Precision</p>
+</div>
+</div>
+<div class="bg-error/10 px-3 py-1 rounded-full border border-error/30">
+<span class="text-error font-label-caps text-[8px] font-bold">FATIGUE ALERT</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-nano">
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Session</p>
+<p class="font-headline-md text-error text-lg">09h 30m</p>
+</div>
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Precision</p>
+<p class="font-headline-md text-on-surface text-lg">99.2%</p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="pill-button bg-error/20 border border-error/40 flex-1 py-3 text-error text-xs font-bold uppercase tracking-widest hover:bg-error hover:text-on-error transition-all">
+                    Emergency Break
+                </button>
+<button class="w-12 h-12 rounded-full elite-glass flex items-center justify-center text-error border-error/20">
+<span class="material-symbols-outlined text-lg" data-icon="notification_important">notification_important</span>
+</button>
+</div>
+</div>
+<!-- UNIT-09 Omni -->
+<div class="elite-glass rounded-xl p-standard flex flex-col gap-standard transition-all duration-500 cursor-pointer group hover:-translate-y-2">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-on-primary text-2xl" data-icon="database">database</span>
+</div>
+<div>
+<span class="text-tertiary font-label-caps text-[9px] tracking-widest uppercase">System Core</span>
+<h4 class="font-headline-md text-xl text-on-surface">Unit-09 Omni</h4>
+<p class="text-outline text-xs">Pathology Processing</p>
+</div>
+</div>
+<div class="bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
+<span class="text-secondary font-label-caps text-[8px] font-bold">IDLE</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-nano">
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Uptime</p>
+<p class="font-headline-md text-on-surface text-lg">99.9%</p>
+</div>
+<div class="bg-white/5 p-base rounded-2xl border border-white/5">
+<p class="text-outline text-[9px] font-label-caps uppercase">Throughput</p>
+<p class="font-headline-md text-secondary text-lg">480<span class="text-[10px] opacity-60">/hr</span></p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="pill-button bg-white/5 border border-white/10 flex-1 py-3 text-on-surface-variant text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all">
+                    System Diagnostics
+                </button>
+<button class="w-12 h-12 rounded-full elite-glass flex items-center justify-center text-on-surface-variant border-white/10">
+<span class="material-symbols-outlined text-lg" data-icon="settings_suggest">settings_suggest</span>
+</button>
+</div>
+</div>
+<!-- Staffing Insight Card -->
+<div class="elite-glass rounded-xl p-standard flex flex-col gap-standard border-tertiary/40 bg-tertiary/10 hidden" id="neuralSuggestion">
+<div class="flex items-center gap-compact">
+<span class="material-symbols-outlined text-tertiary animate-spin" data-icon="auto_awesome" style="animation-duration: 3s;">auto_awesome</span>
+<h4 class="font-headline-md text-lg text-tertiary">Optimization Identified</h4>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm italic">"AI detects surge in Zone 4 robotic procedures. Recommending Unit-09 re-allocation to Surgical Support for peak load mitigation."</p>
+<div class="flex gap-base mt-auto">
+<button class="pill-button pill-button-emerald flex-1 py-3 text-on-primary text-[10px] font-bold uppercase tracking-widest">Execute Plan</button>
+<button class="px-standard py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface">Ignore</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest/80 backdrop-blur-3xl flex justify-around items-center pt-base pb-8 px-base border-t border-gold/10 z-[100]">
+<button class="flex flex-col items-center gap-1 p-base text-on-surface-variant group">
+<span class="material-symbols-outlined text-xl group-hover:text-gold transition-colors" data-icon="dashboard">dashboard</span>
+<span class="text-[7px] font-label-caps tracking-widest opacity-60">PULSE</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-base text-gold relative">
+<span class="material-symbols-outlined text-2xl" data-icon="monitoring">monitoring</span>
+<span class="text-[7px] font-label-caps tracking-widest">GRID</span>
+<div class="absolute -bottom-1 w-4 h-[2px] bg-gold rounded-full"></div>
+</button>
+<button class="flex flex-col items-center gap-1 p-base text-on-surface-variant group">
+<span class="material-symbols-outlined text-xl group-hover:text-gold transition-colors" data-icon="psychology">psychology</span>
+<span class="text-[7px] font-label-caps tracking-widest opacity-60">NEURAL</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-base text-on-surface-variant group">
+<span class="material-symbols-outlined text-xl group-hover:text-gold transition-colors" data-icon="account_tree">account_tree</span>
+<span class="text-[7px] font-label-caps tracking-widest opacity-60">UNITS</span>
+</button>
+</nav>
+<script>
+    const neuralToggle = document.getElementById('neuralToggle');
+    const neuralSuggestion = document.getElementById('neuralSuggestion');
+    let isActive = false;
+
+    neuralToggle.addEventListener('click', () => {
+        isActive = !isActive;
+        neuralToggle.classList.toggle('toggle-active', isActive);
+        
+        if(isActive) {
+            neuralSuggestion.classList.remove('hidden');
+            neuralSuggestion.classList.add('animate-in', 'fade-in', 'slide-in-from-bottom-4', 'duration-500');
+        } else {
+            neuralSuggestion.classList.add('hidden');
+        }
+    });
+
+    // Subtle parallax on cards
+    document.querySelectorAll('.elite-glass').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `none`;
+        });
+    });
+</script>
+</body></html>

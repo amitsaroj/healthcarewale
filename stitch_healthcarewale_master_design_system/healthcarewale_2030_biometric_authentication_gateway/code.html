@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale 2030 | Authentication Gateway</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "on-primary": "#003737",
+                    "secondary-container": "#05e777",
+                    "on-tertiary-fixed": "#291800",
+                    "on-secondary-container": "#00622e",
+                    "secondary": "#7dffa2",
+                    "on-tertiary-fixed-variant": "#624000",
+                    "error-container": "#93000a",
+                    "surface-container-low": "#161b2b",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#00e475",
+                    "on-secondary-fixed-variant": "#005226",
+                    "primary": "#76d6d5",
+                    "tertiary": "#ffb950",
+                    "outline": "#879392",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "on-primary-fixed": "#002020",
+                    "on-background": "#dee1f7",
+                    "surface-container-highest": "#2f3445",
+                    "surface-tint": "#76d6d5",
+                    "inverse-primary": "#006a6a",
+                    "inverse-surface": "#dee1f7",
+                    "on-surface-variant": "#bdc9c8",
+                    "inverse-on-surface": "#2b3040",
+                    "on-primary-container": "#e3fffe",
+                    "on-tertiary-container": "#fff9f5",
+                    "primary-fixed": "#93f2f2",
+                    "secondary-fixed": "#62ff96",
+                    "tertiary-fixed": "#ffddb3",
+                    "tertiary-fixed-dim": "#ffb950",
+                    "surface-variant": "#2f3445",
+                    "surface-container-high": "#25293a",
+                    "surface": "#0e1322",
+                    "surface-container": "#1a1f2f",
+                    "on-secondary": "#003918",
+                    "surface-bright": "#343949",
+                    "on-secondary-fixed": "#00210b",
+                    "on-tertiary": "#452b00",
+                    "surface-dim": "#0e1322",
+                    "background": "#0e1322",
+                    "surface-container-lowest": "#090e1c",
+                    "on-surface": "#dee1f7",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#76d6d5",
+                    "primary-container": "#008080",
+                    "outline-variant": "#3e4949",
+                    "tertiary-container": "#9d6800"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "nano": "4px",
+                    "base": "8px",
+                    "compact": "12px",
+                    "airy": "48px",
+                    "standard": "24px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-caps": ["Hanken Grotesk"],
+                    "display-lg": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Sora"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: radial-gradient(circle at 50% 50%, #1a1f2f 0%, #0e1322 100%);
+            overflow: hidden;
+        }
+
+        .super-ellipse {
+            clip-path: url(#super-ellipse-clip);
+        }
+
+        .biometric-scanner {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .biometric-scanner::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(118, 214, 213, 0.4), transparent);
+            animation: scan 2s infinite ease-in-out;
+        }
+
+        @keyframes scan {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .auth-orbit {
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+            100% { transform: scale(0.8); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col justify-center items-center p-standard selection:bg-primary/30">
+<!-- Atmospheric Deep Space Elements -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] auth-orbit"></div>
+<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/5 rounded-full blur-[100px] auth-orbit" style="animation-direction: reverse;"></div>
+</div>
+<!-- Top Branding Anchor (Hidden on specific screens based on JSON logic - here we maintain context) -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-standard h-20 z-50 border-b border-white/5 bg-surface/30 backdrop-blur-md">
+<div class="font-headline-md text-headline-md font-bold text-primary">HealthcareWale 2030</div>
+<div class="flex items-center gap-compact">
+<button class="flex items-center gap-base px-base py-compact bg-white/5 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">language</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">English</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+</div>
+</div>
+</header>
+<!-- Main Auth Card -->
+<main class="relative z-10 w-full max-w-lg">
+<div class="glass-panel rounded-lg p-airy flex flex-col gap-airy shadow-2xl relative overflow-hidden">
+<!-- Branding/Greeting -->
+<section class="text-center">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-base">Gateway Access</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Secure biometric authentication required to access the network.</p>
+</section>
+<!-- Biometric Core -->
+<section class="flex flex-col items-center justify-center gap-standard">
+<div class="relative w-40 h-40 flex items-center justify-center">
+<!-- Scanning Rings -->
+<div class="absolute inset-0 border-2 border-primary/20 rounded-full"></div>
+<div class="absolute inset-2 border border-secondary/30 rounded-full pulse-ring"></div>
+<!-- Scanner Icon -->
+<div class="biometric-scanner w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center border border-primary/40">
+<span class="material-symbols-outlined text-6xl text-primary" style="font-variation-settings: 'FILL' 0;">fingerprint</span>
+</div>
+</div>
+<button class="px-airy py-compact bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-bold rounded-full transition-transform active:scale-95 shadow-lg shadow-primary/20" id="biometric-trigger">
+                    AUTHENTICATE
+                </button>
+</section>
+<!-- Fallback & Multi-factor -->
+<div class="flex flex-col gap-standard">
+<div class="flex items-center gap-base">
+<div class="h-px grow bg-white/10"></div>
+<span class="font-label-caps text-label-caps text-outline">SECURE FALLBACK</span>
+<div class="h-px grow bg-white/10"></div>
+</div>
+<div class="grid grid-cols-2 gap-compact">
+<button class="flex items-center justify-center gap-base p-compact rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 transition-all text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-secondary">chat</span>
+                        WhatsApp Link
+                    </button>
+<button class="flex items-center justify-center gap-base p-compact rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 transition-all text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-tertiary">key</span>
+                        Neural Passkey
+                    </button>
+</div>
+</div>
+<!-- Unit Selection -->
+<div class="flex flex-col gap-compact">
+<label class="font-label-caps text-label-caps text-outline uppercase">Select Target Node</label>
+<div class="grid grid-cols-2 gap-base">
+<div class="unit-card group relative p-compact rounded-lg bg-surface-container border border-white/5 hover:border-primary/50 cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary mb-nano">local_pharmacy</span>
+<p class="font-body-md text-on-surface">Pharmacy</p>
+</div>
+<div class="unit-card group relative p-compact rounded-lg bg-surface-container border border-white/5 hover:border-primary/50 cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary mb-nano">medical_services</span>
+<p class="font-body-md text-on-surface">Clinic</p>
+</div>
+<div class="unit-card group relative p-compact rounded-lg bg-surface-container border border-white/5 hover:border-primary/50 cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary mb-nano">corporate_fare</span>
+<p class="font-body-md text-on-surface">HMS Admin</p>
+</div>
+<div class="unit-card group relative p-compact rounded-lg bg-surface-container border border-white/5 hover:border-primary/50 cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary mb-nano">hub</span>
+<p class="font-body-md text-on-surface">B2B Core</p>
+</div>
+</div>
+</div>
+</div>
+<!-- System Metadata -->
+<footer class="mt-airy text-center">
+<p class="font-label-caps text-label-caps text-outline-variant">Authorized personnel only. Data encrypted with Bio-Vortex 4.0</p>
+</footer>
+</main>
+<!-- Telemetry Status Bar -->
+<div class="fixed bottom-0 left-0 w-full h-12 bg-surface-container-lowest border-t border-white/5 flex items-center justify-between px-standard z-50">
+<div class="flex items-center gap-airy">
+<div class="flex items-center gap-base">
+<div class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></div>
+<span class="font-label-caps text-label-caps text-secondary">SYSTEM READY</span>
+</div>
+<div class="hidden md:flex items-center gap-base">
+<span class="font-label-caps text-label-caps text-outline-variant">LENCY: 12ms</span>
+<span class="font-label-caps text-label-caps text-outline-variant">SAT_LINK: ACTIVE</span>
+</div>
+</div>
+<div class="flex gap-airy">
+<a class="font-label-caps text-label-caps text-outline-variant hover:text-primary transition-colors" href="#">Legal</a>
+<a class="font-label-caps text-label-caps text-outline-variant hover:text-primary transition-colors" href="#">Sync Status</a>
+</div>
+</div>
+<!-- Hidden SVG for Super Ellipse Clip Path -->
+<svg height="0" width="0">
+<defs>
+<clippath clippathunits="objectBoundingBox" id="super-ellipse-clip">
+<path d="M 0,0.5 C 0,0.05 0.05,0 0.5,0 C 0.95,0 1,0.05 1,0.5 C 1,0.95 0.95,1 0.5,1 C 0.05,1 0,0.95 0,0.5 Z"></path>
+</clippath>
+</defs>
+</svg>
+<script>
+        // Micro-interaction: Unit selection
+        const unitCards = document.querySelectorAll('.unit-card');
+        unitCards.forEach(card => {
+            card.addEventListener('click', () => {
+                unitCards.forEach(c => c.classList.remove('border-primary', 'bg-primary/10'));
+                card.classList.add('border-primary', 'bg-primary/10');
+            });
+        });
+
+        // Simulating the high-fidelity scan
+        const trigger = document.getElementById('biometric-trigger');
+        const scanner = document.querySelector('.biometric-scanner');
+        
+        trigger.addEventListener('click', () => {
+            trigger.textContent = 'SCANNING...';
+            trigger.classList.add('opacity-80');
+            scanner.classList.add('scale-110');
+            scanner.style.boxShadow = '0 0 40px rgba(118, 214, 213, 0.4)';
+            
+            setTimeout(() => {
+                trigger.textContent = 'AUTHORIZED';
+                trigger.classList.remove('from-primary-container', 'to-secondary-container');
+                trigger.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                scanner.classList.remove('scale-110');
+                scanner.style.boxShadow = 'none';
+                
+                // Audio feedback (if supported/simulated)
+                console.log('Bio-auth success sequence initiated.');
+            }, 2500);
+        });
+
+        // Smoothly update telemetry values (just visual flavor)
+        setInterval(() => {
+            const latencies = ['11ms', '12ms', '9ms', '14ms'];
+            const latencyEl = document.querySelector('span:contains("LENCY:")');
+            if(latencyEl) {
+               const rand = latencies[Math.floor(Math.random() * latencies.length)];
+               latencyEl.textContent = `LENCY: ${rand}`;
+            }
+        }, 5000);
+    </script>
+</body></html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale Founder's Suite - Workflow Configuration</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#d3e4fe",
+                    "surface-container-high": "#dce9ff",
+                    "surface": "#f8f9ff",
+                    "tertiary-fixed-dim": "#4ae183",
+                    "on-tertiary-container": "#e9ffe9",
+                    "on-primary-container": "#e3fffe",
+                    "secondary-fixed": "#d2e4fb",
+                    "primary-fixed": "#93f2f2",
+                    "tertiary-fixed": "#6bfe9c",
+                    "on-surface-variant": "#3e4949",
+                    "inverse-surface": "#213145",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-fixed-dim": "#76d6d5",
+                    "primary-container": "#008080",
+                    "tertiary-container": "#008443",
+                    "outline-variant": "#bdc9c8",
+                    "surface-dim": "#cbdbf5",
+                    "background": "#f8f9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "on-secondary-fixed": "#0b1d2d",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary-fixed-variant": "#005228",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#d2e4fb",
+                    "on-tertiary-fixed": "#00210c",
+                    "on-secondary-container": "#556679",
+                    "secondary": "#4f6073",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "surface-tint": "#006a6a",
+                    "surface-container-highest": "#d3e4fe",
+                    "inverse-primary": "#76d6d5",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "on-primary-fixed": "#002020",
+                    "secondary-fixed-dim": "#b7c8de",
+                    "primary": "#006565",
+                    "on-secondary-fixed-variant": "#38485a",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#006834",
+                    "outline": "#6e7979"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "unit": "8px",
+                    "touch-target": "48px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                    "label-md": ["13px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                    "label-lg": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                    "headline-lg": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                    "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                    "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Hide scrollbar for a cleaner look in the side panel if it overflows */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- JSON Component: SideNavBar -->
+<nav class="bg-surface-container-low dark:bg-inverse-surface text-primary dark:text-primary-fixed-dim font-label-md text-label-md h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline shadow-sm flex flex-col h-full py-gutter px-4 z-40 hidden md:flex">
+<!-- Header -->
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-on-primary font-bold">H</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">HealthcareWale</h1>
+<p class="font-caption text-caption text-on-surface-variant">Pharma Distribution</p>
+</div>
+</div>
+</div>
+<!-- Main Navigation -->
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+                Retailers
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+                Deliveries
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Payments
+            </a>
+</div>
+<!-- Quick Action -->
+<div class="mt-auto mb-4">
+<button class="w-full bg-primary text-on-primary font-label-lg text-label-lg py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-surface-tint transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                Quick Order
+            </button>
+</div>
+<!-- Footer Navigation -->
+<div class="space-y-1 border-t border-outline-variant pt-4">
+<!-- Active State logic applied to Settings as this is a configuration screen -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed font-bold border-l-4 border-primary transition-colors hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-on-secondary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+                Support
+            </a>
+</div>
+</nav>
+<!-- JSON Component: TopNavBar -->
+<header class="bg-surface dark:bg-background text-primary dark:text-primary-fixed-dim font-body-md text-body-md fixed top-0 right-0 left-0 md:left-64 h-16 border-b border-outline-variant dark:border-outline z-30 flex justify-between items-center px-gutter h-full w-full">
+<div class="flex items-center gap-4 w-full max-w-xl">
+<!-- Search on left as per JSON config -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-md font-body-md focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant" placeholder="Search operations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<h2 class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed-dim hidden lg:block">HealthcareWale B2B</h2>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-6">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-lg font-bold ml-2 shadow-sm border border-outline-variant cursor-pointer">
+                    DP
+                </div>
+</div>
+</div>
+</header>
+<!-- Main Canvas Content -->
+<main class="md:ml-64 mt-16 p-margin-mobile md:p-margin-desktop max-w-[1440px] mx-auto min-h-[calc(100vh-64px)]">
+<!-- Workflow Header -->
+<header class="mb-8">
+<nav aria-label="Breadcrumb" class="flex text-on-surface-variant font-label-md text-label-md mb-4">
+<ol class="inline-flex items-center space-x-1 md:space-x-3">
+<li class="inline-flex items-center hover:text-primary cursor-pointer transition-colors">
+                        Retention Operations
+                    </li>
+<li>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[16px] mx-1">chevron_right</span>
+<span class="text-primary font-bold">New Workflow</span>
+</div>
+</li>
+</ol>
+</nav>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-1">
+<input class="w-full md:w-3/4 bg-transparent border-b-2 border-transparent hover:border-outline-variant focus:border-primary font-headline-xl text-headline-xl text-on-surface placeholder:text-outline p-0 pb-1 focus:ring-0 transition-colors" placeholder="Enter Workflow Name..." type="text" value="High-Value Churn Prevention"/>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-lowest p-1 rounded-full border border-outline-variant shadow-sm w-fit">
+<button class="px-4 py-1.5 rounded-full font-label-lg text-label-lg transition-colors text-on-surface-variant hover:bg-surface-container-low">Draft</button>
+<button class="px-4 py-1.5 rounded-full font-label-lg text-label-lg transition-colors bg-on-secondary-fixed text-on-primary shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed">radio_button_checked</span>
+                        Active
+                    </button>
+</div>
+</div>
+</header>
+<!-- Configuration Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start pb-20">
+<!-- Left Column: Builders (Steps 1, 2, 3) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Step 1: Trigger -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline-variant group-focus-within:bg-primary transition-colors"></div>
+<div class="p-6 pl-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-lg text-label-lg font-bold">1</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Trigger</h3>
+<span class="ml-auto bg-surface-container-high text-on-surface-variant font-caption text-caption px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span> If this happens
+                            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Condition</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface border border-outline-variant rounded-lg p-3 pr-10 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none cursor-pointer">
+<option selected="" value="days_since_order">Days since last order</option>
+<option value="sentiment_drop">Sentiment drop below threshold</option>
+<option value="open_tickets">Open support tickets</option>
+<option value="payment_delay">Payment delayed beyond terms</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Operator &amp; Value</label>
+<div class="flex gap-2">
+<select class="w-1/3 appearance-none bg-surface border border-outline-variant rounded-lg p-3 text-center font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none cursor-pointer">
+<option selected="" value="&gt;=">≥</option>
+<option value="=">=</option>
+<option value="&lt;=">≤</option>
+</select>
+<div class="relative w-2/3">
+<input class="w-full bg-surface border border-outline-variant rounded-lg p-3 pr-12 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none text-right" type="number" value="14"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-md text-body-md text-on-surface-variant pointer-events-none">Days</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 2: Audience Filter -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline-variant group-focus-within:bg-primary transition-colors"></div>
+<div class="p-6 pl-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-lg text-label-lg font-bold">2</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Target Audience</h3>
+<span class="ml-auto bg-surface-container-high text-on-surface-variant font-caption text-caption px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">filter_alt</span> Scope
+                            </span>
+</div>
+<div class="space-y-6">
+<!-- Partner Type -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-3">Partner Type</label>
+<div class="flex flex-wrap gap-3">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="px-4 py-2 border border-outline-variant rounded-full text-on-surface font-body-md text-body-md hover:bg-surface-container-low peer-checked:bg-secondary-container peer-checked:border-primary peer-checked:text-on-secondary-fixed transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] peer-checked:text-primary">local_pharmacy</span>
+                                            Pharmacy
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" type="checkbox"/>
+<div class="px-4 py-2 border border-outline-variant rounded-full text-on-surface font-body-md text-body-md hover:bg-surface-container-low peer-checked:bg-secondary-container peer-checked:border-primary peer-checked:text-on-secondary-fixed transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] peer-checked:text-primary">medical_services</span>
+                                            Clinic
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="px-4 py-2 border border-outline-variant rounded-full text-on-surface font-body-md text-body-md hover:bg-surface-container-low peer-checked:bg-secondary-container peer-checked:border-primary peer-checked:text-on-secondary-fixed transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] peer-checked:text-primary">store</span>
+                                            Distributor
+                                        </div>
+</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Region -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Region</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface border border-outline-variant rounded-lg p-3 pr-10 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none cursor-pointer">
+<option value="all">All Regions</option>
+<option selected="" value="mh">Maharashtra (Tier 1 &amp; 2)</option>
+<option value="gj">Gujarat</option>
+<option value="ka">Karnataka</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Tier -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Membership Tier</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface border border-outline-variant rounded-lg p-3 pr-10 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none cursor-pointer">
+<option value="any">Any Tier</option>
+<option selected="" value="premium">Premium / Gold</option>
+<option value="standard">Standard</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 3: Action Logic -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline-variant group-focus-within:bg-tertiary-container transition-colors"></div>
+<div class="p-6 pl-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-primary-container flex items-center justify-center font-label-lg text-label-lg font-bold">3</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Action Logic</h3>
+<span class="ml-auto bg-surface-container-high text-on-surface-variant font-caption text-caption px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">play_arrow</span> Then do this
+                            </span>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Action Type</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface border border-outline-variant rounded-lg p-3 pr-10 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none cursor-pointer">
+<option selected="" value="whatsapp">Send WhatsApp Message</option>
+<option value="call">Schedule Executive Call</option>
+<option value="discount">Apply Automated Discount</option>
+<option value="escalate">Escalate to Support Lead</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-4 border border-outline-variant">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2 flex justify-between">
+<span>Message Template</span>
+<span class="text-primary cursor-pointer hover:underline">Insert Variable</span>
+</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-lg p-3 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none resize-none" rows="4">Hi {{Partner_Name}}, we noticed you haven't placed an order in the last 14 days. As a valued Premium partner, we want to ensure everything is running smoothly. Reply to this message to connect instantly with your account manager.</textarea>
+</div>
+<button class="flex items-center gap-2 text-primary font-label-lg text-label-lg hover:underline mt-2">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+                                Add another action
+                            </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Preview & Test Panel -->
+<div class="lg:col-span-4 relative">
+<div class="sticky top-24 flex flex-col gap-4">
+<!-- Logic Summary Card -->
+<div class="bg-inverse-surface rounded-xl shadow-md p-6 text-inverse-on-surface">
+<h4 class="font-headline-sm text-headline-sm text-surface mb-4 flex items-center gap-2 border-b border-outline/30 pb-2">
+<span class="material-symbols-outlined text-primary-fixed">psychology</span>
+                            Logic Summary
+                        </h4>
+<div class="space-y-4 font-body-md text-body-md leading-relaxed">
+<p>
+<strong class="text-tertiary-fixed">IF</strong> a 
+                                <span class="bg-on-surface-variant/40 px-1 rounded">Pharmacy</span> or <span class="bg-on-surface-variant/40 px-1 rounded">Distributor</span>
+                                in <span class="bg-on-surface-variant/40 px-1 rounded">Maharashtra</span> 
+                                (<span class="bg-on-surface-variant/40 px-1 rounded">Premium</span> tier)
+                            </p>
+<p>
+<strong class="text-tertiary-fixed">HAS</strong>
+<span class="text-primary-fixed">days_since_order</span> ≥ <span class="bg-on-surface-variant/40 px-1 rounded text-surface">14</span>
+</p>
+<div class="border-t border-outline/30 pt-4">
+<p>
+<strong class="text-tertiary-fixed">THEN</strong> 
+                                    execute <span class="text-primary-fixed">Send WhatsApp Message</span>
+</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline/30">
+<button class="w-full bg-surface-container-highest/20 hover:bg-surface-container-highest/40 text-surface border border-outline-variant/30 font-label-lg text-label-lg py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">bug_report</span>
+                                Test Workflow
+                            </button>
+</div>
+</div>
+<!-- Est Impact Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm">
+<h5 class="font-label-lg text-label-lg text-on-surface-variant mb-2">Estimated Impact Group</h5>
+<div class="flex items-end gap-3">
+<span class="font-headline-xl text-headline-xl text-on-surface leading-none">248</span>
+<span class="font-body-md text-body-md text-on-surface-variant pb-1">partners currently match</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Footer Actions -->
+<div class="fixed bottom-0 right-0 left-0 md:left-64 bg-surface/90 backdrop-blur-md border-t border-outline-variant p-4 z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="max-w-[1440px] mx-auto flex justify-end gap-4 px-gutter">
+<button class="px-6 py-2.5 rounded-lg border border-outline-variant text-on-surface font-label-lg text-label-lg hover:bg-surface-container-low transition-colors min-w-[120px]">
+                Discard
+            </button>
+<button class="px-6 py-2.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-surface-tint shadow-sm transition-colors min-w-[160px] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                Save &amp; Activate
+            </button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale - Premium Clinic Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#156820",
+                    "surface-dim": "#ccdbf3",
+                    "error": "#ba1a1a",
+                    "secondary": "#4c56af",
+                    "on-background": "#0d1c2e",
+                    "secondary-fixed-dim": "#bdc2ff",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#e3fffe",
+                    "inverse-primary": "#76d6d5",
+                    "on-secondary-container": "#27308a",
+                    "tertiary-fixed": "#a3f69c",
+                    "secondary-fixed": "#e0e0ff",
+                    "on-surface-variant": "#3e4949",
+                    "outline": "#6e7979",
+                    "on-secondary-fixed": "#000767",
+                    "surface-container": "#e6eeff",
+                    "primary-container": "#008080",
+                    "background": "#f8f9ff",
+                    "on-secondary-fixed-variant": "#343d96",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#002204",
+                    "inverse-surface": "#233144",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "primary-fixed": "#93f2f2",
+                    "on-primary-fixed": "#002020",
+                    "tertiary-container": "#338236",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-container-highest": "#d5e3fc",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-container": "#ebffe3",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#d5e3fc",
+                    "primary": "#006565",
+                    "secondary-container": "#959efd",
+                    "surface-tint": "#006a6a",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#76d6d5",
+                    "outline-variant": "#bdc9c8",
+                    "on-surface": "#0d1c2e",
+                    "surface-bright": "#f8f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "touch-target-min": "44px",
+                    "lg": "24px",
+                    "margin-desktop": "48px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "caption": [
+                            "Inter"
+                    ],
+                    "label-xl": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "caption": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-xl": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low dark:bg-on-background docked left-0 h-full w-64 border-r border-outline-variant dark:border-outline flat no shadows flex flex-col h-screen sticky top-0 p-md hidden md:flex z-50 shrink-0">
+<!-- Header -->
+<div class="mb-xl flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary" data-icon="monitor_heart" data-weight="fill">monitor_heart</span>
+</div>
+<div>
+<h1 class="text-label-xl font-label-xl font-black text-primary dark:text-primary-fixed">HealthcareWale</h1>
+<p class="font-caption text-caption text-on-surface-variant dark:text-surface-variant">Hospital Unit 01</p>
+</div>
+</div>
+<!-- Main Navigation -->
+<div class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-label-md text-label-md">Pharmacy</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg transition-all duration-200 ease-in-out cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="local_hospital">local_hospital</span>
+<span class="font-label-md text-label-md">Clinic</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-label-md text-label-md">AI Center</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md">HMS</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+<span class="font-label-md text-label-md">B2B</span>
+</a>
+</div>
+<!-- Footer Navigation -->
+<div class="mt-auto flex flex-col gap-xs pt-md border-t border-outline-variant dark:border-outline">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out cursor-pointer active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-lg h-touch-target-min shrink-0 z-40">
+<!-- Left: Search (from JSON config) -->
+<div class="flex items-center gap-sm flex-1">
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-xl pr-sm py-xs bg-surface-container-low border border-outline-variant rounded-full text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Search patients, records..." type="text"/>
+</div>
+</div>
+<!-- Center: Brand (Hidden on desktop as side nav has it, visible on mobile) -->
+<div class="flex-1 flex justify-center md:hidden">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">HealthcareWale</span>
+</div>
+<!-- Right: Actions & Profile -->
+<div class="flex items-center gap-md flex-1 justify-end">
+<button aria-label="Voice Command" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors rounded-full cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<button aria-label="Network Status" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors rounded-full cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="signal_cellular_connected_no_internet_4_bar">signal_cellular_connected_no_internet_4_bar</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden cursor-pointer shrink-0">
+<img alt="Clinician profile avatar" class="w-full h-full object-cover" data-alt="Close up professional portrait of a confident female clinician in a bright, modern hospital setting. She is wearing light blue medical scrubs and a stethoscope. The lighting is soft and high-key, reflecting a pristine, trustworthy medical environment. The color palette emphasizes clean whites and cool blues, aligning with a high-reliability clinical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF6BAeV3Pg8CmVVeaqhfupgmGUbq0P5dh-r7ybc839YaD3rLTSJs_WrnAWV2L8Iffrkx1v_Lv5lkmQB7IUVkFVVDN-jBliiEbdv7h-DP5HXkA1IeocjkWs843wOTdkL_e2zyoE74doutDmBywmZzXTEbeBgHjBGFkINXSqxtiQEjeecQNdDf98eXvtK_2Pd7GdBr0mhgvBCb21AF1IRhyybtBCv1wZR5Hgw3t4akZiw2HxevgeBzTH34W2w4kotJ-2il_xnixD3QqR"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-md lg:p-lg bg-background">
+<!-- Dashboard Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-lg gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Clinic Operations Center</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Tuesday, Oct 24 • Live Status</p>
+</div>
+<div class="flex gap-sm">
+<button class="h-touch-target-min px-md rounded-lg border border-primary text-primary font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                        New Walk-in
+                    </button>
+<button class="h-touch-target-min px-md rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-surface-tint transition-colors shadow-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications_active">notifications_active</span>
+                        Call Next Patient
+                    </button>
+</div>
+</div>
+<!-- Main Split Pane Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-lg h-full">
+<!-- Left Pane: Queue & Quick Actions (7 Cols) -->
+<div class="xl:col-span-7 flex flex-col gap-lg h-full">
+<!-- Doctor Availability Toggle Cards -->
+<section class="bg-surface rounded-xl border border-outline-variant p-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-md uppercase tracking-wider">Active Physicians</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-md">
+<!-- Doc 1 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-sm flex items-center gap-sm relative overflow-hidden cursor-pointer hover:border-primary transition-colors">
+<div class="w-2 h-full absolute left-0 top-0 bg-tertiary"></div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden shrink-0 ml-xs">
+<img alt="Dr. Smith" class="w-full h-full object-cover" data-alt="Portrait of a male doctor in a white lab coat, looking professional and calm. The setting is a bright, modern clinical office with soft natural light. The palette features crisp whites and subtle cool grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsxsIVnru6ImUYSXGOD06oGuxCm_bSNLiCie9hpcxQGOoKFjuzInoQPk3KzJefL8so2CSLd4bNV2X17bHYix5G39ASZRTfQX9PEk5ms58EuP815eghA7YFNfnpGPFmEYHM_FQZOHmtK0vQm5Cz3IZ9FSCz4eBRfP5uOuIJb2EaVv1QWmusOQOopoxKZ2ekKFKplMnBsrLj5CP05vjdl7iXra5zkinKdQnjJFGstDkMIesSV43mgdalF4FBgDAn4WN_je29LNQWhPMw"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-background">Dr. A. Sharma</p>
+<p class="font-caption text-caption text-tertiary flex items-center gap-[2px]">
+<span class="w-2 h-2 rounded-full bg-tertiary inline-block"></span> Consulting
+                                    </p>
+</div>
+</div>
+<!-- Doc 2 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-sm flex items-center gap-sm relative overflow-hidden opacity-60">
+<div class="w-2 h-full absolute left-0 top-0 bg-outline"></div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden shrink-0 ml-xs">
+<span class="material-symbols-outlined w-full h-full flex items-center justify-center text-outline" data-icon="person">person</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-background">Dr. M. Patel</p>
+<p class="font-caption text-caption text-outline flex items-center gap-[2px]">
+<span class="w-2 h-2 rounded-full border border-outline inline-block"></span> Off Duty
+                                    </p>
+</div>
+</div>
+<!-- Doc 3 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-sm flex items-center gap-sm relative overflow-hidden cursor-pointer hover:border-primary transition-colors">
+<div class="w-2 h-full absolute left-0 top-0 bg-error"></div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden shrink-0 ml-xs">
+<img alt="Dr. Lee" class="w-full h-full object-cover" data-alt="Portrait of a female doctor in a clinical setting, wearing scrubs. The lighting is clean and professional, emphasizing a modern medical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSXxHreEhrqbZNa9d0b-2HROnQsxPiN6suaP-aKjhjsjYSR-C95OiNOsz2kKCr331LcJGQVt3uJTQnIYGZN0paHGg810N40r_twYHbGdBh4DVre0f-QLl_426SqtN3ft43vCu_V459n2E4qPlwHJZ0zkTTO-8Aj4fNBwFUghpKMIsfLm9R4zkPip3J_-aKeL15sm3kycBKZNi3CXYr8XQ_9x3Xec8sggyhEBvDsISF6-68zm0YNN7ideSflv9Ba2-Mir6LMgz9292w"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-background">Dr. S. Lee</p>
+<p class="font-caption text-caption text-error flex items-center gap-[2px]">
+<span class="w-2 h-2 rounded-full bg-error inline-block"></span> Emergency
+                                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Patient Queue (Bento Grid Style) -->
+<section class="bg-surface rounded-xl border border-outline-variant flex flex-col flex-1 min-h-[400px]">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest rounded-t-xl">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Live Patient Queue</h3>
+<div class="flex items-center gap-xs text-caption font-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="refresh">refresh</span> Auto-syncing
+                            </div>
+</div>
+<div class="p-md flex-1 overflow-y-auto">
+<!-- Queue List -->
+<div class="flex flex-col gap-sm">
+<!-- Token: Inside -->
+<div class="bg-surface-container-low border border-primary rounded-lg p-md flex items-center justify-between shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-center gap-md pl-xs">
+<div class="w-14 h-14 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center shrink-0">
+<span class="font-headline-md text-headline-md font-bold">14</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-background text-lg">Rajesh Kumar</p>
+<div class="flex items-center gap-sm mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-on-primary uppercase tracking-wide">Inside</span>
+<span class="font-caption text-caption text-on-surface-variant">Dr. A. Sharma • 10 mins</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat">chat</span>
+</button>
+<button class="h-10 px-md rounded-lg bg-surface-container-highest text-on-background font-label-md text-label-md hover:bg-surface-variant transition-colors border border-outline-variant">
+                                            Mark Done
+                                        </button>
+</div>
+</div>
+<!-- Token: Waiting (Next) -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex items-center justify-between hover:border-outline transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-14 h-14 bg-surface-container-highest text-on-surface rounded-lg flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="font-headline-md text-headline-md font-bold">15</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-background">Anita Desai</p>
+<div class="flex items-center gap-sm mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-surface-variant text-on-surface-variant border border-outline-variant uppercase tracking-wide">Waiting</span>
+<span class="font-caption text-caption text-on-surface-variant">Est. 10:45 AM</span>
+</div>
+</div>
+</div>
+<button class="h-10 px-md rounded-lg border border-primary text-primary font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                                        Call In
+                                    </button>
+</div>
+<!-- Token: Waiting -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex items-center justify-between opacity-80">
+<div class="flex items-center gap-md">
+<div class="w-14 h-14 bg-surface-container text-on-surface-variant rounded-lg flex items-center justify-center shrink-0 border border-outline-variant border-dashed">
+<span class="font-headline-md text-headline-md font-bold">16</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-background">Vikram Singh</p>
+<div class="flex items-center gap-sm mt-1">
+<span class="font-caption text-caption text-on-surface-variant">Waiting Room B</span>
+</div>
+</div>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Walk-in</span>
+</div>
+<!-- Divider -->
+<div class="h-px bg-outline-variant my-xs"></div>
+<!-- Token: Done -->
+<div class="bg-surface border border-outline-variant rounded-lg p-sm flex items-center justify-between opacity-50 bg-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 text-on-surface-variant rounded-lg flex items-center justify-center shrink-0">
+<span class="font-label-md text-label-md">13</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-background line-through">Priya M.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Pane: Calendar & Comms (5 Cols) -->
+<div class="xl:col-span-5 flex flex-col gap-lg h-full">
+<!-- Calendar Mini-View -->
+<section class="bg-surface rounded-xl border border-outline-variant flex flex-col h-1/3 min-h-[250px]">
+<div class="p-sm border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest rounded-t-xl">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider pl-sm">Schedule</h3>
+<button class="text-primary font-label-md text-label-md px-sm py-xs hover:bg-surface-container-low rounded">View All</button>
+</div>
+<div class="p-sm flex-1 flex flex-col gap-xs overflow-y-auto">
+<!-- Time Slot -->
+<div class="flex gap-sm items-start group">
+<div class="w-16 text-right pt-1 shrink-0">
+<span class="font-caption text-caption text-on-surface-variant">10:00 AM</span>
+</div>
+<div class="flex-1 bg-surface-container border-l-2 border-primary rounded p-2 text-sm border border-outline-variant group-hover:bg-surface-container-high transition-colors cursor-pointer">
+<p class="font-label-md text-on-background">Dr. Sharma - General Checkup</p>
+<p class="font-caption text-on-surface-variant">Patient: R. Kumar (In Progress)</p>
+</div>
+</div>
+<div class="flex gap-sm items-start group">
+<div class="w-16 text-right pt-1 shrink-0">
+<span class="font-caption text-caption text-on-surface-variant">10:30 AM</span>
+</div>
+<div class="flex-1 bg-surface rounded p-2 text-sm border border-outline-variant border-dashed group-hover:bg-surface-container-low transition-colors cursor-pointer">
+<p class="font-label-md text-on-surface-variant italic">Available Slot</p>
+</div>
+</div>
+<div class="flex gap-sm items-start group">
+<div class="w-16 text-right pt-1 shrink-0">
+<span class="font-caption text-caption text-on-surface-variant">11:00 AM</span>
+</div>
+<div class="flex-1 bg-tertiary-container text-on-tertiary-container rounded p-2 text-sm border border-tertiary group-hover:opacity-90 transition-opacity cursor-pointer">
+<p class="font-label-md">Vaccination Drive</p>
+<p class="font-caption opacity-80">Room 3 • 5 Patients</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Comms Stream (WhatsApp + AI Log) -->
+<section class="bg-surface rounded-xl border border-outline-variant flex flex-col flex-1 min-h-[300px]">
+<div class="flex border-b border-outline-variant bg-surface-container-lowest rounded-t-xl">
+<button class="flex-1 py-sm font-label-md text-label-md text-primary border-b-2 border-primary text-center">WhatsApp Stream</button>
+<button class="flex-1 py-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low text-center">AI Call Logs</button>
+</div>
+<div class="p-md flex-1 overflow-y-auto bg-[#efeae2] dark:bg-surface-container-lowest relative">
+<!-- WhatsApp-like background pattern could go here -->
+<div class="flex flex-col gap-sm">
+<!-- Message Received -->
+<div class="flex justify-start">
+<div class="bg-white dark:bg-surface-container p-sm rounded-lg rounded-tl-none max-w-[85%] shadow-sm border border-outline-variant/30">
+<p class="font-label-md text-label-md text-[#075e54] dark:text-primary mb-xs text-xs">Patient: S. Gupta <span class="text-on-surface-variant font-normal">(Token #18)</span></p>
+<p class="font-body-md text-body-md text-on-background text-sm">I am running 10 mins late due to traffic. Will my token be cancelled?</p>
+<div class="text-right mt-1">
+<span class="font-caption text-caption text-on-surface-variant text-[10px]">10:12 AM</span>
+</div>
+</div>
+</div>
+<!-- Message Sent -->
+<div class="flex justify-end">
+<div class="bg-[#dcf8c6] dark:bg-secondary-container p-sm rounded-lg rounded-tr-none max-w-[85%] shadow-sm border border-[#c4e6b1] dark:border-outline-variant">
+<p class="font-body-md text-body-md text-on-background text-sm">No problem. We will hold your token. Please inform reception upon arrival.</p>
+<div class="text-right mt-1 flex justify-end items-center gap-xs">
+<span class="font-caption text-caption text-on-surface-variant text-[10px]">10:14 AM</span>
+<!-- Read ticks -->
+<span class="material-symbols-outlined text-[14px] text-[#34b7f1]" data-icon="done_all">done_all</span>
+</div>
+</div>
+</div>
+<!-- System Message -->
+<div class="flex justify-center my-xs">
+<span class="bg-surface-container-high text-on-surface-variant font-caption text-caption px-sm py-1 rounded-full text-[10px] shadow-sm border border-outline-variant/50">
+                                        AI Receptionist confirmed 3 appointments for tomorrow
+                                    </span>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-sm bg-surface-container-lowest border-t border-outline-variant flex gap-sm items-center rounded-b-xl">
+<button class="text-on-surface-variant p-1 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<input class="flex-1 bg-surface border border-outline-variant rounded-full px-md py-xs text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="Type a message..." type="text"/>
+<button class="w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-surface-tint transition-colors shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-surface dark:bg-on-background border-t border-outline-variant dark:border-outline shadow-lg dark:shadow-none rounded-t-xl shrink-0">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant scale-95 active:scale-90 transition-transform active:bg-surface-container-high rounded-lg p-1" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-caption text-caption">Records</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant scale-95 active:scale-90 transition-transform active:bg-surface-container-high rounded-lg p-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+</body></html>

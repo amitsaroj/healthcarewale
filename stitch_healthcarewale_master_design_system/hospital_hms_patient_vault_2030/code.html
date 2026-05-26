@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart Hospital HMS 2030</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0a0a0f',
+              panel: 'rgba(20, 20, 30, 0.7)',
+              gold: '#d4af37',
+              goldLight: '#f3e5ab',
+              accent: '#3b82f6',
+              success: '#10b981',
+              danger: '#ef4444',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          borderRadius: {
+            'super': '32px',
+          },
+          boxShadow: {
+            'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+            'gold-glow': '0 0 15px rgba(212, 175, 55, 0.2)',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styles">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap');
+
+    body {
+      background-color: #0a0a0f;
+      color: #e2e8f0;
+      background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .glass-panel {
+      background: rgba(20, 20, 30, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 32px;
+    }
+
+    .glass-panel-active {
+      background: rgba(30, 30, 45, 0.8);
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.3);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(212, 175, 55, 0.5);
+    }
+  </style>
+<!-- Phosphor Icons for Neo-traditional look -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="h-screen flex overflow-hidden font-sans text-gray-300">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 h-full flex flex-col glass-panel m-4 z-20 border-r-0 border-l border-t border-b border-brand-gold/20" data-purpose="sidebar">
+<!-- Branding -->
+<div class="p-6 flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-gold to-yellow-600 flex items-center justify-center shadow-gold-glow">
+<i class="ph ph-hospital text-xl text-brand-dark"></i>
+</div>
+<div>
+<h1 class="font-serif font-bold text-brand-goldLight leading-tight">City General</h1>
+<p class="text-xs text-gray-400">Operator ID: 4421</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-2xl glass-panel-active text-brand-goldLight transition-all" href="#">
+<i class="ph ph-first-aid text-lg"></i>
+<span class="font-medium">Clinic</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-2xl hover:bg-white/5 text-gray-400 hover:text-gray-200 transition-all" href="#">
+<i class="ph ph-pill text-lg"></i>
+<span>Pharmacy</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-2xl hover:bg-white/5 text-gray-400 hover:text-gray-200 transition-all" href="#">
+<i class="ph ph-brain text-lg"></i>
+<span>AI Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-2xl hover:bg-white/5 text-gray-400 hover:text-gray-200 transition-all" href="#">
+<i class="ph ph-buildings text-lg"></i>
+<span>HMS</span>
+</a>
+</nav>
+<!-- Bottom Actions -->
+<div class="p-4 space-y-4">
+<button class="w-full py-3 px-4 rounded-super bg-gradient-to-r from-red-900/40 to-red-800/40 border border-red-500/30 text-red-200 flex items-center justify-center space-x-2 hover:from-red-800/50 hover:to-red-700/50 transition-all">
+<i class="ph-fill ph-warning-circle"></i>
+<span class="font-medium">Emergency Entry</span>
+</button>
+<div class="space-y-1">
+<a class="flex items-center space-x-3 px-4 py-2 rounded-xl hover:bg-white/5 text-sm text-gray-400 transition-all" href="#">
+<i class="ph ph-question text-lg"></i>
+<span>Support</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-xl hover:bg-white/5 text-sm text-gray-400 transition-all" href="#">
+<i class="ph ph-user text-lg"></i>
+<span>Account</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Topbar -->
+<header class="h-20 flex items-center justify-between px-8 z-10" data-purpose="topbar">
+<div class="text-xl font-serif text-brand-goldLight font-semibold tracking-wide">
+        HealSmart India
+      </div>
+<!-- Search -->
+<div class="flex-1 max-w-xl mx-8 relative">
+<i class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+<input class="w-full bg-brand-panel border border-brand-gold/20 rounded-full py-2.5 pl-11 pr-4 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/50 transition-all" placeholder="Search patients, doctors..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex items-center space-x-4">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/10 transition-all">
+<i class="ph ph-microphone text-gray-300"></i>
+</button>
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/10 transition-all">
+<i class="ph ph-wifi-high text-gray-300"></i>
+</button>
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/10 transition-all relative">
+<i class="ph ph-bell text-gray-300"></i>
+<span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-brand-gold/30">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr1WcAkxOWavp6gs_e1esswcX7XUO88aUA1cAa1cJ8Cloe6Xrn805rkAMxQpUjQi9Q2V5S7l7IJsgh5onEDw21jXkjPbfKKURFwMJhgm09L7rZiWK-d-vIOWfxiE2Y6F4HwCNaC4BirAFw0gELTCyBL3PTS6kmKJBJW-cQ5i9uE37Ff1xfCNPMb9ET_5t4rLx8wYXZeUa_9JPnE048Nvh6RHoApa7BKKbfP4mHOTJgrvLd7g3nenfKkJqTMbbsAt051EEcemIug024"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8 pt-4 z-10 pb-24">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-4xl font-serif text-brand-goldLight mb-2">Smart Hospital HMS 2030</h2>
+<p class="text-gray-400">Real-time overview of today's operations.</p>
+</div>
+<div class="flex space-x-4">
+<button class="glass-panel px-6 py-2.5 flex items-center space-x-2 text-brand-goldLight hover:bg-white/5 transition-all">
+<i class="ph ph-calendar-blank"></i>
+<span>Schedule</span>
+</button>
+<button class="bg-gradient-to-r from-brand-gold to-yellow-600 text-brand-dark px-6 py-2.5 rounded-super font-medium shadow-gold-glow flex items-center space-x-2 hover:opacity-90 transition-all">
+<i class="ph ph-plus"></i>
+<span>New Walk-in</span>
+</button>
+</div>
+</div>
+<!-- Top Stats Row -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="glass-panel p-5 flex flex-col justify-between">
+<div class="flex justify-between items-start text-sm text-gray-400 mb-4">
+<span class="uppercase tracking-wider">Total Patients</span>
+<i class="ph ph-users text-xl text-brand-gold"></i>
+</div>
+<div class="flex items-end space-x-3">
+<span class="text-4xl font-light text-white">142</span>
+<span class="text-sm text-brand-success bg-brand-success/10 px-2 py-0.5 rounded-md mb-1 flex items-center"><i class="ph ph-trend-up mr-1"></i>12%</span>
+</div>
+</div>
+<div class="glass-panel p-5 flex flex-col justify-between">
+<div class="flex justify-between items-start text-sm text-gray-400 mb-4">
+<span class="uppercase tracking-wider">Avg Wait Time</span>
+<i class="ph ph-clock text-xl text-brand-gold"></i>
+</div>
+<div class="flex items-end space-x-3">
+<span class="text-4xl font-light text-white">18m</span>
+<span class="text-sm text-brand-danger bg-brand-danger/10 px-2 py-0.5 rounded-md mb-1 flex items-center"><i class="ph ph-trend-down mr-1"></i>3m</span>
+</div>
+</div>
+<div class="glass-panel p-5 flex flex-col justify-between">
+<div class="flex justify-between items-start text-sm text-gray-400 mb-4">
+<span class="uppercase tracking-wider">Active Doctors</span>
+<i class="ph ph-user-check text-xl text-brand-gold"></i>
+</div>
+<div class="flex items-end space-x-3">
+<span class="text-4xl font-light text-white">5/7</span>
+</div>
+</div>
+<div class="glass-panel p-5 flex flex-col justify-between">
+<div class="flex justify-between items-start text-sm text-gray-400 mb-4">
+<span class="uppercase tracking-wider">WA Automations</span>
+<i class="ph ph-chats text-xl text-brand-gold"></i>
+</div>
+<div class="flex items-end space-x-3">
+<span class="text-4xl font-light text-white">89</span>
+<span class="text-sm text-gray-500 mb-1">Sent today</span>
+</div>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-3 gap-6 mb-8">
+<!-- Floor Map Area (Occupies 2 columns) -->
+<div class="col-span-2 glass-panel p-6 relative overflow-hidden flex flex-col min-h-[500px]">
+<div class="flex justify-between items-center mb-6 z-10 relative">
+<h3 class="text-2xl font-serif text-white">Live Bed Occupancy</h3>
+<div class="flex space-x-3">
+<span class="bg-brand-panel border border-brand-gold/30 px-3 py-1 rounded-full text-sm text-brand-goldLight">12 Waiting</span>
+<button class="w-8 h-8 rounded-full bg-brand-panel border border-brand-gold/30 flex items-center justify-center text-gray-300 hover:bg-white/10">
+<i class="ph ph-faders"></i>
+</button>
+</div>
+</div>
+<!-- 3D Map Placeholder Area -->
+<div class="flex-1 relative rounded-2xl overflow-hidden bg-brand-dark/50 border border-white/5 flex items-center justify-center">
+<!-- Abstract Circuit lines background -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Mocked 3D Zones -->
+<div class="relative w-full h-full max-w-2xl max-h-96 mx-auto perspective-[1000px] mt-12">
+<!-- General Ward -->
+<div class="absolute bottom-10 left-10 w-64 h-48 bg-brand-success/20 border-2 border-brand-success/50 rounded-xl transform rotate-x-[60deg] rotate-z-[-30deg] shadow-[0_0_30px_rgba(16,185,129,0.3)] backdrop-blur-sm flex items-center justify-center">
+<div class="absolute -top-12 left-0 glass-panel p-3 transform -rotate-z-[-30deg] -rotate-x-[60deg]">
+<div class="text-sm font-medium text-white mb-1">General <span class="text-xs bg-brand-success text-brand-dark px-1 rounded ml-1">25</span></div>
+<div class="text-xs text-gray-400">Occupancy</div>
+<div class="text-xl text-white font-light">50%</div>
+</div>
+<!-- Mock Beds -->
+<div class="grid grid-cols-3 gap-2 p-4 w-full h-full">
+<div class="bg-brand-success/40 rounded w-full h-8"></div>
+<div class="bg-brand-success/40 rounded w-full h-8"></div>
+<div class="bg-brand-success/40 rounded w-full h-8"></div>
+<div class="bg-brand-success/40 rounded w-full h-8"></div>
+<div class="bg-brand-success/80 rounded w-full h-8 shadow-[0_0_10px_#10b981]"></div>
+<div class="bg-brand-success/40 rounded w-full h-8"></div>
+</div>
+</div>
+<!-- Emergency -->
+<div class="absolute top-10 right-10 w-56 h-40 bg-brand-danger/20 border-2 border-brand-danger/50 rounded-xl transform rotate-x-[60deg] rotate-z-[-30deg] shadow-[0_0_30px_rgba(239,68,68,0.3)] backdrop-blur-sm">
+<div class="absolute -top-12 right-0 glass-panel p-3 transform -rotate-z-[-30deg] -rotate-x-[60deg]">
+<div class="text-sm font-medium text-white mb-1 flex items-center gap-2">Emergency <i class="ph-fill ph-warning text-brand-gold"></i></div>
+<div class="text-xs text-gray-400">Occupancy</div>
+<div class="text-xl text-white font-light">40%</div>
+</div>
+</div>
+<!-- ICU -->
+<div class="absolute top-0 left-20 w-48 h-40 bg-purple-500/20 border-2 border-purple-500/50 rounded-xl transform rotate-x-[60deg] rotate-z-[-30deg] shadow-[0_0_30px_rgba(168,85,247,0.3)] backdrop-blur-sm">
+<div class="absolute -top-12 left-0 glass-panel p-3 transform -rotate-z-[-30deg] -rotate-x-[60deg]">
+<div class="text-sm font-medium text-white mb-1 flex items-center gap-2">ICU <i class="ph ph-activity text-purple-400"></i></div>
+<div class="text-xs text-gray-400">Occupancy</div>
+<div class="text-xl text-white font-light">90%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column Widgets -->
+<div class="space-y-6">
+<!-- Staff Roster -->
+<div class="glass-panel p-5">
+<h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Staff Roster</h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<img class="w-8 h-8 rounded-full border border-brand-gold/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLMmdlswDEp7jh8PuAK_KXj_UWB_lYahOcRetCudqbE_8Gk_RnDFKLYMCHtAiRkdGv8NfNM9MtF6zqjxe9gLL7UBDWoWO9S2hXiaHyKak9Lb-C8TYCgSzv2tRh2KajhDMVk8_y11eSiwC7f8jdchVAjHZFvNt50QzQnq-vio5L2AQxGqSjb5OGdpwkqa5cjXD376rJhRpGpEd7q99eB7KCqtZXbz54TnuLRGowBQzaUZ4UKrXuRyKbDeA1p7g6-UmN5Zib9ded7731"/>
+<span class="text-sm text-gray-200">Dr. Mehra</span>
+</div>
+<!-- Toggle -->
+<div class="w-10 h-5 bg-brand-success/20 rounded-full relative border border-brand-success/50 cursor-pointer">
+<div class="w-4 h-4 bg-brand-success rounded-full absolute right-0.5 top-0.5"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<img class="w-8 h-8 rounded-full border border-brand-gold/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLBMD1yHE3hPPjhSqaZUzR_MJpx1GJWmE44qWQQSVMY09lprgzlzO6DIBc6jThzWyJS-6iIl32iz5ChVZT-UBpFwWcyhiPqX63BlHHmKMzgJ0wM2PQbfdSOO2OEFz-aTgQStPNpoLEV34StEM8OxeEsls6oKd-JvAKc6JS7wpmIfsOyX1BNnpIEj4MfXPofTn8SaACdGX72CvINHpbMdrDkzQB7WMrce26HIhkQR33-C7YtyXIQJEmIS-3YwwNQbRzFFmQXsvwb7t3"/>
+<span class="text-sm text-gray-200">Dr. Singh</span>
+</div>
+<div class="w-10 h-5 bg-brand-success/20 rounded-full relative border border-brand-success/50 cursor-pointer">
+<div class="w-4 h-4 bg-brand-success rounded-full absolute right-0.5 top-0.5"></div>
+</div>
+</div>
+<div class="flex items-center justify-between opacity-50">
+<div class="flex items-center space-x-3">
+<img class="w-8 h-8 rounded-full grayscale border border-gray-600" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS9PBLcowGF7LRAnET8GHZ1r6XP8KyUKQcXLKA1RQfXT0x-lBKQqHPnFOui2nohIZstf2VjFJLFcvk86mheBDH1I1Ei2mYMTiH1V-WLiZHgd95PuZFBmFjEi5rRVvCQpikR4g-MgAV8HOhx5EvDdb_XJW5lxoLfchFlSve9HA25U8HCifbsEJOvwdsWQb9Sbc1bvKUucNW14dedGN0TF5ZmHiQEpguga3i1Q15jooGotKrDMLf4t88wspOllnS9En9dZ__IPzRxZ9E"/>
+<span class="text-sm text-gray-400">Dr. Khan</span>
+</div>
+<div class="w-10 h-5 bg-gray-700 rounded-full relative border border-gray-600 cursor-pointer">
+<div class="w-4 h-4 bg-gray-500 rounded-full absolute left-0.5 top-0.5"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- PMJAY Claims -->
+<div class="glass-panel p-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent pointer-events-none"></div>
+<h3 class="text-xl font-serif text-brand-goldLight mb-4 relative z-10">PMJAY Claims Status</h3>
+<div class="space-y-2 relative z-10">
+<div class="flex justify-between text-sm">
+<span class="text-gray-400">Pending Claims:</span>
+<span class="text-white font-medium">₹1.2L</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-400">Approved Today:</span>
+<span class="text-brand-success font-medium">₹45K</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1 bg-gray-800 rounded-full mt-4 relative z-10 overflow-hidden">
+<div class="h-full bg-brand-gold w-1/3 rounded-full"></div>
+</div>
+</div>
+<!-- Telemetry -->
+<div class="glass-panel p-5">
+<h4 class="text-sm font-medium text-white mb-4">Emergency Admission Telemetry</h4>
+<div class="space-y-4">
+<div class="bg-brand-dark/40 border border-white/5 rounded-xl p-3">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs text-gray-400">Real-time Vitals</span>
+<span class="text-[10px] bg-brand-success/20 text-brand-success px-2 py-0.5 rounded-sm uppercase flex items-center gap-1"><span class="w-1 h-1 bg-brand-success rounded-full animate-pulse"></span> LRRKE</span>
+</div>
+<!-- Fake SVG chart line -->
+<svg class="w-full h-8 stroke-brand-success" fill="none" viewbox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 10 L10 10 L15 2 L20 18 L25 10 L35 10 L40 5 L45 15 L50 10 L60 10 L65 0 L70 20 L75 10 L85 10 L90 8 L95 12 L100 10" stroke-linejoin="round" stroke-width="1"></path>
+</svg>
+</div>
+<div class="bg-brand-dark/40 border border-white/5 rounded-xl p-3">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs text-gray-400">Incoming Cases</span>
+<span class="text-[10px] bg-brand-danger/20 text-brand-danger px-2 py-0.5 rounded-sm uppercase flex items-center gap-1"><span class="w-1 h-1 bg-brand-danger rounded-full animate-pulse"></span> HIGH</span>
+</div>
+<svg class="w-full h-8 stroke-brand-danger" fill="none" viewbox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 15 Q 10 5, 20 15 T 40 10 T 60 18 T 80 5 T 100 15" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Patient Health Vault Preview Section (Bottom half based on second image) -->
+<div class="mt-12">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-3xl font-serif text-brand-goldLight mb-1">Patient Health Vault</h2>
+<p class="text-gray-400 text-sm">Provider View - Comprehensive Timeline</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<!-- Timeline -->
+<div class="col-span-2 glass-panel p-8 relative overflow-hidden">
+<div class="flex justify-between text-sm text-gray-400 mb-8 font-serif">
+<h3 class="text-xl text-white">Health Timeline</h3>
+<span>2020-2030</span>
+</div>
+<!-- Timeline visual -->
+<div class="relative py-10 px-4">
+<!-- Main Line -->
+<div class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-teal-900 via-teal-600 to-teal-900/20 -translate-y-1/2 z-0 rounded-full"></div>
+<div class="flex justify-between relative z-10">
+<!-- Node 1 -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-12 h-12 rounded-full glass-panel-active border-teal-500/50 flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(20,184,166,0.2)] group-hover:scale-110 transition-transform">
+<i class="ph ph-clipboard-text text-teal-400 text-xl"></i>
+</div>
+<span class="text-xs text-gray-300">Check-ups</span>
+</div>
+<!-- Node 2 (Active/Elevated) -->
+<div class="flex flex-col items-center group cursor-pointer -mt-6">
+<div class="bg-brand-dark px-2 py-1 rounded text-[10px] text-teal-300 mb-2 border border-teal-500/30">Detailed</div>
+<div class="w-14 h-14 rounded-full bg-teal-900/40 border-2 border-teal-400 flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(20,184,166,0.4)] group-hover:scale-110 transition-transform">
+<i class="ph ph-syringe text-teal-300 text-2xl"></i>
+</div>
+<span class="text-xs text-white font-medium">Treatments</span>
+</div>
+<!-- Node 3 -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center mb-3 border-teal-500/20 hover:border-teal-500/50 transition-colors">
+<i class="ph ph-heartbeat text-gray-400 text-xl"></i>
+</div>
+<span class="text-xs text-gray-400">Vitals</span>
+</div>
+<!-- Node 4 -->
+<div class="flex flex-col items-center group cursor-pointer -mt-4">
+<span class="text-[10px] text-gray-500 mb-2">Genomic Data</span>
+<div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center mb-3 border-teal-500/20 hover:border-teal-500/50 transition-colors">
+<i class="ph ph-dna text-gray-400 text-xl"></i>
+</div>
+</div>
+<!-- Node 5 (Future) -->
+<div class="flex flex-col items-center opacity-50">
+<div class="w-12 h-12 rounded-full border border-dashed border-gray-600 flex items-center justify-center mb-3">
+<i class="ph ph-brain text-gray-500 text-xl"></i>
+</div>
+<span class="text-xs text-gray-500 text-center">AI Wellness<br/>Plan</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mini widgets for Vault -->
+<div class="space-y-6">
+<!-- Lab Reports 3D Mock -->
+<div class="glass-panel p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-white/5 transition-colors group">
+<div class="w-16 h-20 bg-gradient-to-br from-teal-500/20 to-emerald-500/10 border border-teal-500/30 rounded-lg shadow-lg mb-4 relative transform group-hover:-translate-y-2 transition-transform duration-300 flex items-center justify-center">
+<div class="absolute inset-0 bg-white/5 backdrop-blur-[2px] rounded-lg"></div>
+<i class="ph ph-file-text text-3xl text-teal-300 relative z-10"></i>
+<!-- Decorative lines -->
+<div class="absolute top-4 left-4 right-4 h-0.5 bg-teal-500/30"></div>
+<div class="absolute top-7 left-4 w-8 h-0.5 bg-teal-500/30"></div>
+</div>
+<span class="font-medium text-white">Lab Reports</span>
+</div>
+<!-- Genomic Data 3D Mock -->
+<div class="glass-panel p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-white/5 transition-colors group">
+<div class="w-16 h-20 bg-gradient-to-br from-purple-500/20 to-blue-500/10 border border-purple-500/30 rounded-lg shadow-lg mb-4 relative transform group-hover:-translate-y-2 transition-transform duration-300 flex items-center justify-center overflow-hidden">
+<i class="ph ph-dna text-4xl text-purple-300 relative z-10 animate-pulse"></i>
+</div>
+<span class="font-medium text-white">Genomic Data</span>
+</div>
+</div>
+</div>
+<!-- AI Clinical Summary -->
+<div class="mt-6 glass-panel p-6 flex gap-6 items-start relative overflow-hidden">
+<!-- Brain Scan image placeholder -->
+<div class="w-48 h-48 bg-black rounded-2xl overflow-hidden flex-shrink-0 border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.05)] relative">
+<!-- Using a placeholder for the brain scan -->
+<img alt="3D Brain Scan" class="w-full h-full object-cover mix-blend-screen opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0UrfjSu0j3iKGp9cxcVPylWziEw_uIkLeqxt2H4t7B-9ywgT3CClnkmENJc3i335rsevGKgupx8UgSlWGj4UolaFBu9zzrAJp3B4pw6xJuGzcrvteDrqvdZw4ejjMc_uUv45mPUtt92tPSZ8lWOPLMSRotcalDtLRFDnLlqrFWtJ1_IUlD9J9uyRpD2DFmeT3aYJgc2bWRIzwY1eEl0cyEjppDSBsByvW1ZCXaCsZNefrAEcxZnTQxp4D2HRdn1-_Ij0LfePnmS1U"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-3">
+<h3 class="text-xl font-serif text-white flex items-center gap-2"><i class="ph ph-file-text text-brand-gold"></i> AI Clinical Summary</h3>
+<a class="text-xs text-brand-gold hover:underline" href="#">View All</a>
+</div>
+<h4 class="text-sm font-medium text-gray-300 mb-2">Text Analysis</h4>
+<p class="text-sm text-gray-400 leading-relaxed mb-4">
+                   Brain scan (sarieuxreet) an turiicis ls.wnd different analyse to enharive medical consur; ani the brain breinhcanramn aldersext summary. analysis involve a diastetocat an read.
+                </p>
+<p class="text-xs text-gray-500">
+                   Text einiar health analysis can slos help undaise experience to the support healthy; care fromcary, and nulzs rates commrca analytics, and certification to the minirercommunicate graphics with seoictomies.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Mic Button -->
+<div class="absolute bottom-8 right-8 z-50">
+<button class="w-16 h-16 rounded-full bg-gradient-to-br from-brand-gold to-yellow-600 text-brand-dark flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-105 transition-transform">
+<i class="ph-fill ph-microphone text-3xl"></i>
+</button>
+</div>
+</main>
+<!-- END: Main Content Area -->
+</body></html>

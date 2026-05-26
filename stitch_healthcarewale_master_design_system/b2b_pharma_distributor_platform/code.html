@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>B2B Pharma Distributor Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#156820",
+                    "surface-dim": "#ccdbf3",
+                    "error": "#ba1a1a",
+                    "secondary": "#4c56af",
+                    "on-background": "#0d1c2e",
+                    "secondary-fixed-dim": "#bdc2ff",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#e3fffe",
+                    "inverse-primary": "#76d6d5",
+                    "on-secondary-container": "#27308a",
+                    "tertiary-fixed": "#a3f69c",
+                    "secondary-fixed": "#e0e0ff",
+                    "on-surface-variant": "#3e4949",
+                    "outline": "#6e7979",
+                    "on-secondary-fixed": "#000767",
+                    "surface-container": "#e6eeff",
+                    "primary-container": "#008080",
+                    "background": "#f8f9ff",
+                    "on-secondary-fixed-variant": "#343d96",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#002204",
+                    "inverse-surface": "#233144",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "primary-fixed": "#93f2f2",
+                    "on-primary-fixed": "#002020",
+                    "tertiary-container": "#338236",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-container-highest": "#d5e3fc",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-container": "#ebffe3",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#d5e3fc",
+                    "primary": "#006565",
+                    "secondary-container": "#959efd",
+                    "surface-tint": "#006a6a",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#76d6d5",
+                    "outline-variant": "#bdc9c8",
+                    "on-surface": "#0d1c2e",
+                    "surface-bright": "#f8f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "touch-target-min": "44px",
+                    "lg": "24px",
+                    "margin-desktop": "48px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "label-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-xl": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-card {
+            @apply bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm flex flex-col;
+        }
+        /* Custom scrollbar for data tables */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant');
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased flex min-h-screen overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col h-screen sticky top-0 p-md bg-surface-container-low dark:bg-on-background w-64 border-r border-outline-variant dark:border-outline z-20 flex-shrink-0">
+<!-- Header -->
+<div class="flex items-center gap-sm mb-xl px-sm">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold">
+                HW
+            </div>
+<div class="flex flex-col">
+<span class="text-label-xl font-label-xl font-black text-primary dark:text-primary-fixed">HealthcareWale</span>
+<span class="text-caption font-caption text-on-surface-variant">System Admin • Hospital Unit 01</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-xs overflow-y-auto">
+<!-- Tab 0: Pharmacy -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">medical_services</span>
+<span class="font-label-md text-label-md">Pharmacy</span>
+</a>
+<!-- Tab 1: Clinic -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">local_hospital</span>
+<span class="font-label-md text-label-md">Clinic</span>
+</a>
+<!-- Tab 2: AI Center -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="font-label-md text-label-md">AI Center</span>
+</a>
+<!-- Tab 3: HMS -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+<span class="font-label-md text-label-md">HMS</span>
+</a>
+<!-- Tab 4: B2B (ACTIVE) -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">business_center</span>
+<span class="font-label-md text-label-md">B2B</span>
+</a>
+</nav>
+<!-- Footer Links -->
+<div class="mt-auto pt-md border-t border-outline-variant flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface dark:bg-on-background font-body-md text-body-md docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-lg h-touch-target-min z-10 flex-shrink-0">
+<!-- Left: Search (Implicit based on "on_left") -->
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-8 pl-xl pr-sm bg-surface-container-low border border-outline-variant rounded-full text-caption font-caption focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Search POs, Retailers..." type="text"/>
+</div>
+<button class="md:hidden p-sm text-on-surface-variant cursor-pointer active:opacity-80 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors rounded-full">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+<!-- Center: Brand Logo -->
+<div class="flex-1 flex justify-center">
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">HealthcareWale</h1>
+</div>
+<!-- Right: Actions & Profile -->
+<div class="flex items-center justify-end gap-sm flex-1">
+<button class="p-sm text-primary dark:text-primary-fixed cursor-pointer active:opacity-80 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors rounded-full flex items-center justify-center relative">
+<span class="material-symbols-outlined text-[24px]">mic</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full animate-pulse hidden"></span>
+</button>
+<div class="flex items-center text-tertiary px-sm" title="System Online">
+<span class="material-symbols-outlined text-[24px]">signal_cellular_connected_no_internet_4_bar</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden ml-sm cursor-pointer active:opacity-80 hover:ring-2 hover:ring-primary-container transition-all">
+<img alt="Clinician profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtqi4nUILj_kOUCggRh18yD_2ycInnJWRQMvPi8l-AIy4hSvt8um0sQdJRAp7Ofb6Me9PbZ7QzL-G39XJX4YjwX8i6vo-nKBM2Wp-jmfBhet1sOXG_Dbfukn9Ql-bjd9jHvFl77ZfLIj7_iCjSILHaVbGIJ216Q1jrAcEtONI8Ah30ZTq3mSoql6ONPfNIzexeNhx4aQXmx_pIBZtZILvoDEvpKPGxht5UVcxBD-I82JRpm3G29TdMFRz_lcAtqF0XOCzR2EVmQBXK"/>
+</div>
+</div>
+</header>
+<!-- Sync Bar (Status Indicator) -->
+<div class="w-full h-1 bg-tertiary flex-shrink-0" title="System Online &amp; Synced"></div>
+<!-- Canvas (Dashboard Content) -->
+<main class="flex-1 overflow-y-auto p-lg lg:p-margin-desktop bg-background">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-xs">Supply Chain Operations</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time B2B logistics and retail demand center.</p>
+</div>
+<div class="flex gap-md">
+<button class="h-touch-target-min px-lg border border-primary text-primary font-label-md text-label-md rounded-full hover:bg-surface-container transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export Data
+                    </button>
+<button class="h-touch-target-min px-lg bg-primary text-on-primary font-label-md text-label-md rounded-full hover:bg-primary-fixed-variant transition-colors shadow-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        New Shipment
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md auto-rows-min">
+<!-- 1. Delivery Tracking (Real-time map of transit routes) -->
+<div class="bento-card md:col-span-8 min-h-[400px]">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[18px]">Live Transit Routes</h3>
+</div>
+<span class="px-sm py-xs bg-tertiary-container text-on-tertiary-container font-caption text-caption rounded-full">42 Active Routes</span>
+</div>
+<!-- Map Canvas Area -->
+<div class="flex-1 bg-surface-container rounded-lg overflow-hidden relative border border-outline-variant">
+<!-- Placeholder for Map -->
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&amp;fit=crop&amp;q=80&amp;w=800')] bg-cover bg-center opacity-60" data-location="Mumbai Regional Distribution Network" style=""></div>
+<!-- Overlay UI on Map -->
+<div class="absolute top-md left-md bg-surface/90 backdrop-blur-sm border border-outline-variant p-sm rounded-lg shadow-sm">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm text-label-md font-label-md">
+<div class="w-3 h-3 rounded-full bg-tertiary border-2 border-surface"></div> Route A7 - On Time
+                                </div>
+<div class="flex items-center gap-sm text-label-md font-label-md">
+<div class="w-3 h-3 rounded-full bg-error border-2 border-surface"></div> Route B2 - Delayed
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Stock Predictions (AI-driven reorder curves) -->
+<div class="bento-card md:col-span-4 min-h-[400px]">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">show_chart</span>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[18px]">AI Reorder Curves</h3>
+</div>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<!-- Critical Alerts -->
+<div class="bg-error-container text-on-error-container p-sm rounded-lg flex items-start gap-sm mb-md border border-error/20">
+<span class="material-symbols-outlined text-[20px] mt-xs">warning</span>
+<div>
+<p class="font-label-md text-label-md">Paracetamol 500mg Alert</p>
+<p class="font-caption text-caption opacity-90">Predicted stockout in 72h across Zone North.</p>
+</div>
+</div>
+<!-- Abstract Chart Visualization -->
+<div class="relative h-48 w-full border-b border-l border-outline-variant/50 mb-sm flex items-end px-xs pb-xs gap-xs">
+<!-- Bars representing curves -->
+<div class="w-1/6 bg-primary-container rounded-t-sm h-[40%] relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 hidden group-hover:block bg-surface-inverse text-inverse-on-surface text-caption px-sm py-xs rounded">W1</div>
+</div>
+<div class="w-1/6 bg-primary-container rounded-t-sm h-[30%]"></div>
+<div class="w-1/6 bg-primary-container rounded-t-sm h-[60%]"></div>
+<div class="w-1/6 bg-error rounded-t-sm h-[15%] relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 hidden group-hover:block bg-error text-on-error text-caption px-sm py-xs rounded">Crit</div>
+</div>
+<div class="w-1/6 bg-primary rounded-t-sm h-[85%]"></div>
+<div class="w-1/6 bg-primary rounded-t-sm h-[95%]"></div>
+<!-- Trend Line (SVG overlay simulation) -->
+<svg class="absolute inset-0 h-full w-full" preserveaspectratio="none">
+<path class="text-secondary opacity-50" d="M0,120 Q50,90 100,100 T200,40 T300,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+<button class="w-full h-10 border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">
+                            Generate Procurement Plan
+                        </button>
+</div>
+</div>
+<!-- 3. Demand Heatmaps (Geographical forecasting) -->
+<div class="bento-card md:col-span-6">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">map</span>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[18px]">Regional Demand Forecast</h3>
+</div>
+<select class="bg-surface border-none text-label-md font-label-md text-primary cursor-pointer focus:ring-0">
+<option>Next 7 Days</option>
+<option>Next 30 Days</option>
+</select>
+</div>
+<div class="flex gap-md h-[200px]">
+<!-- Left: List -->
+<div class="w-1/3 flex flex-col gap-sm overflow-y-auto pr-sm">
+<div class="flex justify-between items-center p-sm bg-surface-container-low rounded-lg border border-outline-variant/50">
+<span class="font-body-md text-body-md text-on-surface text-[14px]">Antibiotics</span>
+<span class="material-symbols-outlined text-[16px] text-error">trending_up</span>
+</div>
+<div class="flex justify-between items-center p-sm bg-surface-container-low rounded-lg border border-outline-variant/50">
+<span class="font-body-md text-body-md text-on-surface text-[14px]">Analgesics</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">trending_flat</span>
+</div>
+<div class="flex justify-between items-center p-sm bg-surface-container-low rounded-lg border border-outline-variant/50">
+<span class="font-body-md text-body-md text-on-surface text-[14px]">Insulin</span>
+<span class="material-symbols-outlined text-[16px] text-error">trending_up</span>
+</div>
+</div>
+<!-- Right: Heatmap Abstract -->
+<div class="flex-1 rounded-lg overflow-hidden relative bg-surface-container">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/20 via-surface to-error-container/30"></div>
+<div class="absolute top-1/4 left-1/4 w-16 h-16 bg-error/40 rounded-full blur-xl"></div>
+<div class="absolute bottom-1/3 right-1/4 w-24 h-24 bg-tertiary/30 rounded-full blur-xl"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="text-on-surface-variant font-caption opacity-50 bg-surface/50 px-sm py-xs rounded">Map Render Layer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Payment Analytics (Collection tables and outstanding dues) -->
+<div class="bento-card md:col-span-6">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">account_balance_wallet</span>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[18px]">Collection &amp; Dues</h3>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm mb-md">
+<div class="bg-surface-container-low p-sm rounded-lg border border-outline-variant/50">
+<p class="font-caption text-caption text-on-surface-variant">Total Outstanding</p>
+<p class="font-headline-md text-headline-md text-on-surface">₹4.2M</p>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg border border-outline-variant/50">
+<p class="font-caption text-caption text-on-surface-variant">Avg Days Sales Outstanding</p>
+<div class="flex items-center gap-xs">
+<p class="font-headline-md text-headline-md text-on-surface">32 Days</p>
+<span class="material-symbols-outlined text-[16px] text-error">arrow_upward</span>
+</div>
+</div>
+</div>
+<!-- Mini collection progress -->
+<div class="flex flex-col gap-xs mt-auto">
+<div class="flex justify-between font-caption text-caption">
+<span class="text-on-surface-variant">Current Cycle Target</span>
+<span class="text-primary font-bold">78% Collected</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[78%]"></div>
+</div>
+</div>
+</div>
+<!-- 5. Retailer Matrix (Profile management for pharmacies) -->
+<div class="bento-card md:col-span-12">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">storefront</span>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[18px]">Retailer Matrix</h3>
+</div>
+<div class="flex gap-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[16px]">filter_list</span>
+<input class="h-8 pl-xl pr-sm bg-surface border border-outline-variant rounded-md text-caption font-caption focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="Filter Retailers..." type="text"/>
+</div>
+</div>
+</div>
+<!-- High-density Data Table (F-Pattern Optimized) -->
+<div class="overflow-x-auto border border-outline-variant rounded-lg">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="p-sm font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Retailer ID</th>
+<th class="p-sm font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Pharmacy Name</th>
+<th class="p-sm font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Zone</th>
+<th class="p-sm font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Credit Risk</th>
+<th class="p-sm font-label-md text-label-md text-on-surface-variant whitespace-nowrap text-right">Outstanding</th>
+<th class="p-sm font-label-md text-label-md text-on-surface-variant whitespace-nowrap text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-[14px]">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="p-sm text-primary font-medium">#RT-4091</td>
+<td class="p-sm text-on-surface font-medium flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+                                        Apollo Care South
+                                    </td>
+<td class="p-sm text-on-surface-variant">Z-South</td>
+<td class="p-sm"><span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[12px] rounded-sm">Low</span></td>
+<td class="p-sm text-right font-medium">₹12,400</td>
+<td class="p-sm text-center">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors bg-error-container/10">
+<td class="p-sm text-primary font-medium">#RT-8820</td>
+<td class="p-sm text-on-surface font-medium flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+                                        MediLife Central
+                                    </td>
+<td class="p-sm text-on-surface-variant">Z-Central</td>
+<td class="p-sm"><span class="px-2 py-1 bg-error-container text-on-error-container text-[12px] rounded-sm font-bold">High</span></td>
+<td class="p-sm text-right font-medium text-error">₹450,000</td>
+<td class="p-sm text-center">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="p-sm text-primary font-medium">#RT-1022</td>
+<td class="p-sm text-on-surface font-medium flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+                                        City Pharma Hub
+                                    </td>
+<td class="p-sm text-on-surface-variant">Z-North</td>
+<td class="p-sm"><span class="px-2 py-1 bg-surface-variant text-on-surface-variant text-[12px] rounded-sm">Medium</span></td>
+<td class="p-sm text-right font-medium">₹84,200</td>
+<td class="p-sm text-center">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-sm flex justify-between items-center text-caption font-caption text-on-surface-variant">
+<span>Showing 3 of 1,204 retailers</span>
+<div class="flex gap-sm">
+<button class="p-xs hover:bg-surface-container rounded"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+<button class="p-xs hover:bg-surface-container rounded"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

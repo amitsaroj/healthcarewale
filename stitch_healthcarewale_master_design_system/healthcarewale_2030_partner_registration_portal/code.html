@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale 2030 - Partner Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#93f2f2",
+                        "on-background": "#0d1c2e",
+                        "inverse-surface": "#233144",
+                        "on-primary-container": "#e3fffe",
+                        "on-tertiary-container": "#ebffe3",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "tertiary": "#156820",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#006a6a",
+                        "surface-container-highest": "#d5e3fc",
+                        "primary-fixed-dim": "#76d6d5",
+                        "on-secondary-fixed": "#000767",
+                        "surface-container-high": "#dce9ff",
+                        "background": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-tertiary-fixed": "#002204",
+                        "surface-container": "#e6eeff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#002020",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#76d6d5",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#ccdbf3",
+                        "tertiary-container": "#338236",
+                        "surface": "#f8f9ff",
+                        "on-surface": "#0d1c2e",
+                        "tertiary-fixed": "#a3f69c",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "on-surface-variant": "#3e4949",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed": "#e0e0ff",
+                        "tertiary-fixed-dim": "#88d982",
+                        "secondary-container": "#959efd",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d5e3fc",
+                        "secondary": "#4c56af",
+                        "primary-container": "#008080",
+                        "outline": "#6e7979",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "primary": "#006565",
+                        "outline-variant": "#bdc9c8",
+                        "on-secondary-container": "#27308a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem",
+                        "input": "32px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "margin-desktop": "48px",
+                        "xl": "32px",
+                        "touch-target-min": "44px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-xl": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8FAFC;
+        }
+        .waveform-container {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .waveform-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #006565 33%, #bdc9c8 33%);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        .waveform-node {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #bdc9c8;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .waveform-node.active {
+            background-color: #006565;
+            box-shadow: 0 0 10px rgba(0, 101, 101, 0.5);
+            transform: scale(1.5);
+        }
+        .waveform-node.completed {
+            background-color: #006565;
+        }
+        .glass-dropzone {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px dashed #006565;
+            border-radius: 32px;
+        }
+        
+        .input-curvy {
+            border-radius: 32px !important;
+            border: 1px solid #E2E8F0;
+            padding: 16px 24px;
+            height: 56px;
+        }
+        
+        .input-curvy:focus {
+            border-color: #006565 !important;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 101, 101, 0.2);
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col">
+<!-- Top AppBar (Transactional, suppressed nav links) -->
+<header class="bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-[0_0_30px_-5px_rgba(118,214,213,0.15)] flex justify-between items-center w-full px-gutter md:px-margin-desktop h-20 sticky top-0 z-50">
+<div class="font-headline-md text-headline-md font-bold text-primary">HealthcareWale 2030</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="font-label-md text-label-md">Secure Enrollment</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center py-12 px-gutter md:px-margin-desktop">
+<div class="w-full max-w-4xl">
+<!-- Header Section -->
+<div class="text-center mb-12">
+<h1 class="font-display-lg text-display-lg text-on-background mb-4">Initialize Partnership</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Join the high-reliability medical infrastructure grid. Complete biometric and credential verification to access Level 5 clearance.</p>
+</div>
+<!-- Neural Progress Indicator -->
+<div class="mb-16 px-8">
+<div class="flex justify-between text-sm font-label-md text-on-surface-variant mb-2">
+<span class="text-primary font-bold">Identity</span>
+<span>Credentials</span>
+<span>Biometrics</span>
+<span>Verification</span>
+</div>
+<div class="waveform-container">
+<div class="waveform-line"></div>
+<div class="waveform-node completed"></div>
+<div class="waveform-node active"></div>
+<div class="waveform-node"></div>
+<div class="waveform-node"></div>
+</div>
+</div>
+<!-- Form Container -->
+<div class="bg-white rounded-xl border border-outline-variant p-8 shadow-sm">
+<h2 class="font-headline-md text-headline-md text-on-background mb-8 border-b border-outline-variant pb-4">Step 2: Credential Integration</h2>
+<form class="space-y-8">
+<!-- Standard Inputs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Medical License Number</label>
+<input class="input-curvy bg-surface" placeholder="e.g. MC-2030-98765" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Issuing Authority</label>
+<input class="input-curvy bg-surface" placeholder="e.g. Global Health Board" type="text"/>
+</div>
+</div>
+<!-- Glassmorphic Dropzone -->
+<div class="flex flex-col gap-2 mt-8">
+<label class="font-label-md text-label-md text-on-surface">Upload Digital Credentials</label>
+<div class="glass-dropzone h-48 flex flex-col items-center justify-center cursor-pointer hover:bg-white/90 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 0;">cloud_upload</span>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">Drag &amp; drop encrypted license files</p>
+<p class="font-caption text-caption text-outline mt-2">Supports .hwc, .pdf, .sig (Max 50MB)</p>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-12 flex justify-between items-center border-t border-outline-variant pt-8">
+<button class="px-6 py-3 rounded-full border border-primary text-primary font-label-md text-label-md hover:bg-primary/5 transition-colors h-[44px] flex items-center justify-center" type="button">
+                            Return to Identity
+                        </button>
+<button class="px-8 py-3 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-surface-tint transition-colors h-[44px] flex items-center justify-center gap-2 shadow-md" type="button">
+                            Engage Biometrics
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-white/5 flex justify-between items-center px-gutter md:px-margin-desktop py-base w-full text-xs mt-auto">
+<span class="font-body-md text-body-md text-on-surface-variant">© 2030 HealthcareWale Executive. Connectivity: Satellite-Active. Latency: 12ms.</span>
+<div class="flex gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity duration-200" href="#">English (Global)</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity duration-200" href="#">Sync Status</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity duration-200" href="#">Legal</a>
+</div>
+</footer>
+</body></html>

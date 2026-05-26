@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale Command Center | 2030 Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Sora', sans-serif; letter-spacing: -0.01em; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        
+        .bg-deep-space {
+            background-color: #0A0F1E;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(118, 214, 213, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(5, 231, 119, 0.05) 0%, transparent 40%);
+        }
+
+        .glass-card {
+            background: rgba(26, 31, 47, 0.4);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(118, 214, 213, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .super-ellipse {
+            border-radius: 2.5rem;
+        }
+
+        .neon-glow-primary {
+            filter: drop-shadow(0 0 8px rgba(118, 214, 213, 0.4));
+        }
+
+        .neon-glow-secondary {
+            filter: drop-shadow(0 0 8px rgba(5, 231, 119, 0.4));
+        }
+
+        .biometric-ring {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(5, 231, 119, 0.2);
+        }
+        .biometric-ring::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid #05e777;
+            border-top-color: transparent;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .chart-bar-glow {
+            background: linear-gradient(180deg, #76d6d5 0%, rgba(118, 214, 213, 0.1) 100%);
+            box-shadow: 0 0 15px rgba(118, 214, 213, 0.2);
+        }
+
+        .scanline-overlay {
+            background: linear-gradient(to bottom, transparent 50%, rgba(118, 214, 213, 0.02) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#76d6d5",
+                    "secondary": "#05e777",
+                    "surface": "#0e1322",
+                    "surface-container": "#1a1f2f",
+                    "on-surface": "#dee1f7",
+                    "on-surface-variant": "#879392",
+                    "outline-variant": "rgba(135, 147, 146, 0.2)",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "3xl": "2.5rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "xl": "48px"
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-deep-space text-on-surface flex min-h-screen overflow-hidden">
+<div class="fixed inset-0 scanline-overlay z-50"></div>
+<!-- SideNavBar (Persistent) -->
+<aside class="hidden md:flex flex-col h-screen w-72 fixed left-0 top-0 py-8 glass-card border-r border-outline-variant z-40">
+<div class="px-8 mb-12">
+<h1 class="text-3xl font-extrabold text-primary tracking-tighter">MedNexus</h1>
+<p class="text-xs uppercase tracking-[0.2em] text-on-surface-variant font-bold mt-1">Global OS v.2030</p>
+</div>
+<nav class="flex-1 space-y-2 px-4">
+<a class="flex items-center gap-4 py-4 px-6 text-primary bg-primary/10 rounded-2xl border border-primary/20 transition-all duration-300" href="#">
+<span class="material-symbols-outlined neon-glow-primary" data-icon="domain">domain</span>
+<span class="text-sm font-bold tracking-wide">Command Center</span>
+</a>
+<a class="flex items-center gap-4 py-4 px-6 text-on-surface-variant hover:text-on-surface hover:bg-white/5 rounded-2xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_pharmacy">local_pharmacy</span>
+<span class="text-sm font-bold tracking-wide">Pharmacy</span>
+</a>
+<a class="flex items-center gap-4 py-4 px-6 text-on-surface-variant hover:text-on-surface hover:bg-white/5 rounded-2xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="text-sm font-bold tracking-wide">Clinical Hub</span>
+</a>
+<a class="flex items-center gap-4 py-4 px-6 text-on-surface-variant hover:text-on-surface hover:bg-white/5 rounded-2xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-sm font-bold tracking-wide">AI Neural Ops</span>
+</a>
+<a class="flex items-center gap-4 py-4 px-6 text-on-surface-variant hover:text-on-surface hover:bg-white/5 rounded-2xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+<span class="text-sm font-bold tracking-wide">B2B Core</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-8 px-4">
+<div class="glass-card rounded-3xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border-2 border-primary/30 p-0.5 overflow-hidden">
+<img alt="Admin" class="w-full h-full rounded-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxEHIrTw06ILGM3MjB-W7p9W1PevgS2qIUki1TytiXTW7tw94RDppQLw-BBJBhEGA1XGbkvjWXJR-KAXN92G1viD9po8-dUrx_XEHGkKofCC7DYmnFpZ7b4mjwkPZwAUBaxyBgQ8GaJGW0FgY0Z9VVB4ffvONFmABu-JfZzKAfWmbcvaRtK0efgUIEDSj6yizuBrous0s0_ce8iGWUPXL_gZ7mfXiW12Znuz1LcH972SizAHPbKMKvIDsEvLj3nGMlturm6OT3qxE8"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">SYS_ADM_01</p>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Lead Architect</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="flex-1 md:ml-72 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-30 w-full px-8 h-20 flex justify-between items-center glass-card border-b border-outline-variant">
+<div class="flex items-center gap-6">
+<button class="md:hidden p-2 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="hidden md:flex items-center gap-4 px-6 py-2.5 bg-white/5 rounded-full border border-outline-variant focus-within:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-primary text-lg neon-glow-primary" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-72 p-0 font-inter placeholder:text-on-surface-variant/50" placeholder="Scan global telemetry..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 px-5 py-2 glass-card rounded-full border border-secondary/20">
+<div class="biometric-ring"></div>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-[0.2em]">Active Sync: Nominal</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2.5 text-on-surface-variant hover:text-primary transition-colors rounded-full bg-white/5 border border-transparent hover:border-primary/20">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2.5 text-on-surface-variant hover:text-primary transition-colors rounded-full bg-white/5 border border-transparent hover:border-primary/20">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto p-8 lg:p-12 space-y-12">
+<!-- 1. System Status Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div>
+<h2 class="text-5xl font-bold tracking-tighter text-white mb-4">Master Hub</h2>
+<p class="text-lg text-on-surface-variant max-w-2xl font-light">Surveillance orchestrator for national medical infrastructure assets and real-time biometric flows.</p>
+</div>
+<div class="glass-card p-2 rounded-3xl flex items-center gap-2 border border-white/5">
+<div class="px-6 py-3 bg-secondary/10 text-secondary rounded-2xl flex items-center gap-3 border border-secondary/20">
+<span class="material-symbols-outlined neon-glow-secondary" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="text-xs font-bold uppercase tracking-widest">Global Integrity: 100%</span>
+</div>
+</div>
+</section>
+<!-- 2. Module Quick-Launch Grid (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+<!-- Cards iterate here with super-ellipse and glassmorphism -->
+<div class="group relative glass-card super-ellipse p-8 hover:border-primary/40 transition-all duration-500 cursor-pointer overflow-hidden">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all"></div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6 neon-glow-primary" data-icon="local_pharmacy">local_pharmacy</span>
+<h3 class="text-xl font-bold mb-4">Pharmacy</h3>
+<div class="space-y-4 font-inter">
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">Nodes Active</span>
+<span class="text-sm font-bold text-primary">1,240</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">Critical Stock</span>
+<span class="text-sm font-bold text-error">18</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant flex items-center justify-between text-primary text-[10px] font-bold tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity">
+<span>LAUNCH CORE</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</div>
+</div>
+<div class="group relative glass-card super-ellipse p-8 hover:border-primary/40 transition-all duration-500 cursor-pointer overflow-hidden">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 neon-glow-primary" data-icon="medical_services">medical_services</span>
+<h3 class="text-xl font-bold mb-4">Clinical</h3>
+<div class="space-y-4 font-inter">
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">Live Patients</span>
+<span class="text-sm font-bold text-primary">45,210</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">Wait Time</span>
+<span class="text-sm font-bold">4.2m</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant flex items-center justify-between text-primary text-[10px] font-bold tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity">
+<span>LAUNCH CORE</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</div>
+</div>
+<div class="group relative glass-card super-ellipse p-8 hover:border-secondary/40 transition-all duration-500 cursor-pointer overflow-hidden">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6 neon-glow-secondary" data-icon="psychology">psychology</span>
+<h3 class="text-xl font-bold mb-4">Neural Ops</h3>
+<div class="space-y-4 font-inter">
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">AI Inferences</span>
+<span class="text-sm font-bold text-secondary">8.9M/s</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">Anomalies</span>
+<span class="text-sm font-bold">2</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant flex items-center justify-between text-secondary text-[10px] font-bold tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity">
+<span>LAUNCH CORE</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</div>
+</div>
+<div class="group relative glass-card super-ellipse p-8 hover:border-primary/40 transition-all duration-500 cursor-pointer overflow-hidden">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 neon-glow-primary" data-icon="domain">domain</span>
+<h3 class="text-xl font-bold mb-4">HMS</h3>
+<div class="space-y-4 font-inter">
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">Occupancy</span>
+<span class="text-sm font-bold text-primary">88.4%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">Revenue Hub</span>
+<span class="text-sm font-bold">₹1.2B</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant flex items-center justify-between text-primary text-[10px] font-bold tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity">
+<span>LAUNCH CORE</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</div>
+</div>
+<div class="group relative glass-card super-ellipse p-8 hover:border-primary/40 transition-all duration-500 cursor-pointer overflow-hidden">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 neon-glow-primary" data-icon="rocket_launch">rocket_launch</span>
+<h3 class="text-xl font-bold mb-4">B2B Core</h3>
+<div class="space-y-4 font-inter">
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">In Transit</span>
+<span class="text-sm font-bold text-primary">4,201</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-medium">Demand</span>
+<span class="text-sm font-bold">Peak</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant flex items-center justify-between text-primary text-[10px] font-bold tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity">
+<span>LAUNCH CORE</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</div>
+</div>
+</section>
+<!-- 3. Global Operations Overview & 4. Recent Admin Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Chart Section (8/12) -->
+<div class="lg:col-span-8 glass-card super-ellipse p-8 flex flex-col">
+<div class="flex items-center justify-between mb-12">
+<div>
+<h3 class="text-2xl font-bold text-white tracking-tight">Telemetry Stream</h3>
+<p class="text-xs text-on-surface-variant font-inter uppercase tracking-widest mt-1">Global Throughput Performance</p>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary neon-glow-primary shadow-[0_0_10px_rgba(118,214,213,0.5)]"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface">Biometrics</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary neon-glow-secondary shadow-[0_0_10px_rgba(5,231,119,0.5)]"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface">Revenue</span>
+</div>
+</div>
+</div>
+<div class="flex-1 min-h-[350px] relative w-full overflow-hidden rounded-3xl bg-black/20 p-8 flex items-end gap-3 group">
+<!-- High-fidelity bar chart with gradients -->
+<div class="flex-1 chart-bar-glow h-[40%] rounded-t-xl group-hover:h-[45%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[65%] rounded-t-xl group-hover:h-[75%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[55%] rounded-t-xl group-hover:h-[60%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[80%] rounded-t-xl group-hover:h-[90%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[95%] rounded-t-xl group-hover:h-[100%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[85%] rounded-t-xl group-hover:h-[80%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[70%] rounded-t-xl group-hover:h-[75%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[90%] rounded-t-xl group-hover:h-[85%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[60%] rounded-t-xl group-hover:h-[70%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[45%] rounded-t-xl group-hover:h-[50%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[30%] rounded-t-xl group-hover:h-[40%] transition-all duration-700"></div>
+<div class="flex-1 chart-bar-glow h-[55%] rounded-t-xl group-hover:h-[65%] transition-all duration-700"></div>
+</div>
+</div>
+<!-- Admin Feed (4/12) -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<div class="glass-card super-ellipse p-8 flex-1">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-bold text-white">Event Log</h3>
+<button class="text-primary text-[10px] font-bold uppercase tracking-widest hover:underline">Full Trace</button>
+</div>
+<div class="space-y-6">
+<div class="flex gap-5 p-4 hover:bg-white/5 transition-colors rounded-2xl group border border-transparent hover:border-white/10">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xl neon-glow-primary" data-icon="vpn_key">vpn_key</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Neural Key Rotation</p>
+<p class="text-[10px] text-on-surface-variant font-inter uppercase tracking-wider mt-1">2m ago • Security Layer</p>
+</div>
+</div>
+<div class="flex gap-5 p-4 hover:bg-white/5 transition-colors rounded-2xl group border border-transparent hover:border-white/10">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-xl neon-glow-secondary" data-icon="add_location">add_location</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Node Provision: Pune-4</p>
+<p class="text-[10px] text-on-surface-variant font-inter uppercase tracking-wider mt-1">15m ago • Expansion</p>
+</div>
+</div>
+<div class="flex gap-5 p-4 hover:bg-white/5 transition-colors rounded-2xl group border border-transparent hover:border-white/10">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xl neon-glow-primary" data-icon="radar">radar</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Biometric Scan Complete</p>
+<p class="text-[10px] text-on-surface-variant font-inter uppercase tracking-wider mt-1">1h ago • Compliance</p>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-card super-ellipse h-48 relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-20 group-hover:scale-110 transition-transform duration-[20s]" data-alt="Cybernetic map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW8EDhwBO2LjTdwvvhdDSNysKPRsZFHZuW-nusl1wV_-9J9MKiyYuEoLYJ_r5NlX4BNaNrn0ji99WeAnzWGltDHd_SuSyPcVe25nGePFdb2hpLH9KQaUtF4__ZnqEKvrzhEArFl_y7Cn7bdDBUn7zZ9twLSDuX6UfcdDyX8R84c65Y4zOHznrgRKaediEeqjkd7Q7tPPGDmW6KHhftsRtwwE1ihY15W_KYsh6YD7MiTADazgFhLCLd6NKEZCNePaNAUCVboLvn7bge"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="glass-card bg-black/60 px-6 py-2.5 rounded-full border border-primary/40 shadow-2xl flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="text-[10px] font-bold uppercase tracking-[0.3em] text-white">Mumbai Sector: 4</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating AI Action -->
+<button class="fixed bottom-12 right-12 w-16 h-16 bg-secondary text-on-surface rounded-full shadow-[0_0_30px_rgba(5,231,119,0.4)] flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group z-50 border border-white/20">
+<span class="material-symbols-outlined text-3xl group-hover:animate-pulse neon-glow-secondary" data-icon="neurology">neurology</span>
+<div class="absolute right-20 glass-card px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest text-secondary opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none translate-x-4 group-hover:translate-x-0">
+            Neural Interface Ready
+        </div>
+</button>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("Master Hub 2030 Initialized.");
+    });
+</script>
+</body></html>

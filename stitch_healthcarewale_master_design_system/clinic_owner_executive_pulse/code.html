@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale 2030 - Executive Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>body {
+    background: radial-gradient(circle at 50% -20%, #1a1f2f 0%, #0e1322 100%);
+    overflow-x: hidden
+    }
+.silk-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDreDzvx4HzrzhDQ3kgvsupDd3IIX_r1v3ThBnF9cGeMH0AbcCQ43aOPndptioBtkiSJYVso3HWVdVZVgjPP0llWVpZobiIyhyB91BZjFjGm7CiAFzUqAcf85gKmTM9S1J-Xk657STyCGoRnw3YLVTiW5RGtWiGhFwqgjLTvP1_BGdZ6Bg2LDpBg0sWOVkJ_3sPEnOakTDo-mDtKuVScLkMNPfEC89GUINubHaY18TfSqEKr_UpJJDzKVyzJ7UP16-25X67qeSAXppt);
+    opacity: 0.05
+    }
+.glass-card {
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.gold-accent {
+    background: linear-gradient(90deg, #ffb950 0%, #ffddb3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+    }
+.serif-title {
+    font-family: "Playfair Display", serif
+    }
+.aurora-glow {
+    box-shadow: 0 0 30px -5px rgba(118, 214, 213, 0.15)
+    }
+.gold-leaf-border {
+    border-left: 2px solid #ffb950
+    }</style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-secondary-container": "#00622e",
+                "outline": "#879392",
+                "on-tertiary-fixed": "#291800",
+                "surface-container": "#1a1f2f",
+                "secondary": "#7dffa2",
+                "surface-bright": "#343949",
+                "secondary-fixed": "#62ff96",
+                "error": "#ffb4ab",
+                "on-primary-fixed": "#002020",
+                "primary-container": "#008080",
+                "on-secondary-fixed-variant": "#005226",
+                "on-secondary": "#003918",
+                "on-tertiary-container": "#fff9f5",
+                "primary-fixed": "#93f2f2",
+                "outline-variant": "#3e4949",
+                "tertiary-container": "#9d6800",
+                "surface": "#0e1322",
+                "primary-fixed-dim": "#76d6d5",
+                "on-surface-variant": "#bdc9c8",
+                "on-surface": "#dee1f7",
+                "surface-dim": "#0e1322",
+                "inverse-on-surface": "#2b3040",
+                "tertiary-fixed": "#ffddb3",
+                "surface-container-highest": "#2f3445",
+                "primary": "#76d6d5",
+                "surface-tint": "#76d6d5",
+                "secondary-container": "#05e777",
+                "tertiary": "#ffb950",
+                "on-error-container": "#ffdad6",
+                "secondary-fixed-dim": "#00e475",
+                "on-tertiary-fixed-variant": "#624000",
+                "on-primary-container": "#e3fffe",
+                "background": "#0e1322",
+                "surface-container-low": "#161b2b",
+                "on-background": "#dee1f7",
+                "inverse-primary": "#006a6a",
+                "on-tertiary": "#452b00",
+                "surface-variant": "#2f3445",
+                "on-primary": "#003737",
+                "inverse-surface": "#dee1f7",
+                "surface-container-lowest": "#090e1c",
+                "on-error": "#690005",
+                "error-container": "#93000a",
+                "on-primary-fixed-variant": "#004f4f",
+                "tertiary-fixed-dim": "#ffb950",
+                "on-secondary-fixed": "#00210b",
+                "surface-container-high": "#25293a"
+              },
+              "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "nano": "4px",
+                "gutter": "24px",
+                "container-max": "1440px",
+                "compact": "12px",
+                "standard": "24px",
+                "base": "8px",
+                "airy": "48px"
+              },
+              "fontFamily": {
+                "body-lg": ["Hanken Grotesk"],
+                "display-lg": ["Sora"],
+                "body-md": ["Hanken Grotesk"],
+                "label-caps": ["Hanken Grotesk"],
+                "headline-md": ["Sora"],
+                "headline-lg": ["Sora"],
+                "headline-lg-mobile": ["Sora"]
+              },
+              "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface font-body-md selection:bg-primary/30">
+<div class="fixed inset-0 silk-texture pointer-events-none"></div>
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-compact gap-base bg-surface/80 backdrop-blur-2xl text-secondary font-label-caps text-label-caps h-screen w-72 rounded-r-lg border-r border-white/10 shadow-xl z-50">
+<div class="p-standard flex flex-col gap-base">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">HealthcareWale 2030</h1>
+<div class="flex items-center gap-compact mt-airy">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Executive User Profile" data-alt="A professional medical executive portrait in a futuristic clinical setting. The lighting is cold blue and crisp white, emphasizing a high-tech environment. The executive is wearing a smart minimalist grey suit, with digital biometric overlays softly glowing in the background. The mood is authoritative yet compassionate, captured in a clean, high-contrast studio style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxxNcfQlNeOIxEfhLkP8BRoRz4N6el0MPORNB0R3mRAkodi0WaIZ3siQPrEgjAna6wkpWtZfQyP5d9Kjjh5R06j-WarD1ekDeX5INgota72uLSldrlkxZqtkxRjHYPbrNrNnzY0DnZWLqJgwEb36zDose1pzHRxgOd9FBJBtQS_9XdKWdYohix9EbljYhfncwh73SzjgmwIG-PRyHAxDMM5qLPye0YjhfX-_C1UlipzmMQKPbpX4OLUoUWEPJtG4rO0nndCitkmcSb"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">H. Wale Admin</p>
+<p class="text-[10px] text-on-surface-variant tracking-widest">LEVEL 5 CLEARANCE</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 mt-standard px-base flex flex-col gap-nano">
+<a class="flex items-center gap-base p-standard bg-secondary/10 text-secondary rounded-lg font-bold transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Executive Pulse
+            </a>
+<a class="flex items-center gap-base p-standard text-on-surface-variant hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Biometric Grid
+            </a>
+<a class="flex items-center gap-base p-standard text-on-surface-variant hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">psychology</span>
+                Neural Analytics
+            </a>
+<a class="flex items-center gap-base p-standard text-on-surface-variant hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+                Unit Strategy
+            </a>
+<a class="flex items-center gap-base p-standard text-on-surface-variant hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                System Health
+            </a>
+</nav>
+<div class="p-standard mt-auto">
+<button class="w-full py-standard bg-gradient-to-r from-primary to-secondary text-on-primary font-bold rounded-lg shadow-lg hover:scale-[1.02] active:scale-95 transition-all">
+                VOICE COMMAND
+            </button>
+<a class="flex items-center gap-base p-standard mt-base text-on-surface-variant hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 min-h-screen p-airy relative z-10">
+<!-- Top Bar -->
+<header class="flex justify-between items-center w-full mb-airy">
+<div>
+<h2 class="serif-title text-display-lg gold-accent">Executive Pulse</h2>
+<p class="font-body-md text-on-surface-variant">Strategic Clinic Overview — Solar Cycle 2030.12</p>
+</div>
+<div class="flex items-center gap-standard">
+<div class="flex items-center gap-compact bg-surface-container px-standard py-base rounded-full border border-white/5 aurora-glow">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+<span class="text-label-caps font-label-caps">SECURE LINK ACTIVE</span>
+</div>
+<button class="p-base rounded-full bg-surface-container hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-on-surface">settings</span>
+</button>
+</div>
+</header>
+<!-- Revenue Highlight (Bento Top) -->
+<section class="grid grid-cols-12 gap-gutter mb-gutter">
+<div class="col-span-12 glass-card bg-surface-container/40 p-airy rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-standard opacity-50">
+<span class="material-symbols-outlined text-tertiary text-4xl">trending_up</span>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-end gap-airy">
+<div class="z-10">
+<h3 class="serif-title text-headline-lg gold-leaf-border pl-base mb-base">Today's Revenue</h3>
+<div class="flex items-baseline gap-base">
+<span class="font-display-lg text-6xl font-bold text-on-surface">₿ 142.84</span>
+<span class="text-secondary font-bold font-headline-md">+12.4% vs. target</span>
+</div>
+</div>
+<div class="w-full md:w-2/3 h-32 relative group">
+<!-- Fluid Gold Growth Line SVG -->
+<svg class="w-full h-full drop-shadow-[0_0_15px_rgba(255,185,80,0.4)]" viewbox="0 0 400 100">
+<defs>
+<lineargradient id="goldGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#ffb950" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#ffddb3" stop-opacity="1"></stop>
+</lineargradient>
+</defs>
+<path d="M0,80 Q50,70 100,85 T200,40 T300,60 T400,10" fill="none" stroke="url(#goldGradient)" stroke-linecap="round" stroke-width="4">
+<animate attributename="stroke-dasharray" dur="2s" from="0,1000" to="1000,0"></animate>
+</path>
+<circle cx="400" cy="10" fill="#ffddb3" r="5">
+<animate attributename="r" dur="2s" repeatcount="indefinite" values="4;6;4"></animate>
+</circle>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-12 gap-gutter">
+<!-- Patient Flow Widget -->
+<div class="col-span-12 lg:col-span-7 glass-card bg-surface-container/40 p-standard rounded-xl">
+<div class="flex justify-between items-center mb-airy">
+<h3 class="serif-title text-headline-md gold-leaf-border pl-base">Daily Patient Flow</h3>
+<div class="flex gap-base">
+<span class="px-compact py-nano bg-secondary/20 text-secondary text-label-caps rounded-full">LIVE</span>
+<span class="px-compact py-nano bg-white/5 text-on-surface-variant text-label-caps rounded-full">REAL-TIME</span>
+</div>
+</div>
+<div class="flex justify-around items-center h-48 py-base">
+<!-- Curvy flow indicators -->
+<div class="flex flex-col items-center gap-base">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="100" stroke-width="8"></circle>
+</svg>
+<div class="text-center">
+<p class="font-headline-md text-on-surface">42</p>
+<p class="text-[10px] text-on-surface-variant tracking-widest font-label-caps">CHECKED-IN</p>
+</div>
+</div>
+</div>
+<div class="h-16 w-[1px] bg-white/10"></div>
+<div class="flex flex-col items-center gap-base">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-tertiary transition-all duration-1000" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="240" stroke-width="8"></circle>
+</svg>
+<div class="text-center">
+<p class="font-headline-md text-on-surface">18</p>
+<p class="text-[10px] text-on-surface-variant tracking-widest font-label-caps">WAITING</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-base flex justify-center gap-airy">
+<div class="flex items-center gap-nano">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-label-caps text-[10px]">OPTIMAL THROUGHPUT</span>
+</div>
+<div class="flex items-center gap-nano">
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<span class="text-label-caps text-[10px]">CAPACITY THRESHOLD</span>
+</div>
+</div>
+</div>
+<!-- Staff Status Section -->
+<div class="col-span-12 lg:col-span-5 glass-card bg-surface-container/40 p-standard rounded-xl">
+<h3 class="serif-title text-headline-md gold-leaf-border pl-base mb-airy">Staff Status</h3>
+<div class="flex flex-col gap-base">
+<!-- Doctor Row -->
+<div class="flex items-center justify-between p-compact bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-compact">
+<div class="relative">
+<img alt="Dr. Aris Thorne" class="w-10 h-10 rounded-full object-cover grayscale hover:grayscale-0 transition-all" data-alt="A close-up portrait of a skilled surgeon in futuristic medical attire. The background is a dimly lit, high-tech operating room with soft green holographic displays reflecting in their surgical visor. The aesthetic is extremely polished and professional, using a cool blue and emerald green lighting palette to convey clinical precision and calm expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADgeuZBTT02tCA_1WeXB134aA960-dxgGqLF_Zj7rApbHRf-rIk81bq4bT9smPdcu-YZx_LOvkMxTvete9mowXU0sYScRXcmszSDwpNi7K55WYSv_qJIoCPSAWb9k91upUKblfgJCFq-O6IL6a9s1Go0HAa4Fej8LpkmvZ9BgT1q47M8ajuBuJsQPKzZDXznCFNIe1KtmQDDIHIr3tZx3Ds_sMuSPgJW1qj98KnWllqX4Vx6D6yLw_fO5Fh9pBM4ojBQVVdzDyoIhY"/>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-secondary border-2 border-surface-container-low shadow-[0_0_10px_#7dffa2]"></div>
+</div>
+<div>
+<p class="font-bold text-on-surface">Dr. Aris Thorne</p>
+<p class="text-[10px] text-primary tracking-widest font-label-caps uppercase">Neuro-Specialist</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex gap-nano mb-nano">
+<div class="w-1 h-3 rounded-full bg-secondary"></div>
+<div class="w-1 h-3 rounded-full bg-secondary"></div>
+<div class="w-1 h-3 rounded-full bg-secondary/30"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-label-caps">ACTIVE SESSION</span>
+</div>
+</div>
+<!-- Doctor Row -->
+<div class="flex items-center justify-between p-compact bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-compact">
+<div class="relative">
+<img alt="Dr. Elara Vance" class="w-10 h-10 rounded-full object-cover grayscale hover:grayscale-0 transition-all" data-alt="A portrait of a confident female physician in a modern, glass-walled medical facility at dusk. The lighting is warm and cinematic, coming from digital diagnostic screens that cast a soft glow on her face. Her attire is professional and futuristic, with a subtle smart-fabric texture. The scene conveys reliability, wisdom, and advanced healthcare technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDACms8vWKGhmuG2Qi5sH_iIQQDcbNJCog6lDQ_JbpWSNtZcMhA8Iq9eNRgJ2mRoIZnkhGAn0UV7jl71vB3aNBdc8zK-7EZZ1oSLMXodCKvchuQfdi_MnRT1UMmvG7pg8Nwiwa1tMmqBzLgHWrxhQLZyR3YGxPBxrA3exOrMcQmX8L4DF2o7TS5mxhWHTgI4aMmf7UK7msNeNXr6OZWVqnNMk87FSh_fwuj0DH4L2UbKd9Wv7DShdy3jEk9uO-t6E6wB19BYeOp2P7w"/>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-secondary border-2 border-surface-container-low shadow-[0_0_10px_#7dffa2]"></div>
+</div>
+<div>
+<p class="font-bold text-on-surface">Dr. Elara Vance</p>
+<p class="text-[10px] text-primary tracking-widest font-label-caps uppercase">Cardiac Sync</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex gap-nano mb-nano">
+<div class="w-1 h-3 rounded-full bg-secondary"></div>
+<div class="w-1 h-3 rounded-full bg-secondary/30"></div>
+<div class="w-1 h-3 rounded-full bg-secondary/30"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-label-caps">3m IDLE</span>
+</div>
+</div>
+<!-- Doctor Row -->
+<div class="flex items-center justify-between p-compact bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors opacity-60">
+<div class="flex items-center gap-compact">
+<div class="relative">
+<img alt="Dr. Kaelen Moss" class="w-10 h-10 rounded-full object-cover grayscale" data-alt="A portrait of a medical researcher in a high-density biolab. The background features glowing tubes of azure bioluminescent fluids and sleek metal workstations. The lighting is moody and focused, with deep shadows and vibrant cyan highlights. The aesthetic is clinical yet mysterious, representing the cutting edge of 2030 biotechnology and research." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOs0FevWpzqmOf94CQNFgu94LVwV-D7Nl196rNgs50L3CAsyAzoVVj05B_AMBchj7kWaIdXXq4n-y1KztEvztOGNNIANIWw9ecF3nBfeKSVzLUB1f9mqoz23bal9gcaA5R-mtPcZUdm_W9SLzfsHcVddwoZ3irWBfcgks7LpA6ZBrDAzl7TMlgDiBEoP-si_7Cmt-gUls5CpelXCdPHQy2qK0f8VtROQJjnkUWHwm4_n03zyXosNkSKLlWAKf796Q3cHCzzWi4S37s"/>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-outline border-2 border-surface-container-low"></div>
+</div>
+<div>
+<p class="font-bold text-on-surface">Dr. Kaelen Moss</p>
+<p class="text-[10px] text-on-surface-variant tracking-widest font-label-caps uppercase">OFF-CYCLE</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-on-surface-variant font-label-caps">RESUMES 08:00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-airy pt-airy flex justify-between items-center w-full text-xs text-on-surface-variant border-t border-white/5">
+<div class="flex items-center gap-standard">
+<span class="font-label-caps text-secondary">HealthcareWale Executive</span>
+<span>Connectivity: Satellite-Active</span>
+<span>Latency: 12ms</span>
+</div>
+<div class="flex gap-standard">
+<a class="hover:text-primary transition-colors" href="#">Sync Status</a>
+<a class="hover:text-primary transition-colors" href="#">Legal</a>
+<span>© 2030</span>
+</div>
+</footer>
+</main>
+<!-- Voice Command Waveform (Floating Contextual) -->
+<div class="fixed bottom-0 left-72 right-0 h-24 bg-surface/60 backdrop-blur-xl border-t border-white/10 transform translate-y-full transition-transform duration-500 flex items-center justify-center gap-base px-airy z-40" id="voice-overlay">
+<div class="flex items-center gap-nano h-12">
+<div class="w-1 bg-secondary rounded-full animate-[bounce_1s_infinite]"></div>
+<div class="w-1 bg-primary rounded-full animate-[bounce_1.2s_infinite]"></div>
+<div class="w-1 bg-tertiary rounded-full animate-[bounce_0.8s_infinite]"></div>
+<div class="w-1 bg-secondary rounded-full animate-[bounce_1.5s_infinite]"></div>
+<div class="w-1 bg-primary rounded-full animate-[bounce_1s_infinite]"></div>
+</div>
+<p class="font-headline-md italic gold-accent">Listening for command...</p>
+</div>
+<script>
+        // Micro-interaction for Voice Command
+        const voiceBtn = document.querySelector('button:contains("VOICE COMMAND")') || document.querySelectorAll('button')[0];
+        const voiceOverlay = document.getElementById('voice-overlay');
+        
+        let isListening = false;
+        
+        function toggleVoice() {
+            isListening = !isListening;
+            voiceOverlay.style.transform = isListening ? 'translateY(0)' : 'translateY(100%)';
+        }
+
+        // Add actual listener since text searching in selector is tricky
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.innerText.includes('VOICE')) {
+                btn.addEventListener('click', toggleVoice);
+            }
+        });
+
+        // Simple mouse tracking for card glow effect
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

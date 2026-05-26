@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Futuristic AI Receptionist Operations Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#156820",
+                        "surface-dim": "#ccdbf3",
+                        "error": "#ba1a1a",
+                        "secondary": "#4c56af",
+                        "on-background": "#0d1c2e",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#e3fffe",
+                        "inverse-primary": "#76d6d5",
+                        "on-secondary-container": "#27308a",
+                        "tertiary-fixed": "#a3f69c",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-surface-variant": "#3e4949",
+                        "outline": "#6e7979",
+                        "on-secondary-fixed": "#000767",
+                        "surface-container": "#e6eeff",
+                        "primary-container": "#008080",
+                        "background": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002204",
+                        "inverse-surface": "#233144",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "primary-fixed": "#93f2f2",
+                        "on-primary-fixed": "#002020",
+                        "tertiary-container": "#338236",
+                        "tertiary-fixed-dim": "#88d982",
+                        "surface-container-highest": "#d5e3fc",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#ebffe3",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#d5e3fc",
+                        "primary": "#006565",
+                        "secondary-container": "#959efd",
+                        "surface-tint": "#006a6a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#76d6d5",
+                        "outline-variant": "#bdc9c8",
+                        "on-surface": "#0d1c2e",
+                        "surface-bright": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "touch-target-min": "44px",
+                        "lg": "24px",
+                        "margin-desktop": "48px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "label-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-xl": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom Animations */
+        @keyframes waveform {
+            0%, 100% { transform: scaleY(0.2); }
+            50% { transform: scaleY(1); }
+        }
+        .wave-bar {
+            transform-origin: bottom;
+            animation: waveform 1.2s ease-in-out infinite;
+        }
+        .wave-bar:nth-child(2n) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(3n) { animation-delay: 0.4s; }
+        .wave-bar:nth-child(5n) { animation-delay: 0.6s; }
+        .wave-bar:nth-child(7n) { animation-delay: 0.8s; }
+        .wave-bar:nth-child(11n) { animation-delay: 0.1s; }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .mic-pulse::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background-color: theme('colors.secondary');
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            z-index: -1;
+        }
+        
+        /* Scrollbar styling for high-end look */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: theme('colors.outline-variant'); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: theme('colors.outline'); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen w-full overflow-hidden flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- Active Connectivity Sync Bar -->
+<div class="fixed top-0 left-0 w-full h-1 bg-tertiary z-50 shadow-[0_0_8px_rgba(21,104,32,0.6)]"></div>
+<!-- SideNavBar (Desktop Shell) -->
+<nav class="hidden md:flex flex-col h-screen sticky top-0 p-md bg-surface-container-low dark:bg-on-background border-r border-outline-variant dark:border-outline w-64 z-40 shrink-0">
+<!-- Brand Header -->
+<div class="flex items-center gap-md mb-xl px-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
+<img alt="HealthcareWale System Logo" class="w-full h-full object-cover" data-alt="A highly polished, minimalist 3D corporate logo for a modern medical infrastructure company named HealthcareWale. The logo features abstract geometric shapes intertwining, rendered in pristine white and medical teal. The lighting is soft and studio-quality, creating smooth gradients and a sense of clinical precision. High resolution, centered on a clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDgwMAFEoe_D_RDCnbAN2LTyAYl-xrEIPkMMSL7oPQ3GSw1aOXmvxOegkS84jV9hl11E3ZkmjCUknoiDUoRHF1d3_LV2zkzdLaqdeVYALO9eY2bQyaYqvCmb2AsngTAJtxL0SJQHbpYA8XV9MwwGfg-_Uyc2gstbmzKJr2bnjRRl1vAMnHXsaUhGIshrs58SQagYKsl4gff3124TSRpYR9FzpQE_0dW7ol1X5YA4Y8FeJmJIvggQHS2KU0kA5zatBmdQsCXhyfgwHO"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-xl font-label-xl font-black text-primary dark:text-primary-fixed tracking-tight">System Admin</span>
+<span class="font-caption text-caption text-on-surface-variant">Hospital Unit 01</span>
+</div>
+</div>
+<!-- Main Navigation Links -->
+<ul class="flex flex-col gap-xs flex-1">
+<!-- Pharmacy (Inactive) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">medical_services</span>
+                    Pharmacy
+                </a>
+</li>
+<!-- Clinic (Inactive) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">local_hospital</span>
+                    Clinic
+                </a>
+</li>
+<!-- AI Center (Active Tab) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md shadow-sm" href="#">
+<span aria-hidden="true" class="material-symbols-outlined filled">psychology</span>
+                    AI Center
+                </a>
+</li>
+<!-- HMS (Inactive) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">grid_view</span>
+                    HMS
+                </a>
+</li>
+<!-- B2B (Inactive) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">business_center</span>
+                    B2B
+                </a>
+</li>
+</ul>
+<!-- Footer Links -->
+<div class="mt-auto pt-md border-t border-outline-variant">
+<ul class="flex flex-col gap-xs">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">settings</span>
+                        Settings
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">help</span>
+                        Support
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<div class="flex-1 flex flex-col min-w-0 bg-background relative">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-lg h-touch-target-min bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline shrink-0 z-30">
+<!-- Brand Logo / Page Title -->
+<div class="flex items-center gap-sm">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">HealthcareWale</span>
+<span class="text-outline mx-sm">/</span>
+<span class="font-body-lg text-body-lg text-on-surface font-medium">Operations Center</span>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-md">
+<button aria-label="Voice Command Active" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors relative mic-pulse cursor-pointer active:opacity-80">
+<span aria-hidden="true" class="material-symbols-outlined text-secondary">mic</span>
+</button>
+<div class="flex items-center gap-xs px-sm py-xs rounded-full bg-surface-container-low border border-outline-variant cursor-pointer active:opacity-80 transition-colors">
+<span aria-hidden="true" class="material-symbols-outlined text-tertiary text-sm" style="font-size: 18px;">signal_cellular_connected_no_internet_4_bar</span>
+<span class="font-caption text-caption text-on-surface-variant">Sync Active</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Scrollable Area -->
+<main class="flex-1 overflow-y-auto p-md lg:p-margin-desktop">
+<div class="max-w-7xl mx-auto">
+<!-- Grid Container -->
+<div class="grid grid-cols-12 gap-lg auto-rows-min">
+<!-- HERO: Active Call Monitoring (Col span 8) -->
+<section class="col-span-12 lg:col-span-8 flex flex-col gap-md">
+<div class="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-lg h-full shadow-[0_2px_12px_rgba(76,86,175,0.05)]">
+<!-- Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-error"></span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Live Telemetry: Triage Channel B</h2>
+</div>
+<div class="px-sm py-xs bg-surface-container-high rounded font-caption text-caption text-on-surface-variant border border-outline-variant">
+                                    Patient ID: <span class="font-mono text-on-surface">8829-AX</span>
+</div>
+</div>
+<!-- Waveform Visualization -->
+<div class="flex-1 bg-surface-container-lowest rounded-lg border border-outline-variant p-md flex items-end justify-center gap-xs h-40 overflow-hidden relative">
+<!-- Background grid lines -->
+<div class="absolute inset-0 border-b border-surface-container-highest top-1/4 w-full"></div>
+<div class="absolute inset-0 border-b border-surface-container-highest top-2/4 w-full"></div>
+<div class="absolute inset-0 border-b border-surface-container-highest top-3/4 w-full"></div>
+<!-- Wave bars -->
+<div class="w-1.5 h-full bg-primary-fixed-dim rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar" style="animation-duration: 0.8s;"></div>
+<div class="w-1.5 h-full bg-primary-fixed rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-secondary rounded-t-sm wave-bar" style="animation-duration: 0.9s;"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary-container rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-secondary-container rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary-fixed-dim rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary-fixed rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-secondary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary-container rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-secondary-container rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm wave-bar"></div>
+<div class="w-1.5 h-full bg-primary-fixed-dim rounded-t-sm wave-bar"></div>
+<!-- Floating tags -->
+<div class="absolute top-sm right-sm bg-surface/90 backdrop-blur-sm px-sm py-xs rounded text-caption font-caption text-on-surface border border-outline-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" style="font-size: 14px;">translate</span>
+                                    ES → EN
+                                </div>
+</div>
+<!-- Sentiment Gauges -->
+<div class="grid grid-cols-3 gap-md">
+<!-- Calm -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between items-center">
+<span class="font-caption text-caption text-on-surface-variant">Calm Base</span>
+<span class="font-caption text-caption text-on-surface">24%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full w-[24%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Anxious -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between items-center">
+<span class="font-caption text-caption text-on-surface-variant">Anxious</span>
+<span class="font-caption text-caption text-on-surface font-semibold">68%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-[68%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Urgent -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between items-center">
+<span class="font-caption text-caption text-error">Urgent Escalation</span>
+<span class="font-caption text-caption text-error font-bold">8%</span>
+</div>
+<div class="w-full h-1.5 bg-error-container rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full w-[8%] transition-all duration-500"></div>
+</div>
+</div>
+</div>
+<!-- Human Takeover Button -->
+<button class="w-full h-touch-target-min mt-sm bg-error hover:bg-on-error-container text-on-error rounded-lg flex items-center justify-center gap-sm transition-colors shadow-md group">
+<span aria-hidden="true" class="material-symbols-outlined group-hover:scale-110 transition-transform">emergency</span>
+<span class="font-label-xl text-label-xl uppercase tracking-wider">Human Takeover</span>
+</button>
+</div>
+</section>
+<!-- Critical Alerts Panel (Col span 4) -->
+<section class="col-span-12 lg:col-span-4 flex flex-col h-full">
+<div class="bg-surface rounded-xl border border-outline-variant flex flex-col h-full shadow-sm overflow-hidden">
+<!-- Header -->
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex items-center gap-sm">
+<span aria-hidden="true" class="material-symbols-outlined text-error">warning</span>
+<h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wide">Critical Alerts</h3>
+<span class="ml-auto bg-error text-on-error rounded-full w-6 h-6 flex items-center justify-center font-caption text-caption">3</span>
+</div>
+<!-- List -->
+<div class="flex-1 flex flex-col p-sm gap-sm overflow-y-auto">
+<!-- Alert Item 1 (Severe) -->
+<div class="bg-error-container border border-error/20 p-md rounded-lg flex gap-md items-start cursor-pointer hover:shadow-md transition-shadow">
+<span aria-hidden="true" class="material-symbols-outlined text-error mt-xs" style="font-size: 20px;">vital_signs</span>
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md text-on-error-container">Chest Pain Keyword Detected</span>
+<span class="font-caption text-caption text-on-surface-variant">Triage Channel B • 12s ago</span>
+</div>
+</div>
+<!-- Alert Item 2 (Warning) -->
+<div class="bg-surface-container-high border border-outline-variant p-md rounded-lg flex gap-md items-start cursor-pointer hover:bg-surface-variant transition-colors">
+<span aria-hidden="true" class="material-symbols-outlined text-secondary mt-xs" style="font-size: 20px;">record_voice_over</span>
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md text-on-surface">Multiple Interruptions</span>
+<span class="font-caption text-caption text-on-surface-variant">Patient speaking over AI &gt;3 times.</span>
+</div>
+</div>
+<!-- Alert Item 3 (Info) -->
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-lg flex gap-md items-start cursor-pointer hover:bg-surface-container-low transition-colors">
+<span aria-hidden="true" class="material-symbols-outlined text-primary mt-xs" style="font-size: 20px;">g_translate</span>
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md text-on-surface">Auto-Language Switch</span>
+<span class="font-caption text-caption text-on-surface-variant">Detected dialect shift to regional variant.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Real-time Transcript (Col span 6) -->
+<section class="col-span-12 lg:col-span-6 flex flex-col h-[400px]">
+<div class="bg-surface rounded-xl border border-outline-variant flex flex-col h-full shadow-sm">
+<div class="p-md border-b border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+<h3 class="font-label-md text-label-md text-on-surface flex items-center gap-sm">
+<span aria-hidden="true" class="material-symbols-outlined text-primary text-sm">chat</span>
+                                    Live Transcript
+                                </h3>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 16px;">history</span>
+<span class="font-caption text-caption">02:14</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-md flex flex-col gap-md bg-background/50">
+<!-- AI Msg -->
+<div class="flex flex-col items-start max-w-[85%]">
+<span class="font-caption text-caption text-on-surface-variant mb-xs ml-sm">HealthcareWale AI</span>
+<div class="bg-surface border border-outline-variant text-on-surface p-sm rounded-2xl rounded-tl-none font-body-md text-body-md shadow-sm">
+                                        ¿Puede describir el dolor? ¿Es agudo, sordo o como una presión?
+                                    </div>
+</div>
+<!-- Translation overlay -->
+<div class="flex items-center gap-xs ml-xl text-secondary">
+<span class="material-symbols-outlined" style="font-size: 14px;">subdirectory_arrow_right</span>
+<span class="font-caption text-caption italic">Can you describe the pain? Is it sharp, dull, or like pressure?</span>
+</div>
+<!-- Patient Msg -->
+<div class="flex flex-col items-end max-w-[85%] self-end mt-sm">
+<span class="font-caption text-caption text-on-surface-variant mb-xs mr-sm">Patient Caller</span>
+<div class="bg-primary-container text-on-primary-container p-sm rounded-2xl rounded-tr-none font-body-md text-body-md shadow-sm">
+                                        Es una presión muy fuerte en el centro del pecho.
+                                    </div>
+<div class="flex items-center gap-xs mt-xs text-on-surface-variant">
+<span class="font-caption text-caption italic text-secondary">It is a very strong pressure in the center of the chest.</span>
+<span class="material-symbols-outlined text-secondary" style="font-size: 14px;">done_all</span>
+</div>
+</div>
+<!-- Typing Indicator -->
+<div class="flex items-center gap-xs text-on-surface-variant mt-sm">
+<span class="material-symbols-outlined animate-pulse" style="font-size: 16px;">more_horiz</span>
+<span class="font-caption text-caption">AI processing response...</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Performance Analytics (Col span 6) -->
+<section class="col-span-12 lg:col-span-6 flex flex-col h-[400px]">
+<div class="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col h-full shadow-sm gap-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Throughput Analytics</h3>
+<div class="grid grid-cols-2 gap-md flex-1">
+<!-- Stat Block 1 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-md flex flex-col justify-center">
+<div class="flex items-center gap-sm text-on-surface-variant mb-sm">
+<span aria-hidden="true" class="material-symbols-outlined">check_circle</span>
+<span class="font-label-md text-label-md">Autonomous Resolution</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg text-primary tracking-tight">84.2</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">%</span>
+</div>
+<span class="font-caption text-caption text-tertiary flex items-center mt-xs">
+<span class="material-symbols-outlined text-sm" style="font-size: 14px;">trending_up</span>
+                                        +2.4% vs last hour
+                                    </span>
+</div>
+<!-- Stat Block 2 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-md flex flex-col justify-center">
+<div class="flex items-center gap-sm text-on-surface-variant mb-sm">
+<span aria-hidden="true" class="material-symbols-outlined">timer</span>
+<span class="font-label-md text-label-md">Avg Handle Time</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">1m 45s</span>
+</div>
+<span class="font-caption text-caption text-secondary flex items-center mt-xs">
+                                        Optimal Range
+                                    </span>
+</div>
+<!-- Bar Chart Mockup (Full Width inside grid) -->
+<div class="col-span-2 bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col gap-sm justify-end">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-caption text-caption text-on-surface-variant">Cross-Lingual Success Rate</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm">
+<span class="w-8 font-caption text-caption text-on-surface text-right">EN</span>
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[96%] rounded-full"></div>
+</div>
+<span class="w-8 font-caption text-caption text-on-surface-variant">96%</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="w-8 font-caption text-caption text-on-surface text-right">ES</span>
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[92%] rounded-full"></div>
+</div>
+<span class="w-8 font-caption text-caption text-on-surface-variant">92%</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="w-8 font-caption text-caption text-on-surface text-right">HI</span>
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[78%] rounded-full"></div>
+</div>
+<span class="w-8 font-caption text-caption text-on-surface-variant">78%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</body></html>

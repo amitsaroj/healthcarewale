@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale Patient App: Home &amp; Booking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d2e4fb",
+                        "on-secondary-container": "#556679",
+                        "outline-variant": "#bdc9c8",
+                        "on-tertiary-container": "#e9ffe9",
+                        "on-secondary-fixed": "#0b1d2d",
+                        "secondary-container": "#d2e4fb",
+                        "tertiary-fixed": "#6bfe9c",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#008443",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary-fixed-variant": "#005228",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface-variant": "#3e4949",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#008080",
+                        "surface-tint": "#006a6a",
+                        "on-primary-fixed": "#002020",
+                        "surface-dim": "#cbdbf5",
+                        "on-background": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary-fixed-dim": "#4ae183",
+                        "background": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#93f2f2",
+                        "on-tertiary-fixed": "#00210c",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#76d6d5",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "surface-container-low": "#eff4ff",
+                        "surface": "#f8f9ff",
+                        "primary": "#006565",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "secondary": "#4f6073",
+                        "on-secondary-fixed-variant": "#38485a",
+                        "inverse-primary": "#76d6d5",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8de",
+                        "on-primary-container": "#e3fffe",
+                        "on-surface": "#0b1c30",
+                        "inverse-surface": "#213145",
+                        "tertiary": "#006834",
+                        "outline": "#6e7979"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-lg": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["13px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; color: #0b1c30; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 flex">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex flex-col h-screen w-80 rounded-r-xl bg-surface dark:bg-surface-dim shadow-xl sticky top-0 border-r border-outline-variant">
+<div class="py-margin-mobile flex flex-col gap-unit h-full">
+<div class="px-gutter mb-6 flex items-center gap-4">
+<img alt="Patient Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-primary" data-alt="A close-up portrait of a professional individual looking at the camera, conveying trust and reliability. The lighting is bright and clear, reflecting a modern, clean medical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnRfTHTX8l1BAfhit0550mLMSh1dQeiWsmdLbNJfW7qW7q1eR6bxvP0g0iypJ5leKNeayPSZfaigw8URAmtib8bPhOFFTjMdvKntvW9vM7nVs-woe9tHRucXBSabjoS3OlBn0rdpJPRCVP08-wEuHI0GoMfdIIsKXAc-zedueFepb6mSB9cJPd3F-EqrMJ5_mDvxb0UL2CgnkRcNug-WKsqTTUw5hBAxJZQ2AY7q5tDbQHNqpUTFv9vFi22AoJFQ9aVdc5DmCUSpiY"/>
+<div>
+<h2 class="font-label-lg text-label-lg text-on-surface">Ramesh Kumar</h2>
+<p class="font-caption text-caption text-on-surface-variant">Medical ID: HW-99234</p>
+<span class="inline-block mt-1 px-2 py-0.5 bg-primary-container text-on-primary-container font-caption text-caption rounded-full">Premium Member</span>
+</div>
+</div>
+<nav class="flex-1 px-2 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+                    Book Appointment
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 font-body-md text-body-md transition-colors hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined">biotech</span>
+                    Lab Tests
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 font-body-md text-body-md transition-colors hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined">family_restroom</span>
+                    Family Members
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 font-body-md text-body-md transition-colors hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 font-body-md text-body-md transition-colors hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined">translate</span>
+                    Language (हिंदी/বাংলা)
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 font-body-md text-body-md transition-colors hover:bg-secondary-fixed/50 mt-auto mb-4" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+                    Help &amp; Support
+                </a>
+</nav>
+</div>
+</aside>
+<main class="flex-1 w-full max-w-container-max mx-auto md:px-margin-desktop">
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden w-full top-0 sticky bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm z-40 transition-colors duration-200 active:opacity-80">
+<div class="flex items-center justify-between px-margin-mobile h-touch-target w-full">
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">HealthcareWale</h1>
+<img alt="User profile photo" class="w-8 h-8 rounded-full object-cover" data-alt="A close-up portrait of a professional individual looking at the camera, conveying trust and reliability. The lighting is bright and clear, reflecting a modern, clean medical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw9ezdUH8aHtndouWg9ad20CmPFwauDrhu79J_YzeTYBa_h-r20D_P-L8k6wBnXL5FQ0vM3lUcW4F506uUYwhJo4jFMawZM9qijjThdCU4OhTqoTtaUgSgSbHcUQOu_HfwEINXhV7g_R5TjnsU9HziKzNsgYau3Ux4WiDdWuLhuqM33LdemyVKLa2UoPMuC8q_8XQrPlQZV7dncEJsx_RGK2banfLpe0CHgsDKJeMbUgrVEFQWHJJu97YdpOxGqJDzd3-yacE9ka93"/>
+</div>
+</header>
+<div class="p-margin-mobile md:py-8 flex flex-col gap-8">
+<!-- Hero Search Section -->
+<section class="bg-surface-bright rounded-2xl p-6 shadow-sm border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Find Doctors &amp; Clinics <span class="block text-primary font-headline-md text-headline-md">डॉक्टर और क्लीनिक खोजें</span></h2>
+<div class="mt-6 flex flex-col sm:flex-row gap-4">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 h-14 bg-surface rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-body-md placeholder-on-surface-variant transition-all shadow-sm" placeholder="Search by name, specialty, or clinic..." type="text"/>
+</div>
+<button class="h-14 px-8 bg-primary text-on-primary rounded-xl font-label-lg text-label-lg shadow-sm hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors flex items-center justify-center gap-2 min-w-[140px]">
+                            Search
+                        </button>
+</div>
+</div>
+</section>
+<!-- Quick Actions Bento Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<a class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm border border-outline-variant hover:shadow-md transition-all active:scale-95 group h-32" href="#">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined filled text-[28px]">stethoscope</span>
+</div>
+<div class="text-center">
+<span class="font-label-md text-label-md text-on-surface block">Consult Doctor</span>
+<span class="font-caption text-caption text-on-surface-variant block">डॉक्टर से मिलें</span>
+</div>
+</a>
+<a class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm border border-outline-variant hover:shadow-md transition-all active:scale-95 group h-32" href="#">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
+<span class="material-symbols-outlined filled text-[28px]">biotech</span>
+</div>
+<div class="text-center">
+<span class="font-label-md text-label-md text-on-surface block">Lab Tests</span>
+<span class="font-caption text-caption text-on-surface-variant block">लैब टेस्ट</span>
+</div>
+</a>
+<a class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm border border-outline-variant hover:shadow-md transition-all active:scale-95 group h-32" href="#">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined filled text-[28px]">medication</span>
+</div>
+<div class="text-center">
+<span class="font-label-md text-label-md text-on-surface block">Medicines</span>
+<span class="font-caption text-caption text-on-surface-variant block">दवाइयां</span>
+</div>
+</a>
+<a class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm border border-outline-variant hover:shadow-md transition-all active:scale-95 group h-32" href="#">
+<div class="w-12 h-12 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center group-hover:bg-surface-dim transition-colors">
+<span class="material-symbols-outlined filled text-[28px]">clinical_notes</span>
+</div>
+<div class="text-center">
+<span class="font-label-md text-label-md text-on-surface block">Records</span>
+<span class="font-caption text-caption text-on-surface-variant block">मेडिकल रिकॉर्ड</span>
+</div>
+</a>
+</section>
+<!-- Upcoming Appointments -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Upcoming Appointments</h3>
+<a class="font-label-md text-label-md text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="bg-surface rounded-2xl p-5 shadow-sm border border-outline-variant flex flex-col sm:flex-row gap-5 items-start sm:items-center relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex-shrink-0 w-16 h-16 bg-surface-container-high rounded-xl flex flex-col items-center justify-center text-on-surface">
+<span class="font-headline-md text-headline-md">14</span>
+<span class="font-caption text-caption font-bold">OCT</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-lg text-label-lg text-on-surface truncate">Dr. Sharma Cardiology Clinic</h4>
+<p class="font-body-md text-body-md text-on-surface-variant truncate">Follow-up • 10:30 AM</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-caption text-caption">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Confirmed
+                            </span>
+</div>
+</div>
+<div class="flex gap-2 w-full sm:w-auto mt-2 sm:mt-0">
+<button class="flex-1 sm:flex-none h-12 px-4 border border-outline text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">event_busy</span> Reschedule
+                        </button>
+<button class="flex-1 sm:flex-none h-12 px-4 bg-primary-container text-on-primary-container rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">videocam</span> Join Call
+                        </button>
+</div>
+</div>
+</section>
+<!-- Recommended Specialists -->
+<section>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Recommended Specialists</h3>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Specialist Card 1 -->
+<div class="flex-shrink-0 w-64 bg-surface rounded-2xl p-4 shadow-sm border border-outline-variant flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<img alt="Dr. Anita Desai" class="w-14 h-14 rounded-full object-cover border border-outline-variant" data-alt="A professional portrait of a female doctor wearing a white lab coat over a blue scrub top, smiling warmly in a bright, modern clinical setting. The image exudes confidence and care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWf5t4mhcRww5OcdaDjjCQt0ZdqYUfuMqzJ5K1hTQevulSXoAe-IzgbS-se0yO-spHSF2vJHbG8Li2T8wE89ilAp9WzWCSHNr7EpNv0-vN0kUoA8pB3ro1Lecete6_665wdZ2mHhfL8C8OwROGoHENJr4L7c2_AXRwojyO-yXg1rIOwbXATQGh2uPbtJWxxMV6PujQt2EUOjUeblVRLf1v_sHKd_v-_S4ap9sOE8pWG2lFzgXJEC92fSqE_rBqhuOc5-TLDCcVn3e4"/>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Dr. Anita Desai</h4>
+<p class="font-caption text-caption text-on-surface-variant">Cardiologist</p>
+<div class="flex items-center gap-1 mt-1 text-tertiary">
+<span class="material-symbols-outlined filled text-[14px]">star</span>
+<span class="font-caption text-caption font-bold">4.8</span>
+</div>
+</div>
+</div>
+<p class="font-caption text-caption text-on-surface-variant border-t border-outline-variant pt-2">15 yrs exp • City Hospital</p>
+<button class="w-full h-10 border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors mt-auto">
+                            Book Visit
+                        </button>
+</div>
+<!-- Specialist Card 2 -->
+<div class="flex-shrink-0 w-64 bg-surface rounded-2xl p-4 shadow-sm border border-outline-variant flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<img alt="Dr. Vikram Singh" class="w-14 h-14 rounded-full object-cover border border-outline-variant" data-alt="A professional portrait of a male doctor with glasses, wearing a white coat and stethoscope, looking friendly and approachable in a well-lit medical office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFVF0d7mlXznxybMs4IzwkwLpfHSodbatTHqA2p6egyjJujchXDS7nXfmVt-8rXkVedBOsGMIH6yOQVzTV8KMCj_IiZpPIFNAa8KUonuDLapdnpnGRMJ3OUSB-luxlXGdlZ3O8y61dV8hrBmhWU9Ke7wQD3T5n8h1CrTqvM-p2mfxLzNm_Ek7wVSvRGQ0-QvvlWM2tLvT3UvTHCkgEg6fB7cwUy1HQOuR7LxCIS6SMYpOPCi8Erucnp5x2YUjCtSAuBFRXzOVIIJFe"/>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Dr. Vikram Singh</h4>
+<p class="font-caption text-caption text-on-surface-variant">Orthopedics</p>
+<div class="flex items-center gap-1 mt-1 text-tertiary">
+<span class="material-symbols-outlined filled text-[14px]">star</span>
+<span class="font-caption text-caption font-bold">4.9</span>
+</div>
+</div>
+</div>
+<p class="font-caption text-caption text-on-surface-variant border-t border-outline-variant pt-2">20 yrs exp • Apollo Care</p>
+<button class="w-full h-10 border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors mt-auto">
+                            Book Visit
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 h-20 bg-surface-container-lowest dark:bg-surface-container-high border-t border-outline-variant dark:border-outline shadow-lg flex justify-around items-center px-gutter pb-safe">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold bg-primary-container/20 rounded-xl px-4 py-1 transition-all duration-300 transform active:scale-95" href="#">
+<span class="material-symbols-outlined filled">home</span>
+<span class="font-label-lg text-label-lg mt-1 text-[11px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-variant/30 transition-all duration-300 transform active:scale-95 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-lg text-label-lg mt-1 text-[11px]">Medicines</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-variant/30 transition-all duration-300 transform active:scale-95 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="font-label-lg text-label-lg mt-1 text-[11px]">Records</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-variant/30 transition-all duration-300 transform active:scale-95 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-lg text-label-lg mt-1 text-[11px]">Profile</span>
+</a>
+</nav>
+</body></html>

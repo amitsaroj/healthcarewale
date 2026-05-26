@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale - Medicines</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#d2e4fb",
+                      "on-secondary-container": "#556679",
+                      "outline-variant": "#bdc9c8",
+                      "on-tertiary-container": "#e9ffe9",
+                      "on-secondary-fixed": "#0b1d2d",
+                      "secondary-container": "#d2e4fb",
+                      "tertiary-fixed": "#6bfe9c",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#008443",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#dce9ff",
+                      "on-tertiary-fixed-variant": "#005228",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-surface-variant": "#3e4949",
+                      "on-primary": "#ffffff",
+                      "primary-container": "#008080",
+                      "surface-tint": "#006a6a",
+                      "on-primary-fixed": "#002020",
+                      "surface-dim": "#cbdbf5",
+                      "on-background": "#0b1c30",
+                      "surface-variant": "#d3e4fe",
+                      "tertiary-fixed-dim": "#4ae183",
+                      "background": "#f8f9ff",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#eaf1ff",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#93f2f2",
+                      "on-tertiary-fixed": "#00210c",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#76d6d5",
+                      "on-primary-fixed-variant": "#004f4f",
+                      "surface-container-low": "#eff4ff",
+                      "surface": "#f8f9ff",
+                      "primary": "#006565",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#e5eeff",
+                      "secondary": "#4f6073",
+                      "on-secondary-fixed-variant": "#38485a",
+                      "inverse-primary": "#76d6d5",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#b7c8de",
+                      "on-primary-container": "#e3fffe",
+                      "on-surface": "#0b1c30",
+                      "inverse-surface": "#213145",
+                      "tertiary": "#006834",
+                      "outline": "#6e7979"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "container-max": "1440px",
+                      "gutter": "24px",
+                      "unit": "8px",
+                      "touch-target": "48px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "headline-xl": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "caption": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-lg": ["15px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-md": ["13px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .h-touch-target { min-height: 48px; }
+            .w-touch-target { min-width: 48px; }
+            .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface shadow-sm border-b border-outline-variant flex items-center justify-between px-margin-mobile h-touch-target transition-colors duration-200">
+<div class="flex items-center gap-unit cursor-pointer hover:bg-surface-container-low p-2 rounded-full active:opacity-80 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-primary">
+            HealthcareWale
+        </div>
+<div class="flex items-center cursor-pointer hover:bg-surface-container-low p-1 rounded-full active:opacity-80 transition-colors">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up, brightly lit portrait of a professional looking individual against a clean, neutral background. The lighting is soft and even, typical of modern corporate headshots. The mood is approachable and trustworthy. The image is cropped in a perfect circle, serving as an avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYER-6mphzFVBp9UqqIl64SdeXGRpTAD1XQ-hbxT1-nKxFcmoRIxBVNJ4nmMlis_I8e8lnXZYEfjavjyAdjnhIqHZgFWgCHqwsI9SMp3_W5nfPUEvpasr6l10sGGytw3AGaDlO5lWouvlPmDHV1A-Ug5ro70w-7d8U6cAhfRg5jhL14QPxDuwVE9uLrQoKFkFyn5W0u0X_oq_IJJ9OcBCTkUiHR8UlLigfq2YKBjz09OvyKEYD1vdYYvyWkppIZo1ACe6JoQ73MvcZ"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 max-w-[container-max] mx-auto w-full">
+<!-- NavigationDrawer (Desktop) -->
+<aside class="hidden md:flex flex-col py-margin-mobile gap-unit h-[calc(100vh-64px)] w-80 rounded-r-xl shadow-xl bg-surface sticky top-[64px] border-r border-outline-variant overflow-y-auto">
+<!-- Header -->
+<div class="px-gutter mb-4 flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest shrink-0">
+<img alt="Patient Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHdteWUlpf1RGoH3deBKAPI0ZAoJ52X6yOhQwnMkPhuPoLBq1be30mMVtBwGKd6i9vhfQJWPr2fA-daYGiLnmmZZ7YHbraK2EJ7MN87PW9q5NpQNRM-qt8e0_F4KMcrf_u54unEW0WTnzR9tV_gzpn5VB2UgQIRfiE3vjTQBLGADynyJhkv2204kVm-qwgYBDm0dnUkhdTvEy0D2Q0SS5S4Jq2lITRBWTxq-KuMv_iKS3leYtvo6VVPMqPSudTZsE_dR9u6n1pW7NE"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary truncate">Ramesh Kumar</h3>
+<p class="font-caption text-caption text-on-surface-variant truncate">Medical ID: HW-99234</p>
+<span class="inline-block mt-1 px-2 py-0.5 bg-tertiary-container text-on-tertiary-container font-caption text-caption rounded-full text-[10px]">Premium Member</span>
+</div>
+</div>
+<nav class="flex flex-col gap-1 px-2">
+<a class="flex items-center gap-3 px-4 py-3 h-touch-target text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 transition-transform duration-300 ease-in-out hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-md text-body-md">Book Appointment</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 h-touch-target bg-secondary-container text-on-secondary-container rounded-full mx-2 transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-label-lg text-label-lg font-bold">Medicines</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 h-touch-target text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 transition-transform duration-300 ease-in-out hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+<span class="font-body-md text-body-md">Lab Tests</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 h-touch-target text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 transition-transform duration-300 ease-in-out hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined" data-icon="family_restroom">family_restroom</span>
+<span class="font-body-md text-body-md">Family Members</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 h-touch-target text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 transition-transform duration-300 ease-in-out hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 h-touch-target text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 transition-transform duration-300 ease-in-out hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+<span class="font-body-md text-body-md">Language (हिंदी/বাংলা)</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 h-touch-target text-on-surface-variant hover:bg-surface-container-high rounded-full mx-2 transition-transform duration-300 ease-in-out hover:bg-secondary-fixed/50" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-body-md text-body-md">Help &amp; Support</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop py-unit w-full max-w-[1000px] mx-auto">
+<header class="mb-6 pt-4">
+<h1 class="font-headline-xl text-headline-xl text-on-background mb-1">Pharmacy</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Order medicines securely and track your health essentials.</p>
+</header>
+<!-- Hero Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-unit mb-8">
+<!-- Upload Prescription Card -->
+<div class="col-span-1 md:col-span-2 bg-primary text-on-primary rounded-xl p-6 shadow-sm border border-outline-variant/30 flex flex-col justify-between relative overflow-hidden group cursor-pointer h-full min-h-[200px]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+<div class="z-10 flex items-start justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-2">Upload Prescription</h2>
+<p class="font-body-md text-body-md text-on-primary/80 max-w-[280px]">Instant OCR processing. Let our AI build your cart automatically from your doctor's note.</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center shrink-0 backdrop-blur-md">
+<span class="material-symbols-outlined text-3xl" data-icon="document_scanner">document_scanner</span>
+</div>
+</div>
+<div class="z-10 mt-6">
+<button class="bg-surface-container-lowest text-primary font-label-lg text-label-lg px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-shadow h-touch-target flex items-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="upload_file">upload_file</span>
+                            Tap to Upload
+                        </button>
+</div>
+</div>
+<!-- AI Refill Card -->
+<div class="col-span-1 bg-surface-container-highest rounded-xl p-6 shadow-sm border border-outline-variant flex flex-col justify-between h-full min-h-[200px]">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="inline-flex items-center gap-1 bg-surface text-primary font-caption text-caption px-2 py-1 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Active
+                        </span>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">AI Refill</h3>
+<p class="font-caption text-caption text-on-surface-variant">Your Lisinopril runs out in 5 days.</p>
+<button class="mt-4 w-full bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg py-2 h-touch-target hover:bg-primary-fixed transition-colors">
+                            Refill Now
+                        </button>
+</div>
+</div>
+</div>
+<!-- Recent Orders (WhatsApp Inspired List) -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-on-background">Recent Orders</h2>
+<button class="font-label-lg text-label-lg text-primary hover:text-primary-fixed-dim transition-colors h-touch-target px-2">View All</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<!-- Order Item 1 -->
+<div class="flex items-center p-4 border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors cursor-pointer group relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-fixed rounded-r-full"></div> <!-- Priority Border -->
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 mr-4 group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h4 class="font-label-lg text-label-lg text-on-background truncate">Order #ORD-8829A</h4>
+<span class="font-caption text-caption text-on-surface-variant whitespace-nowrap ml-2">Today, 10:30 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate">Out for delivery • 3 Items</p>
+</div>
+</div>
+<!-- Order Item 2 -->
+<div class="flex items-center p-4 hover:bg-surface-container-low transition-colors cursor-pointer group relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline rounded-r-full"></div>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 mr-4 group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-outline" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h4 class="font-label-lg text-label-lg text-on-background truncate">Order #ORD-7712B</h4>
+<span class="font-caption text-caption text-on-surface-variant whitespace-nowrap ml-2">Oct 12</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate">Delivered • Monthly Diabetes Kit</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Health Store Categories -->
+<section>
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">Health Store</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-unit">
+<a class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow h-[120px] group" href="#">
+<div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="monitor_heart" data-weight="fill" style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+</div>
+<span class="font-label-md text-label-md text-on-background">Heart Health</span>
+</a>
+<a class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow h-[120px] group" href="#">
+<div class="w-12 h-12 rounded-full bg-surface-dim text-primary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="bloodtype" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bloodtype</span>
+</div>
+<span class="font-label-md text-label-md text-on-background">Diabetes Care</span>
+</a>
+<a class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow h-[120px] group" href="#">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="spa" data-weight="fill" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<span class="font-label-md text-label-md text-on-background">Wellness</span>
+</a>
+<a class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow h-[120px] group" href="#">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="medication" data-weight="fill" style="font-variation-settings: 'FILL' 1;">medication</span>
+</div>
+<span class="font-label-md text-label-md text-on-background">First Aid</span>
+</a>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 h-20 bg-surface-container-lowest shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex justify-around items-center px-gutter pb-safe">
+<a class="flex flex-col items-center justify-center text-secondary font-label-lg text-label-lg hover:bg-surface-variant/30 transition-all duration-300 transform active:scale-95 w-16 h-full rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="text-[11px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold bg-primary-container/20 rounded-xl px-4 py-1 font-label-lg text-label-lg hover:bg-surface-variant/30 transition-all duration-300 transform active:scale-95 h-[64px] min-w-[64px]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="medical_services" data-weight="fill" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="text-[11px]">Medicines</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-label-lg text-label-lg hover:bg-surface-variant/30 transition-all duration-300 transform active:scale-95 w-16 h-full rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="folder_shared">folder_shared</span>
+<span class="text-[11px] font-medium">Records</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-label-lg text-label-lg hover:bg-surface-variant/30 transition-all duration-300 transform active:scale-95 w-16 h-full rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="text-[11px] font-medium">Profile</span>
+</a>
+</nav>
+</body></html>

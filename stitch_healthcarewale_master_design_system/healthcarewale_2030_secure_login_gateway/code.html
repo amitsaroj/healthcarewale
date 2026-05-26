@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale 2030 - Neural Gateway</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#93f2f2",
+                        "on-background": "#0d1c2e",
+                        "inverse-surface": "#233144",
+                        "on-primary-container": "#e3fffe",
+                        "on-tertiary-container": "#ebffe3",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "tertiary": "#156820",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#006a6a",
+                        "surface-container-highest": "#d5e3fc",
+                        "primary-fixed-dim": "#76d6d5",
+                        "on-secondary-fixed": "#000767",
+                        "surface-container-high": "#dce9ff",
+                        "background": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-tertiary-fixed": "#002204",
+                        "surface-container": "#e6eeff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#002020",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#76d6d5",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#ccdbf3",
+                        "tertiary-container": "#338236",
+                        "surface": "#f8f9ff",
+                        "on-surface": "#0d1c2e",
+                        "tertiary-fixed": "#a3f69c",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "on-surface-variant": "#3e4949",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed": "#e0e0ff",
+                        "tertiary-fixed-dim": "#88d982",
+                        "secondary-container": "#959efd",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d5e3fc",
+                        "secondary": "#4c56af",
+                        "primary-container": "#008080",
+                        "outline": "#6e7979",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "primary": "#006565",
+                        "outline-variant": "#bdc9c8",
+                        "on-secondary-container": "#27308a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem",
+                        "gateway": "32px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "margin-desktop": "48px",
+                        "xl": "32px",
+                        "touch-target-min": "44px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "serif-elegant": ["Georgia", "serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-xl": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(0, 101, 101, 0.05);
+        }
+        .biometric-orb {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(118,214,213,0.3) 50%, rgba(0,101,101,0.1) 100%);
+            box-shadow: 
+                inset 0 0 20px rgba(255,255,255,0.8),
+                0 0 30px rgba(118,214,213,0.4),
+                0 0 60px rgba(0,101,101,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .biometric-orb:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                inset 0 0 20px rgba(255,255,255,0.9),
+                0 0 40px rgba(118,214,213,0.6),
+                0 0 80px rgba(0,101,101,0.3);
+        }
+        .biometric-orb::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border-radius: 50%;
+            border: 2px solid rgba(118,214,213,0.5);
+            animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 1; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #93f2f2;
+            box-shadow: 0 0 8px #93f2f2;
+            top: 0;
+            opacity: 0;
+        }
+        .biometric-orb:hover .scan-line {
+            animation: scan 2s infinite linear;
+            opacity: 1;
+        }
+        @keyframes scan {
+            0% { top: 10%; }
+            50% { top: 90%; }
+            100% { top: 10%; }
+        }
+        
+        .bg-texture {
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(147, 242, 242, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 101, 101, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(76, 86, 175, 0.1) 0px, transparent 50%);
+            background-color: #f8f9ff;
+        }
+    </style>
+</head>
+<body class="bg-texture min-h-screen flex items-center justify-center p-margin-mobile md:p-margin-desktop text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (Reduced for transaction screen) -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-lg py-md z-50">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl">medical_services</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">HealthcareWale 2030</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">language</span>
+                EN / HI
+            </button>
+<div class="flex items-center gap-xs px-sm py-xs rounded-full border border-outline-variant bg-surface-container-lowest">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-caption text-caption text-on-surface-variant">System Online</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[480px] z-10 relative">
+<!-- Neural Gateway Card -->
+<div class="glass-panel rounded-gateway p-xl flex flex-col items-center relative overflow-hidden">
+<!-- Ambient top glow inside card -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-primary-fixed/20 blur-3xl rounded-full"></div>
+<!-- Header -->
+<div class="text-center mb-10 z-10">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-xs">Neural Gateway</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Secure access via biometrics or Health ID</p>
+</div>
+<!-- Primary Interaction: Biometric Orb -->
+<div class="mb-12 z-10 relative">
+<div aria-label="Initiate biometric scan" class="biometric-orb" role="button" tabindex="0">
+<span class="material-symbols-outlined text-4xl text-primary drop-shadow-md z-10" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+<div class="scan-line rounded-full"></div>
+</div>
+<div class="text-center mt-sm">
+<span class="font-label-md text-label-md text-primary tracking-wide uppercase">Initiate Scan</span>
+</div>
+</div>
+<div class="w-full flex items-center gap-md mb-8 z-10">
+<div class="h-px bg-outline-variant flex-1"></div>
+<span class="font-caption text-caption text-outline uppercase tracking-wider">Manual Entry Fallback</span>
+<div class="h-px bg-outline-variant flex-1"></div>
+</div>
+<!-- Fallback Form -->
+<form action="#" class="w-full space-y-md z-10" method="POST">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block" for="healthId">Health ID Sequence</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">badge</span>
+<input class="w-full h-touch-target-min pl-10 pr-sm bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="healthId" name="healthId" placeholder="HW-XXXX-XXXX" required="" type="text"/>
+</div>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface block" for="passcode">Secure Passcode</label>
+<a class="font-serif-elegant italic text-sm text-secondary hover:text-primary transition-colors" href="#">Recover Access</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full h-touch-target-min pl-10 pr-10 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="passcode" name="passcode" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-sm top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+<div class="pt-sm">
+<button class="w-full h-touch-target-min bg-primary text-on-primary rounded-lg font-label-xl text-label-xl flex items-center justify-center gap-xs hover:bg-surface-tint active:scale-[0.98] transition-all shadow-md" type="submit">
+                        AUTHENTICATE
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Decorative corner brackets -->
+<div class="absolute top-xl left-xl w-4 h-4 border-t-2 border-l-2 border-primary-fixed-dim/50 rounded-tl-sm"></div>
+<div class="absolute top-xl right-xl w-4 h-4 border-t-2 border-r-2 border-primary-fixed-dim/50 rounded-tr-sm"></div>
+<div class="absolute bottom-xl left-xl w-4 h-4 border-b-2 border-l-2 border-primary-fixed-dim/50 rounded-bl-sm"></div>
+<div class="absolute bottom-xl right-xl w-4 h-4 border-b-2 border-r-2 border-primary-fixed-dim/50 rounded-br-sm"></div>
+</div>
+<!-- Footer Footer -->
+<div class="mt-lg text-center">
+<p class="font-caption text-caption text-on-surface-variant flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">shield</span>
+                End-to-end encrypted neural connection
+            </p>
+</div>
+</main>
+<!-- Footer Component Execution -->
+<footer class="fixed bottom-0 left-0 flex justify-between items-center px-standard py-base w-full text-xs bg-surface-container-lowest border-t border-white/5 flat transition-opacity duration-200 z-50">
+<div class="font-body-md text-body-md text-on-surface-variant">
+            © 2030 HealthcareWale Executive. Connectivity: Satellite-Active. Latency: 12ms.
+        </div>
+<div class="flex gap-md">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors text-on-surface-variant" href="#">English (Global)</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors text-on-surface-variant" href="#">Sync Status</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors text-on-surface-variant" href="#">Legal</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthcareWale | Secure Bio-Auth 2030</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Hanken+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Glassmorphism Depth Layering */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* Biometric Pulsing Animation */
+        @keyframes biometric-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; box-shadow: 0 0 20px 2px rgba(118, 214, 213, 0.2); }
+            50% { transform: scale(1.08); opacity: 0.9; box-shadow: 0 0 40px 8px rgba(118, 214, 213, 0.4); }
+        }
+
+        /* Rotating Scanning Ring */
+        @keyframes rotate-ring {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Scanning Line Sweep */
+        @keyframes scan-sweep {
+            0% { top: -10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 110%; opacity: 0; }
+        }
+
+        /* Floating Entrance Animation */
+        @keyframes float-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Shimmer Button Effect */
+        @keyframes button-shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Atmospheric Drift */
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.1); }
+            66% { transform: translate(-20px, 40px) scale(0.9); }
+        }
+
+        .pulse-ring {
+            animation: biometric-pulse 4s infinite ease-in-out;
+        }
+
+        .scanning-ring {
+            border: 1px dashed rgba(118, 214, 213, 0.4);
+            animation: rotate-ring 15s linear infinite;
+        }
+
+        .scan-line-v2 {
+            animation: scan-sweep 3s infinite ease-in-out;
+        }
+
+        .entrance-fade {
+            animation: float-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .shimmer-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-25deg);
+        }
+
+        .hover-shimmer:hover::after {
+            animation: button-shimmer 0.75s infinite;
+        }
+
+        .silk-bg {
+            background: radial-gradient(circle at top right, #1a1f2f, #0e1322);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .emerald-leak {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(5, 231, 119, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: drift 25s infinite ease-in-out;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .entrance-fade, .pulse-ring, .scanning-ring, .scan-line-v2, .emerald-leak, .hover-shimmer:hover::after {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb950",
+                        "inverse-surface": "#dee1f7",
+                        "surface-container-highest": "#2f3445",
+                        "on-secondary-fixed": "#00210b",
+                        "on-background": "#dee1f7",
+                        "outline": "#879392",
+                        "on-primary-container": "#e3fffe",
+                        "on-surface": "#dee1f7",
+                        "on-secondary-container": "#00622e",
+                        "inverse-on-surface": "#2b3040",
+                        "surface-container-high": "#25293a",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#452b00",
+                        "on-primary": "#003737",
+                        "on-error": "#690005",
+                        "on-secondary": "#003918",
+                        "secondary-container": "#05e777",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "surface": "#0e1322",
+                        "secondary": "#7dffa2",
+                        "on-primary-fixed": "#002020",
+                        "error": "#ffb4ab",
+                        "background": "#0e1322",
+                        "surface-container": "#1a1f2f",
+                        "surface-container-lowest": "#090e1c",
+                        "on-tertiary-container": "#fff9f5",
+                        "on-secondary-fixed-variant": "#005226",
+                        "surface-container-low": "#161b2b",
+                        "secondary-fixed-dim": "#00e475",
+                        "tertiary-container": "#9d6800",
+                        "inverse-primary": "#006a6a",
+                        "surface-variant": "#2f3445",
+                        "primary-container": "#008080",
+                        "tertiary": "#ffb950",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#62ff96",
+                        "surface-bright": "#343949",
+                        "tertiary-fixed": "#ffddb3",
+                        "on-surface-variant": "#bdc9c8",
+                        "surface-dim": "#0e1322",
+                        "primary": "#76d6d5",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "outline-variant": "#3e4949",
+                        "primary-fixed-dim": "#76d6d5",
+                        "primary-fixed": "#93f2f2",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-tint": "#76d6d5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "8px",
+                        "nano": "4px",
+                        "container-max": "1440px",
+                        "compact": "12px",
+                        "standard": "24px",
+                        "airy": "48px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="silk-bg min-h-screen flex items-center justify-center p-gutter overflow-hidden">
+<!-- Atmospheric Elements -->
+<div class="emerald-leak top-[-10%] left-[-5%]"></div>
+<div class="emerald-leak bottom-[-15%] right-[-5%] rotate-180 opacity-50" style="animation-delay: -5s;"></div>
+<div class="absolute inset-0 z-0 pointer-events-none opacity-20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDMvTByFnsEoIU4V6Ep4JqEcUUj4zdRiMwVg9dSqKS62sL-ThGKNvHUrxt5TY9l8LNWmMEG92bQ1qmixOF6BWrsT4CpHs8k81sUET9k5YJ3xW6uXBBDf6jAgHX-d93jG4YIfYgUlxGzyJNIRg1xpODFyNlmSnQq-I661WuJBsnVCdIG2IyOPPeyG-6Y1T3y9MtUfeC9P0IVLp0bwtV5ICb1oi0VFcjD74TdLMkWCwdVDjZi_nJpHQNLoiUGAfy6ut8cdLpK5H1pnSTN');"></div>
+<!-- Main Authentication Canvas -->
+<main class="relative z-10 w-full max-w-[480px]">
+<div class="glass-panel rounded-lg p-airy flex flex-col items-center text-center shadow-2xl overflow-hidden relative entrance-fade">
+<!-- Branding Header -->
+<header class="mb-airy entrance-fade delay-1">
+<div class="relative inline-block mb-standard">
+<span class="text-tertiary-fixed-dim text-[56px] font-headline-lg select-none leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(255,185,80,0.3)]">H</span>
+<div class="absolute -bottom-2 -right-4 w-8 h-8 rounded-full bg-secondary-fixed opacity-20 blur-lg"></div>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-nano">HealthcareWale</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest opacity-60">Advanced Login &amp; Bio-Auth 2030</p>
+</header>
+<!-- Biometric Core -->
+<section class="mb-airy relative flex flex-col items-center group cursor-pointer entrance-fade delay-2" id="biometric-trigger">
+<!-- Outer Aura -->
+<div class="absolute -inset-10 bg-secondary/10 blur-[40px] rounded-full pulse-ring"></div>
+<!-- Rotating Ring -->
+<div class="absolute -inset-4 scanning-ring rounded-full z-0 opacity-40"></div>
+<!-- 3D Biometric Orb -->
+<div class="w-32 h-32 rounded-full border border-primary/30 flex items-center justify-center glass-panel relative z-10 overflow-hidden group-hover:border-primary transition-all duration-500 shadow-[inset_0_0_20px_rgba(118,214,213,0.1)]">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20"></div>
+<span class="material-symbols-outlined text-[64px] text-primary group-hover:scale-110 transition-transform duration-700 hover:rotate-2" data-icon="face">face</span>
+<!-- Scanning Line V2 -->
+<div class="absolute left-0 w-full h-[3px] bg-secondary-fixed shadow-[0_0_12px_#05e777] scan-line-v2 z-20"></div>
+</div>
+<div class="mt-standard">
+<p class="font-body-md text-body-md text-primary font-medium tracking-wide">Neural Face ID active...</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant/50 mt-nano">SCANNING BIOMETRIC SIGNATURE</p>
+</div>
+</section>
+<!-- Secondary Auth Methods -->
+<div class="w-full space-y-standard mb-airy entrance-fade delay-3">
+<div class="flex items-center gap-standard px-nano opacity-40 hover:opacity-100 transition-opacity">
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+<p class="font-label-caps text-label-caps shrink-0">OR SECURE CODE</p>
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+</div>
+<div class="relative group">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full px-standard py-4 text-center text-display-lg tracking-[1.5em] focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:tracking-normal placeholder:text-body-md font-display-lg text-primary outline-none" placeholder="••••••" type="password"/>
+<div class="absolute inset-x-4 -bottom-1 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent blur-sm group-focus-within:opacity-100 opacity-0 transition-opacity"></div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container h-14 rounded-full font-headline-md text-headline-md flex items-center justify-center gap-compact hover:shadow-[0_0_30px_rgba(118,214,213,0.4)] transition-all transform active:scale-[0.98] group relative overflow-hidden shimmer-effect hover-shimmer">
+<span class="relative z-10">Authenticate</span>
+<span class="material-symbols-outlined relative z-10 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary opacity-20 group-hover:opacity-40 transition-opacity"></div>
+</button>
+</div>
+<!-- Footer Meta -->
+<footer class="w-full flex justify-between items-center text-body-md font-body-md entrance-fade delay-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors decoration-primary underline-offset-4 decoration-dotted" href="#">Forgot Health ID?</a>
+<div class="flex items-center gap-nano">
+<span class="text-on-surface-variant/60">New?</span>
+<a class="text-secondary font-bold hover:drop-shadow-[0_0_8px_#7dffa2] transition-all" href="#">Sign up.</a>
+</div>
+</footer>
+</div>
+<!-- Floating Bio-Status Badges -->
+<div class="absolute -right-12 top-1/4 translate-x-1/2 glass-panel p-compact rounded-DEFAULT shadow-xl border-secondary/20 hidden lg:block entrance-fade delay-4">
+<div class="flex items-center gap-compact">
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#7dffa2] animate-pulse"></div>
+<span class="font-label-caps text-label-caps text-secondary">ENCRYPTED 256-BIT</span>
+</div>
+</div>
+<div class="absolute -left-12 bottom-1/4 -translate-x-1/2 glass-panel p-compact rounded-DEFAULT shadow-xl border-primary/20 hidden lg:block entrance-fade delay-4">
+<div class="flex items-center gap-compact">
+<span class="material-symbols-outlined text-primary text-body-md" data-icon="shield_lock">shield_lock</span>
+<span class="font-label-caps text-label-caps text-primary">VAULT SECURE</span>
+</div>
+</div>
+</main>
+<!-- Interactive script for feedback -->
+<script>
+        const bioTrigger = document.getElementById('biometric-trigger');
+        const scanLine = bioTrigger.querySelector('.scan-line-v2');
+        const aura = bioTrigger.querySelector('.pulse-ring');
+        
+        bioTrigger.addEventListener('click', () => {
+            // Speed up animations for feedback
+            scanLine.style.animationDuration = '0.8s';
+            aura.style.animationDuration = '1s';
+            aura.style.opacity = '1';
+            
+            setTimeout(() => {
+                scanLine.style.animationDuration = '3s';
+                aura.style.animationDuration = '4s';
+                aura.style.opacity = '0.6';
+            }, 2000);
+        });
+
+        // Background movement effect (subtle parallax)
+        document.body.addEventListener('mousemove', (e) => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            
+            const x = (e.clientX / window.innerWidth - 0.5) * 60;
+            const y = (e.clientY / window.innerHeight - 0.5) * 60;
+            document.querySelectorAll('.emerald-leak').forEach(leak => {
+                leak.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+<!-- Background Images Description for GenAI -->
+<div style="display:none">
+<img data-alt="A deep silk-textured dark background with subtle emerald light leaks and sophisticated digital waves. The aesthetic is high-end medical 2030 vision, featuring a futuristic pharmaceutical and biometric atmosphere. Soft glowing gradients of deep sea blue and aurora green create an immersive, calm environment for a premium healthcare SaaS application. Lighting is low-key and professional with holographic depth effects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlRaI6_kx9NXrPy291o-ww33dpyz_Ot84XNSiDt9SwmQd4PNzVxp9Ug2IhnArLCzT3ZSqRv1Mz7PUV0-E8nvSvkBIW0TTHGBTBxXbrfeHF1mOIY9IfD63xJ0oQcEnwnu7_LiDYu5GGQskplcwpW2FXagotgqcgK05DCr48dMOZT0_GyqDgNF6e3BwFR7w5YZdJH_KDQM1e5FR1E93Xs02yoEvDdfxSI0n0aVR53JFhgNrYP85Uf1Z4eB1P3V-IWoZy5Xtz98f7kCzs"/>
+</div>
+</body></html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Intelligence | HealthcareWale 2030</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#00622e",
+                    "outline": "#879392",
+                    "on-tertiary-fixed": "#291800",
+                    "surface-container": "#1a1f2f",
+                    "secondary": "#7dffa2",
+                    "surface-bright": "#343949",
+                    "secondary-fixed": "#62ff96",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed": "#002020",
+                    "primary-container": "#008080",
+                    "on-secondary-fixed-variant": "#005226",
+                    "on-secondary": "#003918",
+                    "on-tertiary-container": "#fff9f5",
+                    "primary-fixed": "#93f2f2",
+                    "outline-variant": "#3e4949",
+                    "tertiary-container": "#9d6800",
+                    "surface": "#0e1322",
+                    "primary-fixed-dim": "#76d6d5",
+                    "on-surface-variant": "#bdc9c8",
+                    "on-surface": "#dee1f7",
+                    "surface-dim": "#0e1322",
+                    "inverse-on-surface": "#2b3040",
+                    "tertiary-fixed": "#ffddb3",
+                    "surface-container-highest": "#2f3445",
+                    "primary": "#76d6d5",
+                    "surface-tint": "#76d6d5",
+                    "secondary-container": "#05e777",
+                    "tertiary": "#ffb950",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#00e475",
+                    "on-tertiary-fixed-variant": "#624000",
+                    "on-primary-container": "#e3fffe",
+                    "background": "#0e1322",
+                    "surface-container-low": "#161b2b",
+                    "on-background": "#dee1f7",
+                    "inverse-primary": "#006a6a",
+                    "on-tertiary": "#452b00",
+                    "surface-variant": "#2f3445",
+                    "on-primary": "#003737",
+                    "inverse-surface": "#dee1f7",
+                    "surface-container-lowest": "#090e1c",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "tertiary-fixed-dim": "#ffb950",
+                    "on-secondary-fixed": "#00210b",
+                    "surface-container-high": "#25293a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "nano": "4px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "compact": "12px",
+                    "standard": "24px",
+                    "base": "8px",
+                    "airy": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Sora"],
+                    "body-md": ["Hanken Grotesk"],
+                    "label-caps": ["Hanken Grotesk"],
+                    "headline-md": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>body {
+    background: radial-gradient(circle at 50% -20%, #1a1f2f 0%, #0e1322 100%);
+    color: #dee1f7;
+    overflow-x: hidden
+    }
+.glass-panel {
+    background: rgba(26, 31, 47, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.aurora-glow {
+    box-shadow: 0 0 30px -5px rgba(5, 231, 119, 0.15)
+    }
+.silk-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuByjzF5ro4LTXWFWIUPaLGLNEXcmBC6zVSu_JtkabXMlisblsW4SEgD8pXpPOensjhuE88nkGsB-oo08ogss06Rz7uIrY0aPn6eReJrExWy14OF5sDr_UklKCsUr9DvW6pBHrJ0bF-75gXpk5sXc7jp578pJZ62DCazBXv_i_woyBv-nK_Xt4E4vUAqn_i8GkHn1m3rHMFQVdwg-pOv-RaExeeuNp0-WHaJTNW7YiiNWT0wYdwU1PB0QSGfu_fEZvK62-ACG8uDJNiJ);
+    opacity: 0.05;
+    position: absolute;
+    inset: 0;
+    pointer-events: none
+    }
+.biometric-ring {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #05e777;
+    box-shadow: 0 0 10px #05e777;
+    animation: pulse 2s infinite ease-in-out
+    }
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.6;
+        } 50% {
+        transform: scale(1.1);
+        opacity: 1;
+        } 100% {
+        transform: scale(0.9);
+        opacity: 0.6;
+        }
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px
+    }
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent
+    }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(118, 214, 213, 0.2);
+    border-radius: 10px
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface selection:bg-primary/30">
+<div class="silk-bg"></div>
+<!-- SideNavBar (Predicted from JSON Logic) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-compact gap-base bg-surface/80 backdrop-blur-2xl text-secondary font-label-caps text-label-caps h-screen w-72 rounded-r-lg border-r border-white/10 shadow-xl z-[60] hidden md:flex transition-all duration-300 ease-in-out">
+<div class="mb-airy mt-base px-base">
+<h1 class="font-headline-md text-headline-md text-primary font-bold">HealthcareWale 2030</h1>
+</div>
+<nav class="flex flex-col gap-base flex-grow">
+<a class="flex items-center gap-standard p-standard hover:bg-primary/5 hover:text-primary transition-all duration-300 ease-in-out text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Executive Pulse
+            </a>
+<a class="flex items-center gap-standard p-standard bg-secondary/10 text-secondary rounded-lg font-bold transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+                Biometric Grid
+            </a>
+<a class="flex items-center gap-standard p-standard hover:bg-primary/5 hover:text-primary transition-all duration-300 ease-in-out text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                Neural Analytics
+            </a>
+<a class="flex items-center gap-standard p-standard hover:bg-primary/5 hover:text-primary transition-all duration-300 ease-in-out text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+                Unit Strategy
+            </a>
+<a class="flex items-center gap-standard p-standard hover:bg-primary/5 hover:text-primary transition-all duration-300 ease-in-out text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                System Health
+            </a>
+</nav>
+<div class="mt-auto border-t border-white/10 pt-standard mb-base">
+<div class="flex items-center gap-base p-base glass-panel rounded-xl mb-standard">
+<img alt="Executive User Profile" class="w-12 h-12 rounded-full border border-primary/30" data-alt="A professional headshot of a senior healthcare administrator, dressed in a sleek, high-tech dark suit. The background is a blurred futuristic medical command center with soft teal and blue light arrays. The lighting is crisp and flattering, emphasizing a look of authority and modern vision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBksxwL4qjteul9ZpeR8sJ4PjGOKqDtIQv_K6Y5k7jMSkdN5VzR6trc1209IkXjUnlJZ2naY3oFUQXk9r2XCuqw0YQ-cznM3Gbo5dp86bAE4ZJ13F8Z85ETns0GOUCCrpnafgBAOLz6X_8W5MFO9b3OtCNSslONmpzzIypaiCqVJnaxw0QU7OcAUEUg308LRzR__VAwP3S8j-vQzFPXJK6re2NZafWOhOISgg0flm5AnuRDtcaUlQQHpabb6slzS5F5zuAv6kVnG9eu"/>
+<div>
+<p class="font-bold text-on-surface">H. Wale Admin</p>
+<p class="text-[10px] text-outline">Level 5 clearance</p>
+</div>
+</div>
+<button class="w-full py-base bg-primary-container text-on-primary-container rounded-lg font-bold tracking-widest text-[10px] hover:brightness-110 active:scale-95 transition-all">
+                VOICE COMMAND
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-standard h-20 sticky top-0 z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-[0_0_30px_-5px_rgba(118,214,213,0.15)] md:pl-80">
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Staff Intelligence</h2>
+<p class="text-[10px] font-label-caps text-secondary-container">24 AGENTS ACTIVE • OPTIMIZED</p>
+</div>
+<div class="flex items-center gap-standard">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-standard py-nano border border-white/5">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface placeholder:text-outline w-64" placeholder="Scan Bio-Signals..." type="text"/>
+</div>
+<div class="flex gap-base">
+<button class="p-base hover:bg-white/5 transition-colors active:scale-95 duration-200 rounded-full text-primary">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<button class="p-base hover:bg-white/5 transition-colors active:scale-95 duration-200 rounded-full text-primary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="p-base hover:bg-white/5 transition-colors active:scale-95 duration-200 rounded-full text-primary">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-72 p-standard lg:p-airy min-h-screen">
+<!-- Action Header & Toggle -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center gap-standard mb-airy">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Neural Performance Overview</h3>
+<p class="text-on-surface-variant font-body-lg">Real-time biometric monitoring and AI staffing synchronization.</p>
+</div>
+<div class="glass-panel p-base rounded-xl flex items-center gap-standard aurora-glow">
+<span class="font-label-caps text-tertiary">NEURAL PERFORMANCE</span>
+<button class="w-14 h-8 bg-surface-container-highest rounded-full relative p-nano transition-all duration-300" id="neuralToggle">
+<div class="toggle-circle w-6 h-6 bg-tertiary rounded-full shadow-lg transform translate-x-0 transition-transform duration-300"></div>
+</button>
+</div>
+</section>
+<!-- Bento Grid for Staff -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-airy">
+<!-- Dr. Aris Thorne -->
+<div class="glass-panel rounded-xl p-airy flex flex-col gap-standard aurora-glow hover:translate-y-[-4px] transition-transform duration-500 cursor-pointer group">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="relative">
+<img alt="Doctor Profile" class="w-16 h-16 rounded-xl object-cover border-2 border-primary/20" data-alt="Close up portrait of a male doctor with silvering hair and a confident smile, set against a dark background with floating digital medical charts. The aesthetic is clean and futuristic with cool teal lighting and sharp focus on detailed skin textures and professional uniform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4eTUQs3lS8CnZShjuGJtz6AxniChTRYcZrXE3HGlGQIR42hAcTeWCLx7M8npBbX_MZDsSdGALUyNGKXqX9k1bdeEpWMqP2Qky4607A_bh9_L5JeZ36K2cAhjl-VzbQbXJ-UNtT8WEvahKiKkkxeF_YYKNQdPsj7wJOe4PSZ4oUx8sHKmsIeN03jyt8i62KKfnSWdwiDOmpa8CsT9jTeusYk8h9xhrBjqAKwoZn9R9FtOwqsf7DP0o_plfTs2wKoV50MYCchD0N6v3"/>
+<div class="absolute -bottom-1 -right-1 biometric-ring border-2 border-surface"></div>
+</div>
+<div>
+<span class="text-tertiary font-label-caps tracking-widest">DOCTOR</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Dr. Aris Thorne</h4>
+<p class="text-outline text-sm">Neuro-Genetics Lead</p>
+</div>
+</div>
+<div class="bg-secondary/10 px-base py-nano rounded-full border border-secondary/20">
+<span class="text-secondary font-label-caps text-[10px]">98% SYNC</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-base">
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">ACTIVE SESSION</p>
+<p class="font-headline-md text-on-surface">05h 12m</p>
+</div>
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">SATISFACTION</p>
+<p class="font-headline-md text-secondary">4.9<span class="text-sm text-outline">/5</span></p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="flex-1 py-standard bg-primary text-on-primary font-bold rounded-lg group-hover:shadow-[0_0_20px_rgba(118,214,213,0.3)] transition-all flex items-center justify-center gap-base">
+                        QUICK CONNECT
+                    </button>
+<button class="p-standard border border-outline-variant rounded-lg text-on-surface-variant hover:bg-white/5">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+</button>
+</div>
+</div>
+<!-- UNIT-7 AI ASSISTANT -->
+<div class="glass-panel rounded-xl p-airy flex flex-col gap-standard aurora-glow border-tertiary/30 bg-tertiary/5">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-tertiary to-secondary flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-on-tertiary text-4xl" data-icon="smart_toy">smart_toy</span>
+<div class="absolute inset-0 bg-white/10 mix-blend-overlay"></div>
+</div>
+<div>
+<span class="text-tertiary font-label-caps tracking-widest">AI ASSISTANT</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Unit-07 Pulse</h4>
+<p class="text-outline text-sm">Automated Triage Cluster</p>
+</div>
+</div>
+<div class="bg-tertiary/20 px-base py-nano rounded-full border border-tertiary/40">
+<span class="text-tertiary font-label-caps text-[10px]">OPTIMAL</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-base">
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">LATENCY</p>
+<p class="font-headline-md text-on-surface">12ms</p>
+</div>
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">PATIENT RATING</p>
+<p class="font-headline-md text-tertiary">5.0<span class="text-sm text-outline">/5</span></p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="flex-1 py-standard bg-tertiary text-on-tertiary font-bold rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-base">
+                        OVERRIDE UNIT
+                    </button>
+<button class="p-standard border border-tertiary/30 rounded-lg text-tertiary hover:bg-tertiary/10">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+</div>
+</div>
+<!-- Nurse Elara Vance -->
+<div class="glass-panel rounded-xl p-airy flex flex-col gap-standard aurora-glow hover:translate-y-[-4px] transition-transform duration-500 cursor-pointer group">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="relative">
+<img alt="Nurse Profile" class="w-16 h-16 rounded-xl object-cover border-2 border-primary/20" data-alt="A side-profile portrait of a female nurse in a high-tech white and teal scrub suit. She is looking at a transparent digital display that glows softly. The lighting is ethereal and clinical, with a deep indigo and emerald color palette in the background suggesting a luxury medical facility in the year 2030." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJdjte_-C47fVpdmcfxE-InkjEPNXUa4ajYq6uLGV_LAseSsgNDEcKhmbbcYHOsFWzu9UR5z_JkWF0AxlIzcKq8esVa_ELGyeU9TBarjQupJbj97Ll0n7PpWMveeAHtmukbDwcf7RO940QVYoQvO_gbw5lPdNRD2jGbOiBSF-NYnilX9TePUyiK5BDY896i9YXU05snd1qcT4Ohxx8EeTX_KuLyEqy-l8QEwSk7Ta9PY3b0MN9Aesi6-l3VTu_70kM-RBfpvZGF7Bn"/>
+<div class="absolute -bottom-1 -right-1 biometric-ring border-2 border-surface"></div>
+</div>
+<div>
+<span class="text-tertiary font-label-caps tracking-widest">NURSE</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Elara Vance</h4>
+<p class="text-outline text-sm">Critical Bio-Sustain</p>
+</div>
+</div>
+<div class="bg-secondary/10 px-base py-nano rounded-full border border-secondary/20">
+<span class="text-secondary font-label-caps text-[10px]">82% LOAD</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-base">
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">ACTIVE SESSION</p>
+<p class="font-headline-md text-on-surface">02h 45m</p>
+</div>
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">SATISFACTION</p>
+<p class="font-headline-md text-secondary">4.7<span class="text-sm text-outline">/5</span></p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="flex-1 py-standard bg-primary text-on-primary font-bold rounded-lg group-hover:shadow-[0_0_20px_rgba(118,214,213,0.3)] transition-all flex items-center justify-center gap-base">
+                        QUICK CONNECT
+                    </button>
+<button class="p-standard border border-outline-variant rounded-lg text-on-surface-variant hover:bg-white/5">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+</button>
+</div>
+</div>
+<!-- Dr. Julian Vane -->
+<div class="glass-panel rounded-xl p-airy flex flex-col gap-standard aurora-glow hover:translate-y-[-4px] transition-transform duration-500 cursor-pointer group">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="relative">
+<img alt="Doctor Profile" class="w-16 h-16 rounded-xl object-cover border-2 border-primary/20" data-alt="Professional portrait of a male doctor in his 40s with sharp features and glasses, wearing a metallic silver medical coat. He stands against a backdrop of a glowing green bio-hologram showing a DNA helix. Cinematic lighting with strong highlights and deep shadows, emphasizing high-end medical expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUogNOX5-Iw0nMvEG6C7Na3UvoBe0RWjMsubO8lBTUk7aal2jcjYqq8hln6T6YzI-BTxmJmCozXJpe0nxg3-ZHEK67eabeQiBdPvmt05kGr1PbBHr6ZjfXPOBmrEA-UgRUVTkABcY0qhgKsvO_wX0DfUlmVfjGuLmHScwPyrKjs25RtU4gA3N3JDTz6HSrwOoIEhK72RKHjS1dMV4ccgweQAjFPWdSfZwg0z7BKD4dVtYnJa2pRo-4sdmHbjsgewFzlyVTAVUkTJZj"/>
+<div class="absolute -bottom-1 -right-1 biometric-ring border-2 border-surface bg-error shadow-[0_0_10px_#ffb4ab]"></div>
+</div>
+<div>
+<span class="text-tertiary font-label-caps tracking-widest">SURGEON</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Dr. Julian Vane</h4>
+<p class="text-outline text-sm">Robotic Precision</p>
+</div>
+</div>
+<div class="bg-error/10 px-base py-nano rounded-full border border-error/20">
+<span class="text-error font-label-caps text-[10px]">FATIGUE ALERT</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-base">
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">ACTIVE SESSION</p>
+<p class="font-headline-md text-on-surface">09h 30m</p>
+</div>
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">SATISFACTION</p>
+<p class="font-headline-md text-secondary">4.8<span class="text-sm text-outline">/5</span></p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="flex-1 py-standard bg-primary text-on-primary font-bold rounded-lg group-hover:shadow-[0_0_20px_rgba(118,214,213,0.3)] transition-all flex items-center justify-center gap-base">
+                        QUICK CONNECT
+                    </button>
+<button class="p-standard border border-outline-variant rounded-lg text-on-surface-variant hover:bg-white/5">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+</button>
+</div>
+</div>
+<!-- UNIT-9 DIAGNOSTICS -->
+<div class="glass-panel rounded-xl p-airy flex flex-col gap-standard aurora-glow">
+<div class="flex justify-between items-start">
+<div class="flex gap-standard">
+<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="database">database</span>
+<div class="absolute inset-0 bg-white/5 mix-blend-overlay"></div>
+</div>
+<div>
+<span class="text-tertiary font-label-caps tracking-widest">AI CLUSTER</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Unit-09 Omni</h4>
+<p class="text-outline text-sm">Pathology Processing</p>
+</div>
+</div>
+<div class="bg-secondary/10 px-base py-nano rounded-full border border-secondary/20">
+<span class="text-secondary font-label-caps text-[10px]">IDLE</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base mt-base">
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">UPTIME</p>
+<p class="font-headline-md text-on-surface">99.9%</p>
+</div>
+<div class="bg-surface-container-low p-standard rounded-lg border border-white/5">
+<p class="text-outline text-[10px] font-label-caps">THROUGHPUT</p>
+<p class="font-headline-md text-secondary">480<span class="text-sm text-outline">/hr</span></p>
+</div>
+</div>
+<div class="mt-base flex gap-base">
+<button class="flex-1 py-standard bg-primary/20 text-primary font-bold rounded-lg hover:bg-primary/30 transition-all flex items-center justify-center gap-base">
+                        DIAGNOSTICS
+                    </button>
+<button class="p-standard border border-outline-variant rounded-lg text-on-surface-variant hover:bg-white/5">
+<span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+</button>
+</div>
+</div>
+<!-- Suggestion Card (Neural Optimized) -->
+<div class="glass-panel rounded-xl p-airy flex flex-col gap-standard border-tertiary/50 bg-tertiary/10 hidden" id="neuralSuggestion">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-tertiary" data-icon="auto_awesome">auto_awesome</span>
+<h4 class="font-headline-md text-headline-md text-tertiary">Staffing Insight</h4>
+</div>
+<p class="text-on-surface-variant font-body-md">AI detects high surgical load incoming in Zone 4. Recommended Action: Reassign Unit-09 to Surgical Support for next 2 hours.</p>
+<div class="flex gap-base mt-auto">
+<button class="flex-1 py-standard bg-tertiary text-on-tertiary font-bold rounded-lg hover:scale-105 transition-transform">APPLY OPTIMIZATION</button>
+<button class="p-standard text-on-surface-variant border border-tertiary/20 rounded-lg">DISMISS</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="md:ml-72 flex justify-between items-center px-standard py-base w-full text-xs bg-surface-container-lowest border-t border-white/5 transition-opacity duration-200">
+<div class="flex items-center gap-airy">
+<span class="font-label-caps text-label-caps text-secondary uppercase">HealthcareWale Executive</span>
+<p class="text-on-surface-variant opacity-60">© 2030 Connectivity: Satellite-Active. Latency: 12ms.</p>
+</div>
+<div class="flex gap-standard">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">English (Global)</a>
+<a class="text-secondary hover:text-primary transition-colors" href="#">Sync Status: Optimal</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Legal</a>
+</div>
+</footer>
+<!-- Bottom Nav (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/80 backdrop-blur-2xl flex justify-around items-center p-base border-t border-white/10 z-[100]">
+<button class="flex flex-col items-center p-base text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[8px] font-label-caps">PULSE</span>
+</button>
+<button class="flex flex-col items-center p-base text-secondary">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-[8px] font-label-caps">GRID</span>
+</button>
+<button class="flex flex-col items-center p-base text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-[8px] font-label-caps">NEURAL</span>
+</button>
+<button class="flex flex-col items-center p-base text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="text-[8px] font-label-caps">UNIT</span>
+</button>
+</nav>
+<script>
+        const neuralToggle = document.getElementById('neuralToggle');
+        const neuralSuggestion = document.getElementById('neuralSuggestion');
+        let neuralActive = false;
+
+        neuralToggle.addEventListener('click', () => {
+            neuralActive = !neuralActive;
+            const circle = neuralToggle.querySelector('.toggle-circle');
+            
+            if (neuralActive) {
+                circle.classList.replace('translate-x-0', 'translate-x-6');
+                neuralToggle.classList.add('bg-secondary/40');
+                neuralSuggestion.classList.remove('hidden');
+                neuralSuggestion.classList.add('animate-pulse');
+                setTimeout(() => neuralSuggestion.classList.remove('animate-pulse'), 2000);
+            } else {
+                circle.classList.replace('translate-x-6', 'translate-x-0');
+                neuralToggle.classList.remove('bg-secondary/40');
+                neuralSuggestion.classList.add('hidden');
+            }
+        });
+
+        // Interactive hover effects for cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(125, 255, 162, 0.4)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+    </script>
+</body></html>

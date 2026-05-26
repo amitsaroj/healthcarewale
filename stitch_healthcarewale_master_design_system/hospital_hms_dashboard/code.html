@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealSmart India - HMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#6e7979",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed-dim": "#4ae183",
+                        "on-secondary-fixed": "#0b1d2d",
+                        "background": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-container": "#556679",
+                        "secondary-fixed-dim": "#b7c8de",
+                        "on-surface": "#0b1c30",
+                        "inverse-surface": "#213145",
+                        "secondary-container": "#d2e4fb",
+                        "on-primary-fixed": "#002020",
+                        "on-tertiary-fixed": "#00210c",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "secondary": "#4f6073",
+                        "tertiary-container": "#008443",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "surface-bright": "#f8f9ff",
+                        "primary-fixed-dim": "#76d6d5",
+                        "tertiary": "#006834",
+                        "surface": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-fixed-variant": "#005228",
+                        "on-tertiary-container": "#e9ffe9",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#76d6d5",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#93f2f2",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-container": "#008080",
+                        "outline-variant": "#bdc9c8",
+                        "secondary-fixed": "#d2e4fb",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#38485a",
+                        "on-primary-container": "#e3fffe",
+                        "surface-variant": "#d3e4fe",
+                        "surface-tint": "#006a6a",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#e5eeff",
+                        "primary": "#006565",
+                        "on-surface-variant": "#3e4949",
+                        "tertiary-fixed": "#6bfe9c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "margin-desktop": "40px",
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["13px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-lg": ["15px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .orb-btn {
+            background: linear-gradient(135deg, #008080 0%, #006565 100%);
+            box-shadow: 0 4px 14px 0 rgba(0, 101, 101, 0.39);
+        }
+        .orb-btn:hover {
+            box-shadow: 0 6px 20px rgba(0, 101, 101, 0.5);
+            transform: translateY(-2px);
+        }
+        .priority-urgent { border-left: 4px solid #ba1a1a; }
+        .priority-routine { border-left: 4px solid #008080; }
+        
+        /* Custom scrollbar for high density data areas */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 py-6 px-4 gap-unit bg-surface-container-low dark:bg-surface-dim border-r border-outline-variant dark:border-outline z-40">
+<!-- Header -->
+<div class="mb-8 flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="local_hospital">local_hospital</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-black text-primary truncate">City General</h2>
+<p class="font-caption text-caption text-on-surface-variant">Operator ID: 4421</p>
+</div>
+</div>
+<!-- Main Nav Tabs -->
+<div class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 h-touch-target rounded-lg font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface hover:bg-surface-container-high transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="local_pharmacy">local_pharmacy</span>
+<span>Pharmacy</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target rounded-lg font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface hover:bg-surface-container-high transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span>Clinic</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target rounded-lg font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface hover:bg-surface-container-high transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>AI Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-bold transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span>HMS</span>
+</a>
+</div>
+<!-- CTA -->
+<button class="w-full h-touch-target rounded-lg bg-error text-on-error font-label-lg text-label-lg hover:opacity-90 transition-opacity mb-4 flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+            Emergency Entry
+        </button>
+<!-- Footer Nav -->
+<div class="flex flex-col gap-1 mt-auto pt-4 border-t border-outline-variant dark:border-outline">
+<a class="flex items-center gap-3 px-4 h-touch-target rounded-lg font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface hover:bg-surface-container-high transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target rounded-lg font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface hover:bg-surface-container-high transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Account</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-touch-target sticky top-0 z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Button (Visible only on mobile) -->
+<button class="md:hidden text-on-surface-variant p-2 -ml-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">HealSmart India</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors focus-within:ring-2 focus-within:ring-primary">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-2"></div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors focus-within:ring-2 focus-within:ring-primary">
+<span class="material-symbols-outlined" data-icon="settings_voice">settings_voice</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors focus-within:ring-2 focus-within:ring-primary">
+<span class="material-symbols-outlined" data-icon="wifi">wifi</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors relative focus-within:ring-2 focus-within:ring-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a mature Indian male healthcare administrator in a clinical setting. Soft, natural lighting. Modern medical facility background, slightly blurred. Professional attire, conveying trust and authority in a light-mode color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvHoz1Tje53ki0YykxGBIabEFN9UbOGDLbQXaA5hzz3ZtWRUOwCeit4K9OeDhwjnWQnNeIeUnUOlfYJm8qKG7qzzVD9MybD41RAtND_el39C04_QzBKjAC3M9d4L-HglnVZxjEtMUXSzDJbU-sFNYxp0YidplPaOaXedyu8kqSqooBzqOfnhaSuvJcPVOnLQtcddG95Vy5qQNrLz0AOHwjWLfK00X2SMqFrnGUIU2obS1CSXM3Ho8sXL1ri9uU2nOjSWTeD45HH1Bo"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-margin-mobile md:p-margin-desktop flex-1 flex flex-col gap-6 max-w-container-max mx-auto w-full">
+<!-- Dashboard Header -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Operations Dashboard</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Live overview of facility metrics and critical workflows.</p>
+</div>
+<div class="flex gap-3">
+<button class="h-10 px-4 rounded-lg bg-surface-container flex items-center gap-2 text-primary font-label-md text-label-md hover:bg-surface-container-high transition-colors border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                        Filter View
+                    </button>
+<button class="h-10 px-4 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                        New Admission
+                    </button>
+</div>
+</div>
+<!-- Analytics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-unit">
+<!-- Occupancy Card -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] flex flex-col gap-3 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -z-10"></div>
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">Bed Occupancy</span>
+<span class="material-symbols-outlined text-primary" data-icon="bed">bed</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-background">84%</span>
+<span class="font-caption text-caption text-error font-medium flex items-center"><span class="material-symbols-outlined text-[14px]" data-icon="arrow_upward">arrow_upward</span> 2.1%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-1">
+<div class="bg-primary h-1.5 rounded-full" style="width: 84%"></div>
+</div>
+<div class="flex justify-between font-caption text-caption text-on-surface-variant mt-1">
+<span>142/170 Beds</span>
+<span>28 Available</span>
+</div>
+</div>
+<!-- OPD/IPD Active -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">Active Cases</span>
+<span class="material-symbols-outlined text-tertiary-container" data-icon="stethoscope">stethoscope</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-background">312</span>
+</div>
+<div class="flex gap-4 mt-auto border-t border-outline-variant pt-2">
+<div class="flex-1">
+<span class="font-caption text-caption text-on-surface-variant block mb-0.5">OPD Queue</span>
+<span class="font-label-lg text-label-lg text-on-background">45</span>
+</div>
+<div class="w-px bg-outline-variant"></div>
+<div class="flex-1">
+<span class="font-caption text-caption text-on-surface-variant block mb-0.5">IPD Admitted</span>
+<span class="font-label-lg text-label-lg text-on-background">267</span>
+</div>
+</div>
+</div>
+<!-- PMJAY Claims -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">PMJAY Pending</span>
+<span class="material-symbols-outlined text-secondary" data-icon="receipt_long">receipt_long</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-background">₹14.2L</span>
+<span class="font-caption text-caption text-on-surface-variant">across 34 claims</span>
+</div>
+<div class="flex gap-2 mt-auto">
+<span class="px-2 py-1 rounded bg-error-container text-on-error-container font-caption text-caption">8 Blocked</span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-caption text-caption">26 Processing</span>
+</div>
+</div>
+<!-- Discharges -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">Today's Discharges</span>
+<span class="material-symbols-outlined text-tertiary-container" data-icon="hail">hail</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-background">18</span>
+<span class="font-caption text-caption text-on-surface-variant">Scheduled</span>
+</div>
+<div class="mt-auto">
+<div class="flex justify-between font-caption text-caption text-on-surface-variant mb-1">
+<span>Cleared</span>
+<span>12/18</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full">
+<div class="bg-tertiary-container h-1.5 rounded-full" style="width: 66%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Split -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Col: Floor Map & ICU -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<!-- Floor Map Widget -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] flex flex-col overflow-hidden">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<h3 class="font-label-lg text-label-lg text-on-background">Ward 3 - General Medical (Floor 2)</h3>
+<div class="flex items-center gap-2">
+<span class="flex items-center gap-1 font-caption text-caption"><span class="w-2 h-2 rounded-full bg-error"></span> Occupied</span>
+<span class="flex items-center gap-1 font-caption text-caption ml-2"><span class="w-2 h-2 rounded-full bg-tertiary-container"></span> Available</span>
+<span class="flex items-center gap-1 font-caption text-caption ml-2"><span class="w-2 h-2 rounded-full bg-surface-variant"></span> Maintenance</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low">
+<!-- Abstract Bed Grid -->
+<div class="grid grid-cols-6 sm:grid-cols-8 gap-3">
+<!-- Row 1 -->
+<div class="aspect-square bg-error rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">301</span>
+<span class="absolute bottom-1 right-1 material-symbols-outlined text-[14px] text-white" data-icon="person">person</span>
+</div>
+<div class="aspect-square bg-error rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">302</span>
+<span class="absolute bottom-1 right-1 material-symbols-outlined text-[14px] text-white" data-icon="person">person</span>
+</div>
+<div class="aspect-square bg-tertiary-container rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">303</span>
+</div>
+<div class="aspect-square bg-error rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">304</span>
+<span class="absolute bottom-1 right-1 material-symbols-outlined text-[14px] text-white" data-icon="person">person</span>
+</div>
+<div class="col-span-2"></div> <!-- Corridor space -->
+<div class="aspect-square bg-error rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">305</span>
+<span class="absolute bottom-1 right-1 material-symbols-outlined text-[14px] text-white" data-icon="person">person</span>
+</div>
+<div class="aspect-square bg-error rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">306</span>
+<span class="absolute bottom-1 right-1 material-symbols-outlined text-[14px] text-white" data-icon="person">person</span>
+</div>
+<!-- Row 2 -->
+<div class="aspect-square bg-error rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">307</span>
+<span class="absolute bottom-1 right-1 material-symbols-outlined text-[14px] text-white" data-icon="person">person</span>
+</div>
+<div class="aspect-square bg-surface-variant rounded border border-outline-variant/50 relative group cursor-not-allowed flex items-center justify-center">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-on-surface-variant">308</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="build">build</span>
+</div>
+<div class="aspect-square bg-tertiary-container rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">309</span>
+</div>
+<div class="aspect-square bg-tertiary-container rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">310</span>
+</div>
+<div class="col-span-2"></div> <!-- Corridor space -->
+<div class="aspect-square bg-error rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">311</span>
+<span class="absolute bottom-1 right-1 material-symbols-outlined text-[14px] text-white" data-icon="person">person</span>
+</div>
+<div class="aspect-square bg-error rounded border border-outline-variant/50 relative group cursor-pointer hover:ring-2 ring-primary ring-offset-1 transition-all">
+<span class="absolute top-1 left-1 font-caption text-[10px] text-white">312</span>
+<span class="absolute bottom-1 right-1 material-symbols-outlined text-[14px] text-white" data-icon="person">person</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ICU Status High Density Grid -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center">
+<h3 class="font-label-lg text-label-lg text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-error" data-icon="monitor_heart">monitor_heart</span>
+                                ICU Live Status
+                            </h3>
+<button class="text-primary font-label-md text-label-md hover:underline">View All Beds</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant font-label-md text-label-md text-on-surface-variant">
+<th class="py-2 px-4 font-medium">Bed</th>
+<th class="py-2 px-4 font-medium">Patient</th>
+<th class="py-2 px-4 font-medium">Status</th>
+<th class="py-2 px-4 font-medium">Vitals (HR/SpO2/BP)</th>
+<th class="py-2 px-4 font-medium">Attending</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-label-md text-on-background">
+<!-- Row 1: Critical -->
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors">
+<td class="py-2.5 px-4"><span class="font-medium">ICU-01</span></td>
+<td class="py-2.5 px-4 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center font-bold text-[10px]">SV</div>
+                                            Sharma, V.
+                                        </td>
+<td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-error-container text-on-error-container uppercase tracking-wider">Critical</span></td>
+<td class="py-2.5 px-4">
+<div class="flex items-center gap-3 font-mono text-[12px]">
+<span class="text-error font-semibold flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]" data-icon="favorite">favorite</span> 112</span>
+<span class="text-on-surface-variant">92%</span>
+<span class="text-on-surface-variant">140/90</span>
+</div>
+</td>
+<td class="py-2.5 px-4 text-on-surface-variant">Dr. Mehta</td>
+</tr>
+<!-- Row 2: Stable -->
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors">
+<td class="py-2.5 px-4"><span class="font-medium">ICU-02</span></td>
+<td class="py-2.5 px-4 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-[10px]">RK</div>
+                                            Reddy, K.
+                                        </td>
+<td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-tertiary-container text-on-tertiary-container uppercase tracking-wider">Stable</span></td>
+<td class="py-2.5 px-4">
+<div class="flex items-center gap-3 font-mono text-[12px]">
+<span class="text-tertiary-container font-semibold flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]" data-icon="favorite">favorite</span> 78</span>
+<span class="text-on-surface-variant">98%</span>
+<span class="text-on-surface-variant">120/80</span>
+</div>
+</td>
+<td class="py-2.5 px-4 text-on-surface-variant">Dr. Ali</td>
+</tr>
+<!-- Row 3: Guarded -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-2.5 px-4"><span class="font-medium">ICU-03</span></td>
+<td class="py-2.5 px-4 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-[10px]">PT</div>
+                                            Patel, T.
+                                        </td>
+<td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#fff8e1] text-[#ff8f00] uppercase tracking-wider">Guarded</span></td>
+<td class="py-2.5 px-4">
+<div class="flex items-center gap-3 font-mono text-[12px]">
+<span class="text-[#ff8f00] font-semibold flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]" data-icon="favorite">favorite</span> 95</span>
+<span class="text-on-surface-variant">95%</span>
+<span class="text-on-surface-variant">135/85</span>
+</div>
+</td>
+<td class="py-2.5 px-4 text-on-surface-variant">Dr. Mehta</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Col: Actions & Queues -->
+<div class="flex flex-col gap-6">
+<!-- Quick Actions Glass Card -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-5 border border-primary relative overflow-hidden shadow-sm">
+<!-- Decorative background texture -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+<h3 class="font-label-lg text-label-lg font-bold mb-4 relative z-10">Quick Actions</h3>
+<div class="grid grid-cols-2 gap-3 relative z-10">
+<button class="bg-surface/10 hover:bg-surface/20 border border-white/20 rounded-lg p-3 flex flex-col items-center gap-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+<span class="font-caption text-[11px] text-center leading-tight">Register<br/>Patient</span>
+</button>
+<button class="bg-surface/10 hover:bg-surface/20 border border-white/20 rounded-lg p-3 flex flex-col items-center gap-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="local_hospital">local_hospital</span>
+<span class="font-caption text-[11px] text-center leading-tight">Allocate<br/>Bed</span>
+</button>
+<button class="bg-surface/10 hover:bg-surface/20 border border-white/20 rounded-lg p-3 flex flex-col items-center gap-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+<span class="font-caption text-[11px] text-center leading-tight">Order<br/>Meds</span>
+</button>
+<button class="bg-surface/10 hover:bg-surface/20 border border-white/20 rounded-lg p-3 flex flex-col items-center gap-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+<span class="font-caption text-[11px] text-center leading-tight">Add<br/>Notes</span>
+</button>
+</div>
+</div>
+<!-- Pending Actions Queue -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] flex flex-col flex-1">
+<div class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center">
+<h3 class="font-label-lg text-label-lg text-on-background">Pending Actions</h3>
+<span class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center font-label-md text-[11px]">8</span>
+</div>
+<div class="flex flex-col p-2 gap-1 overflow-y-auto max-h-[400px]">
+<!-- PMJAY Blocked item -->
+<div class="bg-surface flex items-start gap-3 p-3 rounded-lg priority-urgent hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-background truncate">PMJAY Claim Blocked</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">ID: P-9921 (Missing Pre-Auth)</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Discharge Pending -->
+<div class="bg-surface flex items-start gap-3 p-3 rounded-lg priority-routine hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="logout">logout</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-background truncate">Discharge Summary</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Bed 301 - Dr. Signature Req.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Low Inventory -->
+<div class="bg-surface flex items-start gap-3 p-3 rounded-lg border-l-4 border-[#ff8f00] hover:bg-surface-container-low transition-colors cursor-pointer border-t border-r border-b border-transparent hover:border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[#ff8f00]" data-icon="inventory_2">inventory_2</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-background truncate">Low Stock Alert</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Pharmacy: Saline (0.9%) - 12 left</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- PMJAY Blocked item -->
+<div class="bg-surface flex items-start gap-3 p-3 rounded-lg priority-urgent hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error" data-icon="gavel">gavel</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-background truncate">Legal Hold</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Case #4492 - Awaiting Police Clearance</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<button class="p-3 text-center border-t border-outline-variant font-label-md text-label-md text-primary hover:bg-surface-container-low transition-colors rounded-b-xl">
+                            View All (8)
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Orb (Voice Trigger) -->
+<button aria-label="Voice Assistant" class="fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center orb-btn text-white z-50 focus:outline-none focus:ring-4 focus:ring-primary/30">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</body></html>

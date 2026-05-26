@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Master Settings &amp; AI Configuration | HealthCareWale 2030</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#005226",
+                        "tertiary-container": "#9d6800",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#62ff96",
+                        "tertiary-fixed-dim": "#ffb950",
+                        "surface-container": "#1a1f2f",
+                        "primary-fixed": "#93f2f2",
+                        "on-primary": "#003737",
+                        "surface-bright": "#343949",
+                        "on-error": "#690005",
+                        "surface-container-low": "#161b2b",
+                        "secondary": "#7dffa2",
+                        "inverse-on-surface": "#2b3040",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "secondary-fixed-dim": "#00e475",
+                        "on-surface": "#dee1f7",
+                        "inverse-surface": "#dee1f7",
+                        "on-secondary": "#003918",
+                        "on-tertiary-container": "#fff9f5",
+                        "surface-dim": "#0e1322",
+                        "on-primary-fixed-variant": "#004f4f",
+                        "outline-variant": "#3e4949",
+                        "inverse-primary": "#006a6a",
+                        "surface-tint": "#76d6d5",
+                        "surface-container-highest": "#2f3445",
+                        "secondary-container": "#05e777",
+                        "on-surface-variant": "#bdc9c8",
+                        "tertiary": "#ffb950",
+                        "on-primary-container": "#e3fffe",
+                        "tertiary-fixed": "#ffddb3",
+                        "on-secondary-container": "#00622e",
+                        "on-background": "#dee1f7",
+                        "surface-variant": "#2f3445",
+                        "outline": "#879392",
+                        "on-tertiary-fixed": "#291800",
+                        "error": "#ffb4ab",
+                        "surface": "#0e1322",
+                        "surface-container-high": "#25293a",
+                        "primary": "#76d6d5",
+                        "on-tertiary": "#452b00",
+                        "background": "#0e1322",
+                        "primary-container": "#008080",
+                        "primary-fixed-dim": "#76d6d5",
+                        "on-secondary-fixed": "#00210b",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#090e1c",
+                        "on-primary-fixed": "#002020"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "standard": "24px",
+                        "compact": "12px",
+                        "airy": "48px",
+                        "nano": "4px",
+                        "container-max": "1440px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.silk-bg {
+    background: radial-gradient(circle at 50% 50%, rgba(14, 19, 34, 0.9) 0%, rgba(9, 14, 28, 1) 100%);
+    position: relative;
+    overflow-x: hidden
+    }
+.silk-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAFGi2xA8ve0Vw_5jG7L-HzaCsWvVOf5D_0i3NbD8ASDh5wqX2OW6yh_4OStVgLPgHKMiIl5XBlw2iFLLhg28dCIuJIXym_OIf6lDYS-Ftj5GZ2S9iN4ONeAAb0_f10GWhJCoXNBRKNH_HxGIODafA0gkeQAxscbo2f4iH663XKy0zOsKHP_tPe8S6Eybwwk17imsHnAZwUiZh2-ID7PoeN5OTBnq0b85XXG8-yZFCb6Fo245e5TJtanp0brf9l4NnWNQtVrkU64OsA);
+    opacity: 0.03;
+    pointer-events: none
+    }
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37)
+    }
+.gold-border {
+    position: relative
+    }
+.gold-border::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 185, 80, 0.4) 0%, rgba(255, 185, 80, 0.05) 50%, rgba(255, 185, 80, 0.2) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none
+    }
+.slider-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #76d6d5;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px #76d6d5
+    }
+.orb-glow {
+    filter: drop-shadow(0 0 30px rgba(118, 214, 213, 0.4))
+    }
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+        } 50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+        } 100% {
+        transform: scale(0.95);
+        opacity: 0.5;
+        }
+    }
+.animate-pulse-ring {
+    animation: pulse-ring 4s cubic-bezier(0.4, 0, 0.6, 1) infinite
+    }
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px
+    }
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent
+    }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(118, 214, 213, 0.2);
+    border-radius: 10px
+    }</style>
+</head>
+<body class="silk-bg text-on-surface min-h-screen font-body-md selection:bg-primary/30 selection:text-primary">
+<!-- Side Navigation Shell -->
+<nav class="fixed left-0 top-0 bottom-0 z-50 flex flex-col items-center py-8 bg-surface-container-lowest/80 backdrop-blur-xl h-screen w-24 rounded-r-xl border-r border-white/10 shadow-[0_0_30px_-5px_rgba(118,214,213,0.15)]">
+<div class="mb-12 flex flex-col items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-tertiary scale-75">HW</span>
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center overflow-hidden">
+<img alt="HealthcareWale Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBGA-2c9k3mrI3XIVDBGtL6qywqCZR52GBPRi9vKGj4WA-lMLhlD0QvJ0YfTrLnWLLXgaLbJxlkFh6JWsdvzrOFGw8ef5VuE3QXdBU4nPFK_XjRoRNlC1exYySlsLBMYUlLVs9va_0qH2g3FZ_p0-dKAPUZLrQxGpcwghaueT-xy2jk0qxdG2QQaoLGZjihOfVnbczbnNQsy7pj0E4JK0rMwb-O_akNrEXyUy9Ebs8aL1BZjrMGGqi4Gp8flcEsKJqlR3Zx4c-7o_-"/>
+</div>
+</div>
+<div class="flex flex-col gap-8">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-on-surface p-4 hover:bg-surface-bright/50 transition-all duration-300 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1">pulse_alert</span>
+<span class="font-label-caps text-label-caps">Live Ops</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-on-surface p-4 hover:bg-surface-bright/50 transition-all duration-300 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1">analytics</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-on-surface p-4 hover:bg-surface-bright/50 transition-all duration-300 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1">face_6</span>
+<span class="font-label-caps text-label-caps">Agents</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/40 text-primary border-r-2 border-primary p-4 hover:bg-surface-bright/50 transition-all duration-300 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</div>
+<div class="mt-auto">
+<button class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-outline">help_outline</span>
+</button>
+</div>
+</nav>
+<!-- Top App Bar -->
+<header class="flex justify-between items-center ml-24 px-gutter py-compact h-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-surface-dim to-transparent">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Master Settings &amp; AI Configuration</h1>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full border border-white/5">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">2030 NODE: ALPHA-7</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary/50 rounded-full p-2">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary/50 rounded-full p-2">shield_person</button>
+<div class="w-10 h-10 rounded-full border border-primary/40 p-0.5">
+<img alt="User Profile" class="w-full h-full rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOLIsNjgg55p_O1Jliba5nCMyI13AveKM2yzE3OZv9vN9TSkwL4daHuO_-PlfK6efwl6vg6OWS3SjTa_hQ9KX6Ewtf8t1x9MZG76RQivGJdrvB-eRbNJTgNVWuNEen6XyIISFbHP_ZeeM4RWUd83ThznsY75SNyDnFAQ8QDLGYLapUSxVv7MzFkVqLR4B2l2zXUVl9usdhFh-BB71b2ljhEBZVfqmDLiZBDFXmsdcJ2NFM9pN9tqM9RRORTINNq3Tuxl5qo5gye-LJ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-24 pt-24 pb-20 px-gutter max-w-container-max mx-auto grid grid-cols-12 gap-8">
+<!-- Left Column: Ecosystem & Models -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Global Ecosystem Controls -->
+<section class="glass-panel gold-border p-6 rounded-lg space-y-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-tertiary">Global Ecosystem</h2>
+<span class="material-symbols-outlined text-tertiary/40">language</span>
+</div>
+<div class="space-y-4">
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Global Bio-Auth</p>
+<p class="text-xs text-on-surface-variant">Biometric identity sync across all clinics</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-tertiary after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary/30"></div>
+</label>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Satellite Sync</p>
+<p class="text-xs text-on-surface-variant">Low-latency orbital data redundancy</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-tertiary after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary/30"></div>
+</label>
+</div>
+<!-- Toggle 3 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Regional Compliance</p>
+<p class="text-xs text-on-surface-variant">Auto-switch protocols based on GEO-IP</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-tertiary after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary/30"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Model Selection -->
+<section class="glass-panel p-6 rounded-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Neural Model Core</h2>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center p-4 rounded-xl bg-primary/10 border border-primary/40 ring-1 ring-primary/20">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-3 border-2 border-primary">
+<img alt="Dr. Ada v4.2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMeKQ7jGF-hyW6EJU_jqWXgJA6iULiUkTkkgpj19MNfojz5vevdD0UNnxDIIcU3UGB6H1iBq1oYxIMp28s_s2heOqk2MtVFfjB3KWi8w-_8Jxzo6-Y1egBG3qcugFujHouU4eZMd_NO4guo4MULIhjBYd5tusdvUpg4pSLBOfZ1uwkT_JQmKBiRpO--aerErxIer6udLrAeEIKV26sNKRrd07ASS3M_30o-EA7NbOfuxf2zAh1hO6DzZe1_AyCBPRcO7mD8jbg39So"/>
+</div>
+<p class="font-label-caps text-label-caps text-primary">Dr. Ada v4.2</p>
+<p class="text-[10px] text-on-surface-variant mt-1">PRIMARY MD</p>
+</button>
+<button class="flex flex-col items-center p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-all">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-3 grayscale group-hover:grayscale-0 transition-all">
+<img alt="Logic-Bot Prime" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXakZCjnmUW1xXll-TPexjznTcfPTLGxDQYcX1AnjHK0xjQhgYgVmANmC5b2oi90NW5cM49iY46q5PUP2Rnqfn-JLg6mEJ7a7a-kJO_UgX-wPfMbvEGLaVjjzTAYa78RQmoOadHMQm41zd7OQzw41AMvnLwxISb4UC2q19P402RNfbGODjX3rXqk-_Fqug6Xj_gYb3dI6IXSe6LDyCKvqGWJ8cD7_DcaYML6ihfEips6OHHhDZLVKx8KWttGK8xQqN-tTnL8Qkb_6V"/>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface">Logic-Bot</p>
+<p class="text-[10px] text-on-surface-variant mt-1">ANALYTICS</p>
+</button>
+</div>
+<button class="w-full mt-6 py-3 border border-dashed border-outline-variant rounded-xl text-outline hover:text-on-surface hover:border-on-surface transition-all font-label-caps text-label-caps">
+                    + DEPLOY NEW SUB-MODEL
+                </button>
+</section>
+</div>
+<!-- Center Column: Neural Tuning -->
+<div class="col-span-12 lg:col-span-5 space-y-8">
+<section class="glass-panel h-full rounded-lg p-8 relative flex flex-col items-center">
+<div class="absolute top-0 right-0 p-4">
+<div class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded-full">
+<span class="text-[10px] font-bold text-secondary">REAL-TIME OPTIMIZATION</span>
+</div>
+</div>
+<h2 class="font-display-lg text-display-lg text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-12">Neural Tuning Lab</h2>
+<!-- Central Orb Visualization -->
+<div class="relative w-64 h-64 mb-16">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-[60px] animate-pulse-ring"></div>
+<div class="relative w-full h-full bg-gradient-to-br from-primary via-surface-container to-secondary rounded-full border border-white/20 shadow-[inset_0_0_50px_rgba(255,255,255,0.1)] flex items-center justify-center orb-glow">
+<div class="w-3/4 h-3/4 rounded-full border-2 border-white/5 border-dashed animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<img class="w-48 h-48 rounded-full object-cover opacity-60 mix-blend-screen" data-alt="A glowing crystalline 3D orb at the center of a futuristic AI interface. The sphere pulses with iridescent turquoise and gold light, surrounded by delicate holographic data rings and particle effects. The background is a deep, dark blue void, creating a high-contrast clinical yet advanced aesthetic typical of 2030 medical technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrrBF1mqUecfPces7uWEMkY3qNJ4if7Qnu-81-2nAi8cClZCRFo8utwd1C6duCS1kUIX_1mmoClUpx-kur3t341Y7Pk8p3wrodXgFQw-OR_Y-jowaLfcytLsEWIyq9kv6CvZljfc7A0GHE4aaJ5t7R39OASHXvfIILS9HF1hhSJXLrOb-3Vxk9gai-wqnrse29VdMm4RzK79ZqywYGoMuMdepO0kyiUyAkCaQs6THTiyzkiP4gpNV4xjWCw0UcsECuv7ooM1akqJJ6"/>
+</div>
+</div>
+</div>
+<!-- Sliders -->
+<div class="w-full space-y-10">
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-body-lg text-body-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary scale-90">favorite</span>
+                                Empathy Level
+                            </label>
+<span class="font-label-caps text-label-caps text-primary">82%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer slider-thumb" max="100" min="0" type="range" value="82"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant uppercase tracking-widest">
+<span>Clinical</span>
+<span>Compassionate</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-body-lg text-body-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary scale-90">biotech</span>
+                                Diagnostic Precision
+                            </label>
+<span class="font-label-caps text-label-caps text-secondary">99.4%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer slider-thumb" max="100" min="0" type="range" value="99"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant uppercase tracking-widest">
+<span>General</span>
+<span>Micro-Surgical</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-body-lg text-body-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary scale-90">bolt</span>
+                                Response Latency
+                            </label>
+<span class="font-label-caps text-label-caps text-tertiary">14ms</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer slider-thumb" max="100" min="0" type="range" value="14"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant uppercase tracking-widest">
+<span>Deep Logic</span>
+<span>Instantaneous</span>
+</div>
+</div>
+</div>
+<div class="mt-12 w-full flex gap-4">
+<button class="flex-1 py-4 bg-gradient-to-r from-primary-container to-primary text-on-primary-container rounded-full font-headline-md text-headline-md shadow-[0_0_20px_rgba(118,214,213,0.4)] hover:scale-105 active:scale-95 transition-all">
+                        Deploy Global Config
+                    </button>
+<button class="px-8 py-4 bg-white/5 border border-white/10 text-on-surface rounded-full font-label-caps text-label-caps hover:bg-white/10 transition-all">
+                        Reset
+                    </button>
+</div>
+</section>
+</div>
+<!-- Right Column: Health & Security -->
+<div class="col-span-12 lg:col-span-3 space-y-8">
+<!-- Encryption Pulse -->
+<section class="glass-panel p-6 rounded-lg">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+                    ENCRYPTION PULSE
+                </h2>
+<div class="h-32 w-full bg-surface-container-lowest rounded-xl flex items-end p-2 gap-1">
+<!-- Bar Chart representation of waveform -->
+<div class="flex-1 bg-primary/20 h-1/2 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+<div class="flex-1 bg-primary/40 h-3/4 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+<div class="flex-1 bg-primary/60 h-full rounded-full animate-bounce" style="animation-delay: 0.5s"></div>
+<div class="flex-1 bg-primary/40 h-2/3 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+<div class="flex-1 bg-primary/20 h-1/2 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+<div class="flex-1 bg-primary/80 h-4/5 rounded-full animate-bounce" style="animation-delay: 0.6s"></div>
+<div class="flex-1 bg-primary/30 h-1/3 rounded-full animate-bounce" style="animation-delay: 0.8s"></div>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-2xl font-bold font-display-lg text-primary">Quantum-7</span>
+<span class="text-[10px] text-on-secondary-fixed bg-secondary-fixed-dim px-2 py-0.5 rounded">SECURE</span>
+</div>
+</section>
+<!-- API Node Status -->
+<section class="glass-panel p-6 rounded-lg flex-1">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-6">API NODE STATUS</h2>
+<div class="space-y-6 max-h-[400px] overflow-y-auto custom-scrollbar pr-2">
+<div class="flex items-center gap-4">
+<div class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_#62ff96]"></div>
+<div class="flex-1">
+<p class="font-label-caps text-label-caps text-on-surface">BIO-GENOMICS GATE</p>
+<p class="text-[10px] text-on-surface-variant">NODE-ALPHA-X9</p>
+</div>
+<span class="text-xs text-secondary">2ms</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_#62ff96]"></div>
+<div class="flex-1">
+<p class="font-label-caps text-label-caps text-on-surface">PHARMA-SUPPLY API</p>
+<p class="text-[10px] text-on-surface-variant">NODE-GAMMA-P2</p>
+</div>
+<span class="text-xs text-secondary">8ms</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-3 h-3 rounded-full bg-tertiary shadow-[0_0_10px_#ffb950]"></div>
+<div class="flex-1">
+<p class="font-label-caps text-label-caps text-on-surface">VOICE-EMPATHY CORE</p>
+<p class="text-[10px] text-on-surface-variant">NODE-DELTA-V5</p>
+</div>
+<span class="text-xs text-tertiary">42ms</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_#62ff96]"></div>
+<div class="flex-1">
+<p class="font-label-caps text-label-caps text-on-surface">BILLING SECURE-LAYER</p>
+<p class="text-[10px] text-on-surface-variant">NODE-EPSILON-B1</p>
+</div>
+<span class="text-xs text-secondary">1ms</span>
+</div>
+</div>
+<div class="mt-8 p-4 rounded-xl border border-white/5 bg-white/5">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">SYSTEM HEALTH</p>
+<p class="text-xl font-bold text-on-surface">99.98% <span class="text-xs font-normal text-on-surface-variant ml-2">UPTIME</span></p>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="fixed bottom-0 right-0 left-24 flex justify-between items-center px-gutter h-12 z-40 bg-surface-container-lowest/90 backdrop-blur-md border-t border-white/5">
+<p class="font-label-caps text-label-caps text-on-surface-variant">© 2030 HEALTHCAREWALE | AI VOICE OPS | PRIVACY ENCRYPTED</p>
+<div class="flex gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">System Status</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">API Health</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Support</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Security Protocols</a>
+</div>
+</footer>
+<script>
+        // Simple range interactivity to show live values
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            slider.addEventListener('input', (e) => {
+                const span = e.target.previousElementSibling.querySelector('span:last-child');
+                if (span) {
+                    let value = e.target.value;
+                    if (span.innerText.includes('%')) span.innerText = value + '%';
+                    else if (span.innerText.includes('ms')) span.innerText = value + 'ms';
+                    else span.innerText = value;
+                }
+            });
+        });
+
+        // Atmospheric mouse glow effect
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            const glow = document.createElement('div');
+            glow.className = 'fixed pointer-events-none w-64 h-64 bg-primary/5 blur-[120px] rounded-full z-0';
+            glow.style.left = (x - 128) + 'px';
+            glow.style.top = (y - 128) + 'px';
+            
+            // Limit number of glows for performance
+            const existingGlows = document.querySelectorAll('.pointer-events-none.bg-primary\\/5');
+            if (existingGlows.length > 5) existingGlows[0].remove();
+            
+            document.body.appendChild(glow);
+            setTimeout(() => glow.remove(), 1000);
+        });
+    </script>
+</body></html>
